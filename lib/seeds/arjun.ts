@@ -1,6 +1,7 @@
 import type { PivotProfile, Skill } from "../types";
 import analysis from "./arjun-analysis.json";
 import generated from "./arjun-plan.json";
+import interviewJson from "./arjun-interview.json";
 import { makeSkills, reqFromSkills } from "./build";
 
 // Demo persona (fictional). Target JDs are the 8 in seeds/jds; the two in seeds/jds-demo-holdout
@@ -84,6 +85,8 @@ B.E. Computer Engineering`;
 // (week 1 to 6 ticked off, so he opens on week 7). Empty until that script has run.
 type Built = { skills?: Skill[]; plan?: PivotProfile["plan"]; projects?: PivotProfile["projects"] };
 const built = generated as Built;
+// Written by `npm run seed:arjun-interview`: the rubric the agent wrote for his role and one interview in progress.
+const builtInterview = interviewJson as { rubric?: PivotProfile["rubric"]; interviews?: PivotProfile["interviews"] };
 const hasPlan = (built.plan?.weeks?.length ?? 0) > 0;
 const finalSkills: Skill[] = hasPlan && built.skills ? built.skills : skills;
 
@@ -197,22 +200,8 @@ export const arjun: PivotProfile = {
   skills: finalSkills,
   plan: hasPlan ? built.plan! : { generatedAt: T, revision: 0, weeks: [], uncovered: [], changelog: [] },
   projects: hasPlan ? (built.projects ?? []) : [],
-  interviews: [
-    {
-      id: "i1",
-      kind: "behavioral",
-      startedAt: T,
-      turns: [
-        {
-          question: "Tell me about a time you pushed back on a decision.",
-          answerTranscript: "On the portal migration the client wanted to skip regression to hit a date. I showed them the three payment defects regression had caught last release and proposed a smaller, risk-based suite instead.",
-          feedback: "Good evidence and a real trade-off. Open with the outcome, and say what the client decided.",
-          scores: { clarity: 4, structure: 3, evidence: 4 },
-        },
-      ],
-      skillSignals: [{ skillId: "stakeholders", delta: 0.25 }],
-    },
-  ],
+  rubric: builtInterview.rubric,
+  interviews: builtInterview.interviews ?? [],
   checkins: [
     {
       id: "c1",

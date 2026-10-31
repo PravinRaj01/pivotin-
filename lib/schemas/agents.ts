@@ -47,21 +47,36 @@ export const PlanWeeksResultSchema = z.object({
 });
 export type PlanWeeksResult = z.infer<typeof PlanWeeksResultSchema>;
 
-export const InterviewResultSchema = z.object({
-  feedback: z.string().catch(""), // on the latest answer; "" for the opening question
-  scores: z
-    .object({
-      clarity: z.coerce.number().min(1).max(5).catch(3),
-      structure: z.coerce.number().min(1).max(5).catch(3),
-      evidence: z.coerce.number().min(1).max(5).catch(3),
-    })
-    .optional()
-    .catch(undefined),
-  skillSignals: z.array(z.object({ skillId: z.string(), delta: n(0) })).catch([]),
-  nextQuestion: z.string().catch(""),
-  done: z.boolean().catch(false),
+export const RubricResultSchema = z.object({
+  dimensions: z
+    .array(
+      z.object({
+        id: z.string().catch(""),
+        name: z.string(),
+        what: z.string().catch(""),
+        levels: z.array(z.string()).catch([]), // exactly 4 lines, for scores 1 to 4
+        skillIds: strs,
+      }),
+    )
+    .catch([]),
 });
-export type InterviewResult = z.infer<typeof InterviewResultSchema>;
+export type RubricResult = z.infer<typeof RubricResultSchema>;
+
+export const InterviewTurnResultSchema = z.object({
+  scores: z
+    .array(
+      z.object({
+        dimension: z.string(), // a rubric dimension id
+        score: z.coerce.number().min(1).max(4).catch(1),
+        quote: z.string().catch(""), // word for word from the answer
+        why: z.string().catch(""),
+      }),
+    )
+    .catch([]),
+  improve: z.string().catch(""),
+  nextQuestion: z.string().catch(""),
+});
+export type InterviewTurnResult = z.infer<typeof InterviewTurnResultSchema>;
 
 export const CheckinResultSchema = z.object({
   hoursSpent: n(0),

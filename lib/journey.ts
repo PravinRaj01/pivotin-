@@ -11,7 +11,7 @@ export function journey(p: PivotProfile): { states: Record<string, StepState>; p
     "/skills": p.skills.length ? "done" : p.targetRole.jds.length ? "doing" : "todo",
     "/plan": p.plan.weeks.length ? (plan.pct >= 100 ? "done" : "doing") : "todo",
     "/projects": p.projects.some((x) => x.status === "done") ? "done" : p.projects.length ? "doing" : "todo",
-    "/interview": p.interviews.some((i) => i.turns.length >= 3) ? "done" : p.interviews.length ? "doing" : "todo",
+    "/interview": p.interviews.some((i) => i.finishedAt) ? "done" : p.interviews.length ? "doing" : "todo",
     "/checkin": p.checkins.length >= 2 ? "done" : p.checkins.length ? "doing" : "todo",
     "/tracker": p.applications.some((a) => a.status !== "saved") ? "done" : p.applications.length ? "doing" : "todo",
     "/wispr": p.settings.wisprProInstalled ? "done" : "todo",

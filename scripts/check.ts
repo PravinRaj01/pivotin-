@@ -8,7 +8,7 @@ import { PERSONAS } from "../lib/seeds";
 import { PivotProfileSchema } from "../lib/types";
 
 const ROOT = join(__dirname, "..");
-const AGENTS = ["intake", "jd", "bridge", "sequence", "plan", "projects", "interview", "checkin", "application"];
+const AGENTS = ["intake", "jd", "bridge", "rubric", "sequence", "plan", "projects", "interview", "checkin", "application"];
 
 // Words that would mean a prompt knows about a specific career. Deliberately broad.
 const BANNED = [

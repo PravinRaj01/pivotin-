@@ -1,0 +1,96 @@
+{
+  "rubric": {
+    "key": "associate product manager|ai,communication,engineering,experimentation,gtm,metrics,ownership,problem,research,sql,stakeholders,strategy",
+    "role": "Associate Product Manager",
+    "createdAt": "2026-10-31T09:00:00.000Z",
+    "dimensions": [
+      {
+        "id": "user-research",
+        "name": "Customer Research & Empathy",
+        "what": "Measures how the candidate gathers and applies user insights, data, and feedback to identify real customer pain points.",
+        "levels": [
+          "Fails to mention user needs or relies entirely on unverified personal assumptions without evidence.",
+          "Mentions general user feedback superficially without detailing specific research methods or analytical depth.",
+          "Describes customer interviews or data analysis clearly, linking findings to basic product decisions.",
+          "Details rigorous user research and data analysis, explicitly connecting specific customer insights to feature prioritization."
+        ],
+        "skillIds": [
+          "research"
+        ]
+      },
+      {
+        "id": "cross-functional-collabo",
+        "name": "Stakeholder & Team Alignment",
+        "what": "Measures the candidate's ability to partner with engineering, design, and business teams to drive execution under ambiguity.",
+        "levels": [
+          "Blames other teams for failures or shows no understanding of how to work with engineering and design.",
+          "Discusses working with teams generally but lacks concrete examples of resolving cross-functional friction.",
+          "Provides clear examples of partnering with engineering and design to deliver features despite minor roadblocks.",
+          "Demonstrates proactive cross-functional leadership with specific examples of aligning engineering, design, and business stakeholders."
+        ],
+        "skillIds": [
+          "stakeholders",
+          "ownership"
+        ]
+      },
+      {
+        "id": "metrics-and-strategy",
+        "name": "Metrics & Product Strategy",
+        "what": "Measures how the candidate defines success, sets roadmaps, and tracks key business and product performance indicators.",
+        "levels": [
+          "Ignores business metrics or cannot name any relevant KPIs for their proposed product area.",
+          "Lists generic metrics without explaining how they tie into a broader product roadmap or business goal.",
+          "Identifies relevant product metrics and outlines a basic 3-month roadmap with logical milestones.",
+          "Defines specific success metrics, links them directly to business objectives, and outlines a clear strategic roadmap."
+        ],
+        "skillIds": [
+          "metrics",
+          "strategy"
+        ]
+      },
+      {
+        "id": "problem-solving",
+        "name": "First-Principles Problem Solving",
+        "what": "Measures the candidate's ability to break down complex, ambiguous problems using structured thinking and technical fluency.",
+        "levels": [
+          "Applies superficial or cliché solutions without analyzing the root cause of the problem.",
+          "Recognizes the problem complexity but offers a disorganized or purely intuitive troubleshooting approach.",
+          "Breaks down problems using logical steps and demonstrates basic technical or analytical awareness.",
+          "Deconstructs complex problems from first principles, weighing trade-offs and proposing structured, data-backed solutions."
+        ],
+        "skillIds": [
+          "problem",
+          "engineering"
+        ]
+      }
+    ]
+  },
+  "interviews": [
+    {
+      "id": "i1",
+      "startedAt": "2026-10-31T09:00:00.000Z",
+      "pending": {
+        "question": "You mentioned the bank portal migration flow where users weren't consulted—can you walk me through how you would have approached validating that feature with users before it was built?",
+        "kind": "followup"
+      },
+      "turns": [
+        {
+          "question": "Why are you switching careers?",
+          "kind": "switch",
+          "answer": "Honestly it started with testing. For four years the bugs I found most were not code bugs, they were requirement bugs, like the bank portal migration where we shipped a flow nobody had asked users about. By the time it reached me the real decision had already been made. I want to be in the room where that decision is made, and I think four years of seeing exactly how things break gives me something to bring. I am not leaving quality behind, I want to use it earlier.",
+          "scores": [
+            {
+              "dimensionId": "user-research",
+              "score": 2,
+              "quote": "like the bank portal migration where we shipped a flow nobody had asked users about",
+              "verified": true,
+              "why": "The candidate mentions a specific instance of missing user research, but does not detail how they or their team gathered or analyzed user feedback."
+            }
+          ],
+          "improve": "To reach the next level, describe a specific time you actively gathered user insights or data yourself rather than just noticing the absence of research.",
+          "skillChanges": []
+        }
+      ]
+    }
+  ]
+}

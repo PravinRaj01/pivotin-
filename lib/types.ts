@@ -148,20 +148,41 @@ export const PivotProfileSchema = z.object({
     }),
   ),
 
+  // Written by the rubric agent for this target role; never a fixed template.
+  rubric: z
+    .object({
+      key: z.string(), // role + the main skills it was written from; a change means the rubric is out of date
+      role: z.string(),
+      createdAt: z.string(),
+      dimensions: z.array(
+        z.object({
+          id: z.string(),
+          name: z.string(),
+          what: z.string(),
+          levels: z.array(z.string()).length(4), // what an answer scoring 1, 2, 3 and 4 sounds like
+          skillIds: z.array(z.string()), // profile skills this dimension is evidence for
+        }),
+      ),
+    })
+    .optional(),
+
   interviews: z.array(
     z.object({
       id,
-      kind: z.enum(["behavioral", "role-specific", "case"]),
       startedAt: z.string(),
+      finishedAt: z.string().optional(),
+      pending: z.object({ question: z.string(), kind: z.enum(["switch", "followup", "role"]), dimensionId: z.string().optional() }).nullable().default(null),
       turns: z.array(
         z.object({
           question: z.string(),
-          answerTranscript: z.string(),
-          feedback: z.string(),
-          scores: z.object({ clarity: z.number(), structure: z.number(), evidence: z.number() }),
+          kind: z.enum(["switch", "followup", "role"]),
+          dimensionId: z.string().optional(),
+          answer: z.string(),
+          scores: z.array(z.object({ dimensionId: z.string(), score: z.number().min(1).max(4), quote: z.string(), verified: z.boolean(), why: z.string() })),
+          improve: z.string(),
+          skillChanges: z.array(z.object({ skillId: z.string(), from: z.number(), to: z.number() })),
         }),
       ),
-      skillSignals: z.array(z.object({ skillId: z.string(), delta: z.number() })),
     }),
   ),
 
