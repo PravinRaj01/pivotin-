@@ -142,12 +142,24 @@ export const arjun: PivotProfile = {
       {
         id: "t1",
         at: T,
-        text: "So, uh, I'm Arjun, I've been a manual QA engineer for about four years at an IT services company here in Pune. Mostly banking and payments clients. I'm good at finding what breaks, but honestly the bugs I see most are not code bugs, they're requirement bugs. Somebody never asked the user what they wanted. I want to become an associate product manager in six months, and I can do maybe eight hours a week because of my job. I'm scared my background is too testing-heavy and that nobody will see me as a product person.",
+        text: "I'm Arjun, I've been a manual QA engineer for about four years at an IT services company here in Pune. Mostly banking and payments clients. I'm good at finding what breaks, but honestly the bugs I see most are not code bugs, they're requirement bugs. Somebody never asked the user what they wanted. Last weekend our office cricket match got rained out and everyone argued about the umpire, anyway. I want to become an associate product manager in six months. Actually no, let me say by the end of April, that lines up with appraisal season. I can do maybe ten hours a week. No, eight, with the on-call weeks it's eight. I'd want at least twelve lakh a year, Pune or remote. I hate the repetitive regression runs, they drain me, but I love when I get to dig into a weird defect and find the real cause. I'm scared my background is too testing-heavy and that nobody will see me as a product person.",
       },
     ],
     summary: "Four years of manual QA on banking and payments projects in Pune. Strong at spotting what breaks and at working with developers; wants to move upstream to deciding what gets built.",
     strengths: ["Finds root causes others close as 'cannot reproduce'", "Clear written communication", "Knows how software ships"],
     fears: ["Background is too testing-heavy", "No product ownership on the resume", "Only 8 hours a week"],
+    corrections: [
+      { topic: "Deadline", was: "six months", now: "end of April" },
+      { topic: "Hours per week", was: "10", now: "8" },
+    ],
+    roleSuggestions: [],
+    followUp: null,
+    preferences: [
+      { text: "Wants to shape what gets built, not find out at the end that it was wrong", kind: "value" },
+      { text: "Prefers to stay in Pune or work remote", kind: "limit" },
+      { text: "Hates repetitive regression runs", kind: "dislike" },
+      { text: "Loves digging into a weird defect to find the real cause", kind: "like" },
+    ],
   },
   experience: [
     {

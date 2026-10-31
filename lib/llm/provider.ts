@@ -90,31 +90,60 @@ const gemini: Adapter = async ({ system, user, json }) => {
   throw new Error("Gemini returned no text");
 };
 
-const openrouter: Adapter = async ({ system, user, json }) => {
-  const key = process.env.OPENROUTER_API_KEY;
-  if (!key) throw new Error("OPENROUTER_API_KEY is not set");
-  const res = await fetch("https://openrouter.ai/api/v1/chat/completions", {
-    method: "POST",
-    signal: AbortSignal.timeout(75000),
-    headers: { "content-type": "application/json", authorization: `Bearer ${key}` },
-    body: JSON.stringify({
-      model: process.env.OPENROUTER_MODEL || "meta-llama/llama-3.3-70b-instruct:free",
-      messages: [
-        { role: "system", content: system },
-        { role: "user", content: user },
-      ],
-      ...(json ? { response_format: { type: "json_object" } } : {}),
-    }),
-  });
-  if (res.status === 429 || res.status >= 500) throw new RateLimitError();
-  if (!res.ok) throw new Error(`OpenRouter ${res.status}: ${(await res.text()).slice(0, 200)}`);
-  const data = await res.json();
-  const text = data?.choices?.[0]?.message?.content;
-  if (!text) throw new Error("OpenRouter returned no text");
-  return text;
+// Groq and OpenRouter both speak the OpenAI chat-completions format.
+function openAiCompatible(name: string, url: string, keyEnv: string, model: string): Adapter {
+  return async ({ system, user, json }) => {
+    const key = process.env[keyEnv];
+    if (!key) throw new Error(`${keyEnv} is not set`);
+    const res = await fetch(url, {
+      method: "POST",
+      signal: AbortSignal.timeout(75000),
+      headers: { "content-type": "application/json", authorization: `Bearer ${key}` },
+      body: JSON.stringify({
+        model,
+        temperature: 0.4,
+        messages: [
+          { role: "system", content: system },
+          { role: "user", content: user },
+        ],
+        ...(json ? { response_format: { type: "json_object" } } : {}),
+      }),
+    });
+    if (!res.ok) {
+      const errText = await res.text().catch(() => "");
+      if (res.status === 429 && /per day|daily|TPD|RPD/i.test(errText)) throw new QuotaExhaustedError();
+      if (res.status === 429 || res.status >= 500) throw new RateLimitError(Number(res.headers.get("retry-after")) * 1000 || undefined);
+      throw new Error(`${name} ${res.status}: ${errText.slice(0, 200)}`);
+    }
+    const data = await res.json();
+    const text = data?.choices?.[0]?.message?.content;
+    if (!text) throw new Error(`${name} returned no text`);
+    return text;
+  };
+}
+
+const groq: Adapter = (req) =>
+  openAiCompatible("Groq", "https://api.groq.com/openai/v1/chat/completions", "GROQ_API_KEY", process.env.GROQ_MODEL || "llama-3.3-70b-versatile")(req);
+const openrouter: Adapter = (req) =>
+  openAiCompatible(
+    "OpenRouter",
+    "https://openrouter.ai/api/v1/chat/completions",
+    "OPENROUTER_API_KEY",
+    process.env.OPENROUTER_MODEL || "meta-llama/llama-3.3-70b-instruct:free",
+  )(req);
+
+const adapters: Record<string, { run: Adapter; keyEnv: string }> = {
+  gemini: { run: gemini, keyEnv: "GEMINI_API_KEY" },
+  groq: { run: groq, keyEnv: "GROQ_API_KEY" },
+  openrouter: { run: openrouter, keyEnv: "OPENROUTER_API_KEY" },
 };
 
-const adapters: Record<string, Adapter> = { gemini, openrouter };
+// LLM_PROVIDER names the preferred provider; the others that have a key follow as fallbacks.
+function providerOrder(): string[] {
+  const preferred = (process.env.LLM_PROVIDER || "gemini").split(",").map((p) => p.trim()).filter(Boolean);
+  const all = [...preferred, ...Object.keys(adapters)].filter((p, i, a) => a.indexOf(p) === i);
+  return all.filter((p) => adapters[p] && process.env[adapters[p].keyEnv]);
+}
 
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
@@ -124,22 +153,39 @@ const GAP_MS = 1500;
 // Free tiers limit requests per minute, so rate-limit retries wait longer than ordinary errors.
 const RATE_WAITS = [3000, 8000, 15000, 20000];
 
+async function withRetries(adapter: Adapter, req: LlmRequest, attempts: number, label: string): Promise<string> {
+  let lastErr: unknown;
+  for (let i = 0; i < attempts; i++) {
+    try {
+      return await adapter(req);
+    } catch (e) {
+      lastErr = e;
+      console.warn(`[llm] ${label} attempt ${i + 1}/${attempts} failed:`, (e as Error).message);
+      if (e instanceof QuotaExhaustedError || (!(e instanceof RateLimitError) && i >= 1) || i === attempts - 1) break;
+      const base = e instanceof RateLimitError ? Math.max(e.retryAfterMs ?? 0, RATE_WAITS[Math.min(i, 3)]) : 1000 * 2 ** i;
+      await sleep(Math.min(base, 25000) + Math.random() * 500);
+    }
+  }
+  throw lastErr;
+}
+
 export function callLlm(req: LlmRequest, attempts = 4): Promise<string> {
-  const adapter = adapters[process.env.LLM_PROVIDER || "gemini"] ?? gemini;
   const run = async () => {
+    const order = providerOrder();
+    if (!order.length) throw new Error("No AI provider is configured. Add GEMINI_API_KEY or GROQ_API_KEY.");
     let lastErr: unknown;
-    for (let i = 0; i < attempts; i++) {
+    let allSpent = true;
+    for (const name of order) {
       try {
-        return await adapter(req);
+        // A provider that is not the last choice gets fewer retries, so we fail over quickly.
+        return await withRetries(adapters[name].run, req, name === order[order.length - 1] ? attempts : 2, name);
       } catch (e) {
         lastErr = e;
-        console.warn(`[llm] attempt ${i + 1}/${attempts} failed:`, (e as Error).message);
-        if (e instanceof QuotaExhaustedError || (!(e instanceof RateLimitError) && i >= 1) || i === attempts - 1) break;
-        const base = e instanceof RateLimitError ? Math.max(e.retryAfterMs ?? 0, RATE_WAITS[Math.min(i, 3)]) : 1000 * 2 ** i;
-        await sleep(Math.min(base, 25000) + Math.random() * 500);
+        if (!(e instanceof QuotaExhaustedError)) allSpent = false;
+        console.warn(`[llm] ${name} failed, trying the next provider`);
       }
     }
-    throw lastErr;
+    throw allSpent ? new QuotaExhaustedError() : lastErr;
   };
   const next = chain.then(run, run).finally(() => sleep(GAP_MS));
   chain = next.catch(() => undefined);

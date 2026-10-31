@@ -39,6 +39,7 @@ export default function PlanPage() {
   const labels = new Map(profile.skills.map((s) => [s.id, s.label]));
   const weeks = profile.plan.weeks;
   const has = weeks.length > 0;
+  const needsGoal = !profile.goal.hoursPerWeek || !profile.goal.timelineWeeks; // not said in the intake yet
   const now = currentWeek(profile);
   const prog = planProgress(profile);
   const thisWeek = weeks.find((w) => w.n === now);
@@ -70,11 +71,21 @@ export default function PlanPage() {
       <ScreenHeader
         step={3}
         title="Weekly plan"
-        line={`${profile.goal.timelineWeeks} weeks at ${profile.goal.hoursPerWeek} hours a week, built around your biggest gaps. Tick tasks off as you finish them.`}
+        line={
+          needsGoal
+            ? "Tell me how many hours a week you have and by when, then I can build your plan."
+            : `${profile.goal.timelineWeeks} weeks at ${profile.goal.hoursPerWeek} hours a week, built around your biggest gaps. Tick tasks off as you finish them.`
+        }
       />
 
       <div className="flex flex-col gap-5">
-        {!profile.skills.length ? (
+        {needsGoal && !has ? (
+          <Card title="Your plan" hint="I do not guess your hours or deadline. Add them in your story and the plan will fit them.">
+            <Link href="/intake" className={`${primaryBtn} inline-block`}>
+              Add my hours and deadline
+            </Link>
+          </Card>
+        ) : !profile.skills.length ? (
           <Card title="Your plan" hint="The plan is built from your skill gaps, so it needs the skill map first.">
             <Link href="/skills" className={`${primaryBtn} inline-block`}>
               Build my Skill bridge first

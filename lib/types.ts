@@ -60,6 +60,15 @@ export const PivotProfileSchema = z.object({
     summary: z.string(),
     strengths: z.array(z.string()),
     fears: z.array(z.string()),
+    // Side comments that say what they like or avoid, kept so plans and projects can respect them.
+    preferences: z.array(z.object({ text: z.string(), kind: z.enum(["dislike", "like", "value", "limit", "other"]) })).default([]),
+    // Where the speaker changed their mind; only the final value is kept in the profile.
+    corrections: z.array(z.object({ topic: z.string(), was: z.string(), now: z.string() })).default([]),
+    // Open items from the last intake: options when the target role is unknown, and one follow-up question.
+    roleSuggestions: z
+      .array(z.object({ title: z.string(), why: z.string(), distance: z.enum(["close", "stretch", "leap"]) }))
+      .default([]),
+    followUp: z.object({ field: z.string(), question: z.string() }).nullable().default(null),
   }),
 
   experience: z.array(
@@ -186,8 +195,8 @@ export function emptyProfile(
     createdAt: now,
     updatedAt: now,
     person: { name: "", location: "", yearsExperience: 0, currentRole: "", currentIndustry: "" },
-    goal: { targetRole: "", timelineWeeks: 26, hoursPerWeek: 8, cities: [], alternateRoles: [], motivation: "", constraints: [] },
-    story: { rawTranscripts: [], summary: "", strengths: [], fears: [] },
+    goal: { targetRole: "", timelineWeeks: 0, hoursPerWeek: 0, cities: [], alternateRoles: [], motivation: "", constraints: [] },
+    story: { rawTranscripts: [], summary: "", strengths: [], fears: [], preferences: [], corrections: [], roleSuggestions: [], followUp: null },
     experience: [],
     targetRole: { jds: [], requirements: [] },
     skills: [],

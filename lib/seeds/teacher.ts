@@ -82,6 +82,13 @@ export const teacher: PivotProfile = {
     summary: "Six years teaching science, strong at understanding learners and explaining things; wants to apply that to UX design with no design-tool experience yet.",
     strengths: ["Empathy and observation", "Explaining complex ideas simply", "Inclusive design for different needs"],
     fears: ["No design portfolio", "Never used Figma", "Looking too junior after six years of seniority"],
+    corrections: [],
+    roleSuggestions: [],
+    followUp: null,
+    preferences: [
+      { text: "Burnt out on marking and school politics", kind: "dislike" },
+      { text: "Enjoys redesigning a lesson so it works for every pupil", kind: "like" },
+    ],
   },
   experience: [
     {
