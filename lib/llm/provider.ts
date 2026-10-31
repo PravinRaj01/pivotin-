@@ -25,6 +25,7 @@ const gemini: Adapter = async ({ system, user, json }) => {
         contents: [{ role: "user", parts: [{ text: user }] }],
         generationConfig: {
           temperature: 0.4,
+          thinkingConfig: { thinkingLevel: process.env.GEMINI_THINKING || "low" },
           ...(json ? { responseMimeType: "application/json" } : {}),
         },
       }),
