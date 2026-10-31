@@ -8,6 +8,7 @@ const SYSTEM = `You are the intake agent of a career-pivot coach. The user dicta
 Input: transcript (the speech), today (YYYY-MM-DD).
 
 Rules for facts:
+- If the text begins with a line starting "#pivotin", a dictation transform has already sorted it into lines of the form "Label: value". Read those as the person's own words in labelled form. A line "Aside:" holds side remarks and keeps its meaning (a like or dislike is a preference). A line "Corrections:" lists changes already applied, so it is not new information. Text without that line is handled exactly as usual.
 - Use only what was said. Never invent employers, numbers, dates, tools or achievements. If something was not said use "" or 0 or [] (never a default or a typical value) and never fill it from guesswork.
 - Keep currencies, cities and company names exactly as spoken. Do not assume any country.
 - A correction is when the speaker gives a value, then later fixes or replaces it ("no wait", "actually", "scratch that", "my partner says", a new number for the same thing). Always use the LAST value they settle on. Record each one in "corrections" with topic, the value they first said (was) and the final value (now). A plain detail that never changed is not a correction.

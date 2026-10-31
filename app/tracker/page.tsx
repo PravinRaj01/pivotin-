@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { AppRow, RateBars } from "@/components/tracker-bits";
+import { TransformBadge } from "@/components/TransformBadge";
 import { Card, Chip, ScreenHeader, primaryBtn, secondaryBtn } from "@/components/ui";
 import { callAgent } from "@/lib/client/agentClient";
 import { fitFromRequirements } from "@/lib/fit";
@@ -113,6 +114,7 @@ export default function TrackerPage() {
           <p className="mt-2 text-sm text-muted">
             Hold <kbd className="rounded border border-border bg-surface-2 px-1.5 py-0.5 text-xs">Fn</kbd> on a Mac or <kbd className="rounded border border-border bg-surface-2 px-1.5 py-0.5 text-xs">Ctrl + Win</kbd> on Windows, talk, then let go. Say the company, the role, how you applied and which resume if you can.
           </p>
+          {text && <div className="mt-2"><TransformBadge text={text} /></div>}
           <details className="mt-3">
             <summary className="cursor-pointer text-sm text-muted">Optional: paste the job description for a fit score that is specific to this role</summary>
             <textarea value={jd} onChange={(e) => setJd(e.target.value)} rows={4} placeholder="Paste the job description..." className="mt-2 w-full rounded-lg border border-border bg-bg p-3 text-sm outline-none focus:border-accent" disabled={busy} />

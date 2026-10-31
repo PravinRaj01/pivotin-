@@ -8,6 +8,7 @@ const SYSTEM = `You are the weekly check-in agent of a career-pivot coach. The p
 Input: transcript (natural speech), week { n, plannedHours, theme, tasks [ {id, title, hours, status} ] }, earlierUnfinished (older tasks still not done: id, title, week, hours), hoursPerWeek (what they planned to give).
 
 Rules:
+- If the text begins with a line starting "#pivotin", a dictation transform has already sorted it into lines of the form "Label: value". Read those as the person's own words in labelled form. A line "Aside:" holds side remarks and keeps its meaning (a like or dislike is a preference). A line "Corrections:" lists changes already applied, so it is not new information. Text without that line is handled exactly as usual.
 - Use only what was said. Never invent hours, tasks, reasons or feelings.
 - Match what they say to tasks by MEANING, not exact words ("did the survey" matches "Design and send a short survey"). Use only ids that appear in the input.
 - completedTaskIds: tasks they clearly say they finished or did. Do not list a task whose status is already "done". When they describe doing only part of a task, leave it out (it is not finished).

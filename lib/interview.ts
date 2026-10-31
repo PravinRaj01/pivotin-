@@ -1,4 +1,5 @@
 import type { InterviewTurnResult, RubricResult } from "./schemas/agents";
+import { withoutHeader } from "./transform";
 import type { PivotProfile, Skill } from "./types";
 
 // The deterministic half of the mock interview. The agents write the rubric, the questions and the scores;
@@ -75,7 +76,7 @@ export function shapeRubric(p: PivotProfile, r: RubricResult, now: string): Rubr
 
 // The Pivotin' transform tags text with labels such as [GOAL]. In an interview those are not part of the answer.
 export const stripTransformTags = (text: string) =>
-  text
+  withoutHeader(text)
     .replace(/\[[A-Z][A-Z0-9 _-]{1,24}\]/g, " ")
     .replace(/[ \t]{2,}/g, " ")
     .replace(/\s*\n\s*/g, "\n")

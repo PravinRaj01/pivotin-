@@ -7,6 +7,7 @@ import { callAgent } from "@/lib/client/agentClient";
 import { applyIntake, chooseRole } from "@/lib/intake";
 import { useProfile } from "@/lib/profile-context";
 import { IntakeResult } from "@/lib/schemas/intake";
+import { TransformBadge } from "@/components/TransformBadge";
 import { teacher } from "@/lib/seeds/teacher";
 
 type Phase = "write" | "reading" | "review";
@@ -109,7 +110,10 @@ export default function IntakePage() {
             Hold <kbd className="rounded border border-border bg-surface-2 px-1.5 py-0.5 text-xs">Fn</kbd> on a Mac or{" "}
             <kbd className="rounded border border-border bg-surface-2 px-1.5 py-0.5 text-xs">Ctrl + Win</kbd> on Windows, talk, then let go. Different key? Check Keybind shortcuts in Wispr Flow settings.
           </p>
-          <p className="mt-1 text-sm text-muted">Say it however it comes out. Change your mind, wander off, come back. I sort it out.</p>
+          <p className="mt-1 text-sm text-muted">
+            Say it however it comes out. Change your mind, wander off, come back. I sort it out. Using Wispr Pro? There is an <Link href="/wispr" className="text-accent underline underline-offset-2">optional transform</Link>.
+          </p>
+          {text && <div className="mt-2"><TransformBadge text={text} /></div>}
           <div className="mt-3 flex flex-wrap items-center gap-1.5">
             <span className="text-xs text-muted">Good to mention:</span>
             {GOOD_TO_MENTION.map((x) => (

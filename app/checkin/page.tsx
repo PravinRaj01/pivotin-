@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { PlanDiffView } from "@/components/checkin-bits";
+import { TransformBadge } from "@/components/TransformBadge";
 import { Card, Chip, ScreenHeader, primaryBtn, secondaryBtn } from "@/components/ui";
 import { applyCheckin, checkinInput, checkinWeek, exampleWeek } from "@/lib/checkin";
 import { callAgent } from "@/lib/client/agentClient";
@@ -153,6 +154,7 @@ export default function CheckinPage() {
                   Hold <kbd className="rounded border border-border bg-surface-2 px-1.5 py-0.5 text-xs">Fn</kbd> on a Mac or{" "}
                   <kbd className="rounded border border-border bg-surface-2 px-1.5 py-0.5 text-xs">Ctrl + Win</kbd> on Windows, talk, then let go.
                 </p>
+                {text && <div className="mt-2"><TransformBadge text={text} /></div>}
                 <div className="mt-2 flex flex-wrap items-center gap-1.5">
                   <span className="text-xs text-muted">Good to mention:</span>
                   {["What you finished", "What you skipped", "Hours you worked", "What got in the way"].map((x) => (

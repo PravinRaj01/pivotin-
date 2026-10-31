@@ -22,7 +22,9 @@
     "test:checkin-live": "tsx scripts/test-checkin-live.ts",
     "test:tracker": "tsx scripts/test-tracker.ts",
     "seed:arjun-tracker": "tsx scripts/seed-arjun-tracker.ts",
-    "test:tracker-live": "tsx scripts/test-tracker-live.ts"
+    "test:tracker-live": "tsx scripts/test-tracker-live.ts",
+    "test:transform": "tsx scripts/test-transform.ts",
+    "test:transform-live": "tsx scripts/test-transform.ts --live"
   },
   "dependencies": {
     "next": "16.4.3",
