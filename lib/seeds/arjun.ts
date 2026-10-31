@@ -1,6 +1,7 @@
 import type { PivotProfile, Skill } from "../types";
 import analysis from "./arjun-analysis.json";
-import { makeSkills, makeWeeks, reqFromSkills } from "./build";
+import generated from "./arjun-plan.json";
+import { makeSkills, reqFromSkills } from "./build";
 
 // Demo persona (fictional). Target JDs are the 8 in seeds/jds; the two in seeds/jds-demo-holdout
 // are deliberately NOT here so they can be pasted live as unseen roles.
@@ -79,37 +80,12 @@ Postman, Jira, TestRail, Confluence, SQL (SELECT and JOIN queries to verify test
 Education
 B.E. Computer Engineering`;
 
-const weeks = makeWeeks(
-  [
-    ["Understand the APM role", [["Read 3 APM JDs closely and highlight what repeats", 3, ["strategy"]], ["Write a one-page 'why PM' story in your own words", 2, ["communication"]], ["Shadow one product meeting at work", 3, ["stakeholders"]]]],
-    ["Product thinking basics", [["Course: product management fundamentals, modules 1-3", 5, ["strategy"]], ["Teardown: pick an app you use and list 5 product decisions", 3, ["problem"]]]],
-    ["User research 101", [["Learn the interview method (The Mom Test, summary)", 3, ["research"]], ["Run 2 practice user interviews with friends", 5, ["research"]]]],
-    ["SQL for product questions", [["SQL practice: aggregates, joins, window functions (10 problems)", 5, ["sql"]], ["Answer 3 product questions with a public dataset", 3, ["sql", "metrics"]]]],
-    ["Metrics and funnels", [["Learn AARRR, north-star, input vs output metrics", 3, ["metrics"]], ["Define metrics for a food-delivery checkout", 5, ["metrics"]]]],
-    ["Writing specs", [["Study 3 public PRD examples", 3, ["specs"]], ["Write a PRD for a small feature of an app you use", 5, ["specs"]]]],
-    ["Your first PRD, reviewed", [["Share the PRD with an engineer and a PM; collect feedback", 3, ["specs", "stakeholders"]], ["Revise the PRD and add success metrics", 5, ["specs", "metrics"]]]],
-    ["Prioritization frameworks", [["Learn RICE, MoSCoW and impact/effort", 3, ["prioritization"]], ["Prioritize a 10-item backlog and defend it in writing", 5, ["prioritization", "communication"]]]],
-    ["Experimentation", [["Learn A/B test design: hypothesis, sample size, guardrails", 4, ["experimentation"]], ["Design an experiment for a signup flow change", 4, ["experimentation"]]]],
-    ["Portfolio project kickoff", [["Choose a portfolio project and scope it to 20 hours", 2, ["strategy"]], ["Research the problem: 3 interviews, 1 competitor scan", 6, ["research"]]]],
-    ["Portfolio project build I", [["Write problem statement and success metrics", 3, ["specs", "metrics"]], ["Sketch solution options and pick one", 5, ["strategy", "problem"]]]],
-    ["Portfolio project build II", [["Draft PRD and a simple prototype", 6, ["specs"]], ["Review with an engineer for feasibility", 2, ["engineering", "stakeholders"]]]],
-    ["Roadmaps and strategy", [["Learn roadmap formats (now/next/later)", 3, ["strategy"]], ["Build a 3-quarter roadmap for your portfolio product", 5, ["strategy"]]]],
-    ["Go-to-market basics", [["Learn launch checklists, positioning and rollout plans", 4, ["gtm"]], ["Write a launch plan for your portfolio feature", 4, ["gtm"]]]],
-    ["AI and product", [["Learn what LLM features are good and bad at", 3, ["ai"]], ["Spec one AI feature with failure modes and evals", 5, ["ai", "specs"]]]],
-    ["Behavioral interviews", [["Draft 6 STAR stories from QA work, reframed for product", 4, ["communication", "ownership"]], ["Mock interview x2", 4, ["communication"]]]],
-    ["Product sense interviews", [["Practice 'improve X' and 'design Y' questions", 4, ["problem", "research"]], ["Mock product-sense interview x2", 4, ["problem"]]]],
-    ["Metrics and analytics interviews", [["Practice metric-drop and success-metric questions", 4, ["metrics"]], ["SQL round practice", 4, ["sql"]]]],
-    ["Resume and LinkedIn reframe", [["Rewrite resume: QA wins as product outcomes", 4, ["communication"]], ["Update LinkedIn and ask 2 people for referrals", 4, ["stakeholders"]]]],
-    ["Application sprint I", [["Apply to 5 roles with tailored notes", 5, ["communication"]], ["Follow up with referrals", 3, ["stakeholders"]]]],
-    ["Application sprint II", [["Apply to 5 more roles", 5, ["communication"]], ["Review rejections and gaps, adjust plan", 3, ["ownership"]]]],
-    ["Deepen the weakest skill", [["Targeted practice on your lowest-scoring skill", 5, ["research"]], ["Mock interview on that area", 3, ["communication"]]]],
-    ["Case study polish", [["Turn the portfolio project into a 2-page case study", 5, ["communication", "specs"]], ["Get feedback from a working PM", 3, ["stakeholders"]]]],
-    ["Interview loops", [["Full mock loop: behavioral, product sense, metrics", 5, ["communication", "metrics"]], ["Fix the top three feedback points", 3, ["problem"]]]],
-    ["Negotiation and offers", [["Learn offer evaluation and APM compensation norms", 3, ["communication"]], ["Prepare questions for hiring managers", 5, ["stakeholders"]]]],
-    ["Review and next steps", [["Review the six months: skills moved, gaps left", 3, ["ownership"]], ["Plan the next 90 days", 5, ["strategy"]]]],
-  ],
-  6,
-);
+// Written by `npm run seed:arjun-plan`: the plan, projects and prerequisites the planner built for Arjun
+// (week 1 to 6 ticked off, so he opens on week 7). Empty until that script has run.
+type Built = { skills?: Skill[]; plan?: PivotProfile["plan"]; projects?: PivotProfile["projects"] };
+const built = generated as Built;
+const hasPlan = (built.plan?.weeks?.length ?? 0) > 0;
+const finalSkills: Skill[] = hasPlan && built.skills ? built.skills : skills;
 
 // Sample tracker data. Companies are real; the roles and outcomes are invented for the demo persona.
 type AppRow = [company: string, role: string, status: string, location: string, notes: string, applied?: string, nextStep?: string, fit?: number, jdId?: string, followUps?: string[]];
@@ -144,9 +120,6 @@ const APPLICATIONS: PivotProfile["applications"] = apps.map(([company, role, sta
   location,
   source: jdId ? "Seed job description" : "Added by hand",
 }));
-
-const known = new Set(skills.map((s) => s.id));
-for (const w of weeks) for (const t of w.tasks) t.skillIds = t.skillIds.filter((id) => known.has(id));
 
 export const arjun: PivotProfile = {
   version: 1,
@@ -221,52 +194,9 @@ export const arjun: PivotProfile = {
     },
   ],
   targetRole: { jds, requirements },
-  skills,
-  plan: {
-    generatedAt: T,
-    revision: 1,
-    weeks,
-    changelog: [
-      { at: T, reason: "First plan", summary: "26 weeks at 8 hours a week, front-loaded on research, SQL and specs because those are your biggest gaps against the 8 JDs." },
-    ],
-  },
-  projects: [
-    {
-      id: "p1",
-      title: "Fix the UPI failed-payment experience",
-      pitch: "Use your payments testing experience: research why users abandon after a failed UPI payment, and spec a better recovery flow.",
-      skillIds: ["research", "specs", "metrics"],
-      deliverable: "A 2-page case study with research notes, a PRD, and success metrics",
-      scopeHours: 20,
-      milestones: [
-        { title: "Interview 5 UPI users", done: true },
-        { title: "Write problem statement", done: false },
-        { title: "Draft PRD", done: false },
-        { title: "Review with an engineer", done: false },
-      ],
-      status: "active",
-    },
-    {
-      id: "p2",
-      title: "Funnel analysis of a public e-commerce dataset",
-      pitch: "Answer product questions with SQL and write up what you would change.",
-      skillIds: ["sql", "metrics"],
-      deliverable: "A notebook plus a one-page recommendation memo",
-      scopeHours: 12,
-      milestones: [{ title: "Pick dataset", done: false }, { title: "Write 6 queries", done: false }, { title: "Recommendation memo", done: false }],
-      status: "suggested",
-    },
-    {
-      id: "p3",
-      title: "Spec an AI test-case assistant",
-      pitch: "Turn your QA know-how into an AI feature spec with evals and failure modes.",
-      skillIds: ["ai", "specs", "engineering"],
-      deliverable: "A PRD with an evaluation plan",
-      scopeHours: 10,
-      milestones: [{ title: "Define user and job", done: false }, { title: "Write PRD", done: false }, { title: "Eval plan", done: false }],
-      status: "suggested",
-    },
-  ],
+  skills: finalSkills,
+  plan: hasPlan ? built.plan! : { generatedAt: T, revision: 0, weeks: [], uncovered: [], changelog: [] },
+  projects: hasPlan ? (built.projects ?? []) : [],
   interviews: [
     {
       id: "i1",
@@ -288,16 +218,16 @@ export const arjun: PivotProfile = {
       id: "c1",
       weekN: 5,
       at: T,
-      transcript: "Did the metrics reading and defined metrics for a checkout, but missed the SQL set because of a release crunch. About six hours this week.",
+      transcript: "Finished the follow-up interviews and sent out the survey for my banking checkout project, but I ran out of time to write up the themes because of a release crunch. About six hours this week.",
       parsed: {
         hoursSpent: 6,
-        completedTaskIds: ["w5t1", "w5t2"],
+        completedTaskIds: built.plan?.weeks.find((w) => w.n === 5)?.tasks.slice(0, 2).map((t) => t.id) ?? [],
         blockers: ["Release crunch at work"],
         mood: 3,
-        wins: ["First clean metric tree"],
-        notes: "Missed two hours; moved SQL practice into the next free weekend.",
+        wins: ["Interviews done and survey out"],
+        notes: "Missed two hours; the write-up of themes moves to next week.",
       },
-      planAdjustments: ["Moved 2h of SQL practice to week 7"],
+      planAdjustments: ["Moved the theme write-up to week 6"],
     },
   ],
   applications: APPLICATIONS,

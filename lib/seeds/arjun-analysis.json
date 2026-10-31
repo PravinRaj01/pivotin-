@@ -91,7 +91,7 @@
         "j6",
         "j7"
       ],
-      "targetWording": "Create a product roadmap for your area with 3‑month view"
+      "targetWording": "Create a product roadmap for your area with 3-month view"
     },
     {
       "skillId": "problem",
@@ -265,7 +265,7 @@
     },
     {
       "skillId": "product-management-experience-within-ent",
-      "label": "Product Management experience within enterprise‑scale SaaS platforms",
+      "label": "Product Management experience within enterprise-scale SaaS platforms",
       "category": "craft",
       "importance": 5,
       "frequency": 0.125,
@@ -309,7 +309,7 @@
     },
     {
       "skillId": "customer-facing-platform-delivery",
-      "label": "Customer‑facing platform delivery",
+      "label": "Customer-facing platform delivery",
       "category": "craft",
       "importance": 5,
       "frequency": 0.125,
@@ -386,14 +386,14 @@
     },
     {
       "skillId": "hands-on-execution",
-      "label": "Hands‑on execution",
+      "label": "Hands-on execution",
       "category": "craft",
       "importance": 4,
       "frequency": 0.125,
       "sourceJdIds": [
         "j8"
       ],
-      "targetWording": "Go-getter attitude and willingness to be hands‑on"
+      "targetWording": "Go-getter attitude and willingness to be hands-on"
     },
     {
       "skillId": "financial-services-knowledge",
@@ -441,7 +441,7 @@
     },
     {
       "skillId": "long-term-product-thinking",
-      "label": "Long‑term product thinking",
+      "label": "Long-term product thinking",
       "category": "craft",
       "importance": 4,
       "frequency": 0.125,
@@ -527,7 +527,7 @@
       "required": 3,
       "evidence": [],
       "status": "missing",
-      "targetWording": "Create a product roadmap for your area with 3‑month view",
+      "targetWording": "Create a product roadmap for your area with 3-month view",
       "lastVerifiedAt": "2026-10-31T15:26:14.192Z"
     },
     {
@@ -712,7 +712,7 @@
     },
     {
       "id": "product-management-experience-within-ent",
-      "label": "Product Management experience within enterprise‑scale SaaS platforms",
+      "label": "Product Management experience within enterprise-scale SaaS platforms",
       "category": "craft",
       "current": 0,
       "required": 1,
@@ -756,7 +756,7 @@
     },
     {
       "id": "customer-facing-platform-delivery",
-      "label": "Customer‑facing platform delivery",
+      "label": "Customer-facing platform delivery",
       "category": "craft",
       "current": 2,
       "required": 1,
@@ -843,7 +843,7 @@
     },
     {
       "id": "hands-on-execution",
-      "label": "Hands‑on execution",
+      "label": "Hands-on execution",
       "category": "craft",
       "current": 2,
       "required": 1,
@@ -851,7 +851,7 @@
         "Wrote and executed more than 400 test cases on a retail banking app."
       ],
       "status": "have",
-      "targetWording": "Go-getter attitude and willingness to be hands‑on",
+      "targetWording": "Go-getter attitude and willingness to be hands-on",
       "evidenceVerified": true,
       "lastVerifiedAt": "2026-10-31T15:26:14.192Z"
     },
@@ -914,7 +914,7 @@
     },
     {
       "id": "long-term-product-thinking",
-      "label": "Long‑term product thinking",
+      "label": "Long-term product thinking",
       "category": "craft",
       "current": 0,
       "required": 1,

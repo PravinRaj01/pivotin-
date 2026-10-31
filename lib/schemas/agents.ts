@@ -9,15 +9,43 @@ export const ProjectsResultSchema = z.object({
       z.object({
         title: z.string(),
         pitch: z.string().catch(""),
-        skillIds: strs,
+        closesGaps: strs, // 2 or 3 skill ids
+        oldFieldAngle: z.string().catch(""),
+        interviewStory: z.string().catch(""),
         deliverable: z.string().catch(""),
-        scopeHours: n(20),
-        milestones: strs,
+        milestones: z.array(z.string()).catch([]), // titles, in order; the last is the deliverable
       }),
     )
     .catch([]),
 });
 export type ProjectsResult = z.infer<typeof ProjectsResultSchema>;
+
+export const SequenceResultSchema = z.object({
+  dependsOn: z.array(z.object({ skillId: z.string(), prerequisites: strs })).catch([]),
+});
+export type SequenceResult = z.infer<typeof SequenceResultSchema>;
+
+export const PlanWeeksResultSchema = z.object({
+  weeks: z
+    .array(
+      z.object({
+        n: z.coerce.number(),
+        theme: z.string().catch(""),
+        tasks: z
+          .array(
+            z.object({
+              title: z.string(),
+              slot: z.string(), // a skillId from that week's slots, or "milestone", "wrap" or "practice"
+              hours: z.coerce.number().min(0.5).max(12).catch(1),
+              resourceId: z.string().nullable().optional().catch(null), // only ever an id from the supplied list
+            }),
+          )
+          .catch([]),
+      }),
+    )
+    .catch([]),
+});
+export type PlanWeeksResult = z.infer<typeof PlanWeeksResultSchema>;
 
 export const InterviewResultSchema = z.object({
   feedback: z.string().catch(""), // on the latest answer; "" for the opening question

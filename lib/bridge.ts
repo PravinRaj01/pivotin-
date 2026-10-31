@@ -37,7 +37,7 @@ export function mergeJd(
   const newSkillIds: string[] = [];
 
   for (const r of jd.requirements) {
-    const label = r.label.trim();
+    const label = r.label.replace(/[‐-―−]/g, "-").replace(/s+/g, " ").trim();
     if (!label) continue;
     let hit = reqs.find((x) => normLabel(x.label) === normLabel(label));
     if (!hit) {

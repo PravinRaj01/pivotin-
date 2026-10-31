@@ -109,6 +109,7 @@ export const teacher: PivotProfile = {
     generatedAt: T,
     revision: 1,
     weeks,
+    uncovered: [],
     changelog: [{ at: T, reason: "First plan", summary: "12 weeks at 10 hours a week, built around one portfolio project with research, prototype and testing." }],
   },
   projects: [
@@ -118,6 +119,8 @@ export const teacher: PivotProfile = {
       pitch: "You know the problem first-hand. Research it, then design and test a better flow.",
       skillIds: ["research", "wireframing", "testing", "portfolio"],
       deliverable: "A case study with research, wireframes, a prototype and test results",
+      oldFieldAngle: "You already know the school-to-parent communication problem first-hand from six years of classroom and parent contact.",
+      interviewStory: "As a teacher I saw parents miss important messages from school, so I interviewed [number] parents and teachers, designed a clearer flow in Figma and tested it with [number] users. [Your result].",
       scopeHours: 40,
       milestones: [
         { title: "Interview 5 parents and teachers", done: false },

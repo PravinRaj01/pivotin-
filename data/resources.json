@@ -1,0 +1,702 @@
+[
+  {
+    "id": "sqlbolt",
+    "title": "SQLBolt: learn SQL with interactive lessons",
+    "provider": "SQLBolt",
+    "url": "https://sqlbolt.com/",
+    "kind": "tutorial",
+    "cost": "free",
+    "effort": "medium",
+    "topics": [
+      "sql",
+      "databases",
+      "data analysis",
+      "querying",
+      "sqlbolt"
+    ],
+    "checkedOn": "2026-10-31"
+  },
+  {
+    "id": "mode-sql",
+    "title": "SQL tutorial",
+    "provider": "ThoughtSpot (originally Mode)",
+    "url": "https://www.thoughtspot.com/sql-tutorial",
+    "kind": "tutorial",
+    "cost": "free",
+    "effort": "medium",
+    "topics": [
+      "sql",
+      "data analysis",
+      "analytics",
+      "querying"
+    ],
+    "checkedOn": "2026-10-31"
+  },
+  {
+    "id": "kaggle-sql",
+    "title": "Intro to SQL",
+    "provider": "Kaggle Learn",
+    "url": "https://www.kaggle.com/learn/intro-to-sql",
+    "kind": "course",
+    "cost": "free-with-signup",
+    "effort": "short",
+    "topics": [
+      "sql",
+      "data analysis",
+      "databases"
+    ],
+    "checkedOn": "2026-10-31"
+  },
+  {
+    "id": "kaggle-pandas",
+    "title": "Pandas",
+    "provider": "Kaggle Learn",
+    "url": "https://www.kaggle.com/learn/pandas",
+    "kind": "course",
+    "cost": "free-with-signup",
+    "effort": "medium",
+    "topics": [
+      "data analysis",
+      "python",
+      "spreadsheets",
+      "analytics"
+    ],
+    "checkedOn": "2026-10-31"
+  },
+  {
+    "id": "kaggle-dataviz",
+    "title": "Data Visualization",
+    "provider": "Kaggle Learn",
+    "url": "https://www.kaggle.com/learn/data-visualization",
+    "kind": "course",
+    "cost": "free-with-signup",
+    "effort": "short",
+    "topics": [
+      "data visualisation",
+      "charts",
+      "analytics",
+      "reporting"
+    ],
+    "checkedOn": "2026-10-31"
+  },
+  {
+    "id": "kaggle-python",
+    "title": "Python",
+    "provider": "Kaggle Learn",
+    "url": "https://www.kaggle.com/learn/python",
+    "kind": "course",
+    "cost": "free-with-signup",
+    "effort": "medium",
+    "topics": [
+      "python",
+      "programming",
+      "automation"
+    ],
+    "checkedOn": "2026-10-31"
+  },
+  {
+    "id": "khan-stats",
+    "title": "Statistics and probability",
+    "provider": "Khan Academy",
+    "url": "https://www.khanacademy.org/math/statistics-probability",
+    "kind": "course",
+    "cost": "free",
+    "effort": "long",
+    "topics": [
+      "statistics",
+      "probability",
+      "data analysis",
+      "experiments"
+    ],
+    "checkedOn": "2026-10-31"
+  },
+  {
+    "id": "excel-help",
+    "title": "Excel help and learning",
+    "provider": "Microsoft Support",
+    "url": "https://support.microsoft.com/en-us/excel",
+    "kind": "tutorial",
+    "cost": "free",
+    "effort": "medium",
+    "topics": [
+      "excel",
+      "spreadsheets",
+      "data analysis",
+      "reporting"
+    ],
+    "checkedOn": "2026-10-31"
+  },
+  {
+    "id": "atlassian-agile",
+    "title": "The Agile Coach",
+    "provider": "Atlassian",
+    "url": "https://www.atlassian.com/agile",
+    "kind": "article",
+    "cost": "free",
+    "effort": "medium",
+    "topics": [
+      "agile",
+      "scrum",
+      "project management",
+      "delivery"
+    ],
+    "checkedOn": "2026-10-31"
+  },
+  {
+    "id": "atlassian-requirements",
+    "title": "Product requirements",
+    "provider": "Atlassian",
+    "url": "https://www.atlassian.com/agile/product-management/requirements",
+    "kind": "article",
+    "cost": "free",
+    "effort": "short",
+    "topics": [
+      "requirements",
+      "specifications",
+      "product documents",
+      "user stories"
+    ],
+    "checkedOn": "2026-10-31"
+  },
+  {
+    "id": "atlassian-pm",
+    "title": "Project management guide",
+    "provider": "Atlassian",
+    "url": "https://www.atlassian.com/work-management/project-management",
+    "kind": "article",
+    "cost": "free",
+    "effort": "medium",
+    "topics": [
+      "project management",
+      "planning",
+      "delivery",
+      "coordination"
+    ],
+    "checkedOn": "2026-10-31"
+  },
+  {
+    "id": "productplan-roadmap",
+    "title": "What is a product roadmap",
+    "provider": "ProductPlan",
+    "url": "https://www.productplan.com/learn/what-is-a-product-roadmap/",
+    "kind": "article",
+    "cost": "free",
+    "effort": "short",
+    "topics": [
+      "roadmap",
+      "strategy",
+      "planning",
+      "product"
+    ],
+    "checkedOn": "2026-10-31"
+  },
+  {
+    "id": "intercom-rice",
+    "title": "RICE: simple prioritization",
+    "provider": "Intercom",
+    "url": "https://www.intercom.com/blog/rice-simple-prioritization-for-product-managers/",
+    "kind": "article",
+    "cost": "free",
+    "effort": "short",
+    "topics": [
+      "prioritization",
+      "decision making",
+      "product",
+      "rice"
+    ],
+    "checkedOn": "2026-10-31"
+  },
+  {
+    "id": "optimizely-ab",
+    "title": "What is A/B testing",
+    "provider": "Optimizely",
+    "url": "https://www.optimizely.com/optimization-glossary/ab-testing/",
+    "kind": "article",
+    "cost": "free",
+    "effort": "short",
+    "topics": [
+      "experimentation",
+      "a/b testing",
+      "testing",
+      "metrics"
+    ],
+    "checkedOn": "2026-10-31"
+  },
+  {
+    "id": "evanmiller-ab",
+    "title": "A/B testing tools and sample sizes",
+    "provider": "Evan Miller",
+    "url": "https://www.evanmiller.org/ab-testing/",
+    "kind": "tool",
+    "cost": "free",
+    "effort": "short",
+    "topics": [
+      "experimentation",
+      "a/b testing",
+      "statistics",
+      "sample size"
+    ],
+    "checkedOn": "2026-10-31"
+  },
+  {
+    "id": "mtp",
+    "title": "Mind the Product",
+    "provider": "Mind the Product",
+    "url": "https://www.mindtheproduct.com/",
+    "kind": "article",
+    "cost": "free",
+    "effort": "medium",
+    "topics": [
+      "product management",
+      "strategy",
+      "discovery",
+      "product"
+    ],
+    "checkedOn": "2026-10-31"
+  },
+  {
+    "id": "svpg",
+    "title": "SVPG articles",
+    "provider": "Silicon Valley Product Group",
+    "url": "https://www.svpg.com/articles/",
+    "kind": "article",
+    "cost": "free",
+    "effort": "medium",
+    "topics": [
+      "product management",
+      "discovery",
+      "strategy",
+      "product",
+      "svpg"
+    ],
+    "checkedOn": "2026-10-31"
+  },
+  {
+    "id": "producttalk",
+    "title": "Product Talk: continuous discovery",
+    "provider": "Product Talk",
+    "url": "https://www.producttalk.org/",
+    "kind": "article",
+    "cost": "free",
+    "effort": "medium",
+    "topics": [
+      "discovery",
+      "customer research",
+      "interviewing",
+      "product"
+    ],
+    "checkedOn": "2026-10-31"
+  },
+  {
+    "id": "scrum-guide",
+    "title": "The Scrum Guide",
+    "provider": "Scrum.org",
+    "url": "https://scrumguides.org/scrum-guide.html",
+    "kind": "article",
+    "cost": "free",
+    "effort": "short",
+    "topics": [
+      "scrum",
+      "agile",
+      "teamwork",
+      "delivery"
+    ],
+    "checkedOn": "2026-10-31"
+  },
+  {
+    "id": "google-ml",
+    "title": "Machine Learning Crash Course",
+    "provider": "Google",
+    "url": "https://developers.google.com/machine-learning/crash-course",
+    "kind": "course",
+    "cost": "free",
+    "effort": "long",
+    "topics": [
+      "machine learning",
+      "ai",
+      "technical fluency"
+    ],
+    "checkedOn": "2026-10-31"
+  },
+  {
+    "id": "elements-of-ai",
+    "title": "Elements of AI",
+    "provider": "University of Helsinki",
+    "url": "https://www.elementsofai.com/",
+    "kind": "course",
+    "cost": "free",
+    "effort": "medium",
+    "topics": [
+      "ai",
+      "machine learning"
+    ],
+    "checkedOn": "2026-10-31"
+  },
+  {
+    "id": "postman-learning",
+    "title": "Postman Learning Center",
+    "provider": "Postman",
+    "url": "https://learning.postman.com/",
+    "kind": "tutorial",
+    "cost": "free",
+    "effort": "medium",
+    "topics": [
+      "apis",
+      "technical fluency",
+      "testing",
+      "integration"
+    ],
+    "checkedOn": "2026-10-31"
+  },
+  {
+    "id": "mdn-learn",
+    "title": "Learn web development",
+    "provider": "MDN",
+    "url": "https://developer.mozilla.org/en-US/docs/Learn_web_development",
+    "kind": "tutorial",
+    "cost": "free",
+    "effort": "long",
+    "topics": [
+      "web",
+      "technical fluency",
+      "html",
+      "programming"
+    ],
+    "checkedOn": "2026-10-31"
+  },
+  {
+    "id": "cs50",
+    "title": "CS50: Introduction to Computer Science",
+    "provider": "Harvard",
+    "url": "https://cs50.harvard.edu/x/",
+    "kind": "course",
+    "cost": "free",
+    "effort": "long",
+    "topics": [
+      "programming",
+      "computer science",
+      "technical fluency"
+    ],
+    "checkedOn": "2026-10-31"
+  },
+  {
+    "id": "nng-interviews",
+    "title": "User interviews 101",
+    "provider": "Nielsen Norman Group",
+    "url": "https://www.nngroup.com/articles/user-interviews/",
+    "kind": "article",
+    "cost": "free",
+    "effort": "short",
+    "topics": [
+      "user research",
+      "interviewing",
+      "customer research",
+      "discovery"
+    ],
+    "checkedOn": "2026-10-31"
+  },
+  {
+    "id": "nng-usability",
+    "title": "Usability testing 101",
+    "provider": "Nielsen Norman Group",
+    "url": "https://www.nngroup.com/articles/usability-testing-101/",
+    "kind": "article",
+    "cost": "free",
+    "effort": "short",
+    "topics": [
+      "usability testing",
+      "user research",
+      "testing"
+    ],
+    "checkedOn": "2026-10-31"
+  },
+  {
+    "id": "usability-gov",
+    "title": "Usability topic hub",
+    "provider": "digital.gov (was usability.gov)",
+    "url": "https://digital.gov/topics/usability/",
+    "kind": "article",
+    "cost": "free",
+    "effort": "short",
+    "topics": [
+      "usability testing",
+      "user research",
+      "methods"
+    ],
+    "checkedOn": "2026-10-31"
+  },
+  {
+    "id": "momtest",
+    "title": "The Mom Test",
+    "provider": "Rob Fitzpatrick",
+    "url": "https://www.momtestbook.com/",
+    "kind": "book",
+    "cost": "paid",
+    "effort": "short",
+    "topics": [
+      "customer research",
+      "interviewing",
+      "discovery",
+      "validation"
+    ],
+    "checkedOn": "2026-10-31"
+  },
+  {
+    "id": "designkit",
+    "title": "Design Kit: human-centred design",
+    "provider": "IDEO.org",
+    "url": "https://www.designkit.org/",
+    "kind": "course",
+    "cost": "free",
+    "effort": "medium",
+    "topics": [
+      "design",
+      "human-centred design",
+      "research",
+      "empathy"
+    ],
+    "checkedOn": "2026-10-31"
+  },
+  {
+    "id": "ixdf",
+    "title": "Interaction Design Foundation",
+    "provider": "Interaction Design Foundation",
+    "url": "https://ixdf.org/",
+    "kind": "course",
+    "cost": "mixed",
+    "effort": "long",
+    "topics": [
+      "ux",
+      "design",
+      "research",
+      "interaction design"
+    ],
+    "checkedOn": "2026-10-31"
+  },
+  {
+    "id": "figma-help",
+    "title": "Figma help centre",
+    "provider": "Figma",
+    "url": "https://help.figma.com/hc/en-us",
+    "kind": "tutorial",
+    "cost": "free",
+    "effort": "medium",
+    "topics": [
+      "figma",
+      "prototyping",
+      "wireframing",
+      "design tools",
+      "components",
+      "auto layout"
+    ],
+    "checkedOn": "2026-10-31"
+  },
+  {
+    "id": "w3c-wai",
+    "title": "Introduction to web accessibility",
+    "provider": "W3C WAI",
+    "url": "https://www.w3.org/WAI/fundamentals/accessibility-intro/",
+    "kind": "article",
+    "cost": "free",
+    "effort": "short",
+    "topics": [
+      "accessibility",
+      "inclusive design",
+      "wcag",
+      "contrast",
+      "assistive technology"
+    ],
+    "checkedOn": "2026-10-31"
+  },
+  {
+    "id": "wcag-quickref",
+    "title": "WCAG quick reference",
+    "provider": "W3C WAI",
+    "url": "https://www.w3.org/WAI/WCAG22/quickref/",
+    "kind": "tool",
+    "cost": "free",
+    "effort": "short",
+    "topics": [
+      "accessibility",
+      "wcag",
+      "standards",
+      "inclusive design",
+      "contrast",
+      "assistive technology"
+    ],
+    "checkedOn": "2026-10-31"
+  },
+  {
+    "id": "nng-journey",
+    "title": "Journey mapping 101",
+    "provider": "Nielsen Norman Group",
+    "url": "https://www.nngroup.com/articles/journey-mapping-101/",
+    "kind": "article",
+    "cost": "free",
+    "effort": "short",
+    "topics": [
+      "journey mapping",
+      "ux",
+      "research",
+      "service design"
+    ],
+    "checkedOn": "2026-10-31"
+  },
+  {
+    "id": "lawsofux",
+    "title": "Laws of UX",
+    "provider": "Jon Yablonski",
+    "url": "https://lawsofux.com/",
+    "kind": "article",
+    "cost": "free",
+    "effort": "short",
+    "topics": [
+      "ux",
+      "design principles",
+      "interaction design"
+    ],
+    "checkedOn": "2026-10-31"
+  },
+  {
+    "id": "material3",
+    "title": "Material Design 3",
+    "provider": "Google",
+    "url": "https://m3.material.io/",
+    "kind": "tool",
+    "cost": "free",
+    "effort": "medium",
+    "topics": [
+      "design systems",
+      "ui design",
+      "components",
+      "interaction design"
+    ],
+    "checkedOn": "2026-10-31"
+  },
+  {
+    "id": "apple-hig",
+    "title": "Human Interface Guidelines",
+    "provider": "Apple",
+    "url": "https://developer.apple.com/design/human-interface-guidelines/",
+    "kind": "tool",
+    "cost": "free",
+    "effort": "medium",
+    "topics": [
+      "ui design",
+      "design systems",
+      "interaction design"
+    ],
+    "checkedOn": "2026-10-31"
+  },
+  {
+    "id": "google-techwriting",
+    "title": "Technical Writing courses",
+    "provider": "Google",
+    "url": "https://developers.google.com/tech-writing",
+    "kind": "course",
+    "cost": "free",
+    "effort": "short",
+    "topics": [
+      "writing",
+      "communication",
+      "documentation"
+    ],
+    "checkedOn": "2026-10-31"
+  },
+  {
+    "id": "purdue-owl",
+    "title": "Purdue Online Writing Lab",
+    "provider": "Purdue University",
+    "url": "https://owl.purdue.edu/owl/purdue_owl.html",
+    "kind": "tutorial",
+    "cost": "free",
+    "effort": "medium",
+    "topics": [
+      "writing",
+      "communication",
+      "professional writing"
+    ],
+    "checkedOn": "2026-10-31"
+  },
+  {
+    "id": "storytelling-data",
+    "title": "Storytelling with Data blog",
+    "provider": "Storytelling with Data",
+    "url": "https://www.storytellingwithdata.com/blog",
+    "kind": "article",
+    "cost": "free",
+    "effort": "medium",
+    "topics": [
+      "data storytelling",
+      "presentation",
+      "communication",
+      "charts"
+    ],
+    "checkedOn": "2026-10-31"
+  },
+  {
+    "id": "amplitude-northstar-book",
+    "title": "The North Star Playbook",
+    "provider": "Amplitude",
+    "url": "https://amplitude.com/books/north-star",
+    "kind": "book",
+    "cost": "free-with-signup",
+    "effort": "short",
+    "topics": [
+      "metrics",
+      "kpis",
+      "north star metric",
+      "analytics",
+      "strategy"
+    ],
+    "checkedOn": "2026-10-31"
+  },
+  {
+    "id": "productplan-gtm",
+    "title": "Go-to-market strategy",
+    "provider": "ProductPlan",
+    "url": "https://www.productplan.com/glossary/go-to-market-strategy/",
+    "kind": "article",
+    "cost": "free",
+    "effort": "short",
+    "topics": [
+      "go-to-market",
+      "launch",
+      "positioning",
+      "product"
+    ],
+    "checkedOn": "2026-10-31"
+  },
+  {
+    "id": "mixpanel-metrics",
+    "title": "Product metrics",
+    "provider": "Mixpanel",
+    "url": "https://mixpanel.com/blog/product-metrics/",
+    "kind": "article",
+    "cost": "free",
+    "effort": "short",
+    "topics": [
+      "metrics",
+      "kpis",
+      "product analytics",
+      "funnels"
+    ],
+    "checkedOn": "2026-10-31"
+  },
+  {
+    "id": "nng-research-cheatsheet",
+    "title": "UX research cheat sheet",
+    "provider": "Nielsen Norman Group",
+    "url": "https://www.nngroup.com/articles/ux-research-cheat-sheet/",
+    "kind": "article",
+    "cost": "free",
+    "effort": "short",
+    "topics": [
+      "user research",
+      "methods",
+      "ux",
+      "discovery"
+    ],
+    "checkedOn": "2026-10-31"
+  }
+]

@@ -1,0 +1,1458 @@
+{
+  "skills": [
+    {
+      "id": "stakeholders",
+      "label": "Stakeholder & cross-functional collaboration",
+      "category": "soft",
+      "current": 2,
+      "required": 3,
+      "evidence": [
+        "Led user acceptance testing for a bank's client portal migration across three teams."
+      ],
+      "status": "have",
+      "targetWording": "Work closely with teams such as engineering, design, marketing, operations",
+      "evidenceVerified": true,
+      "lastVerifiedAt": "2026-10-31T15:26:14.192Z",
+      "dependsOn": [
+        "communication"
+      ]
+    },
+    {
+      "id": "research",
+      "label": "User / customer research & empathy",
+      "category": "craft",
+      "current": 0,
+      "required": 3,
+      "evidence": [],
+      "status": "missing",
+      "targetWording": "Analysis, customer interviews, user research, competition analysis",
+      "lastVerifiedAt": "2026-10-31T15:26:14.192Z",
+      "dependsOn": []
+    },
+    {
+      "id": "communication",
+      "label": "Written & verbal communication",
+      "category": "soft",
+      "current": 2,
+      "required": 3,
+      "evidence": [
+        "Triaged defects by severity and release risk in every sprint, and presented a weekly defect summary to the client."
+      ],
+      "status": "have",
+      "targetWording": "Good communication and stakeholder management skills",
+      "evidenceVerified": true,
+      "lastVerifiedAt": "2026-10-31T15:26:14.192Z",
+      "dependsOn": []
+    },
+    {
+      "id": "engineering",
+      "label": "Engineering / technical fluency",
+      "category": "technical",
+      "current": 2,
+      "required": 2,
+      "evidence": [
+        "Root-caused a recurring payment-gateway defect that earlier teams had closed as cannot reproduce."
+      ],
+      "status": "have",
+      "targetWording": "Good understanding of technology, comfort with product management processes",
+      "evidenceVerified": true,
+      "lastVerifiedAt": "2026-10-31T15:26:14.192Z"
+    },
+    {
+      "id": "sql",
+      "label": "SQL / data analysis",
+      "category": "technical",
+      "current": 2,
+      "required": 2,
+      "evidence": [
+        "SQL (SELECT and JOIN queries to verify test data)"
+      ],
+      "status": "have",
+      "targetWording": "Enhance skills in data analysis, reporting, and troubleshooting",
+      "evidenceVerified": true,
+      "lastVerifiedAt": "2026-10-31T15:26:14.192Z"
+    },
+    {
+      "id": "strategy",
+      "label": "Product strategy & roadmap",
+      "category": "craft",
+      "current": 0,
+      "required": 3,
+      "evidence": [],
+      "status": "missing",
+      "targetWording": "Create a product roadmap for your area with 3-month view",
+      "lastVerifiedAt": "2026-10-31T15:26:14.192Z",
+      "dependsOn": [
+        "research"
+      ]
+    },
+    {
+      "id": "problem",
+      "label": "Problem solving / first principles",
+      "category": "soft",
+      "current": 2,
+      "required": 2,
+      "evidence": [
+        "Root-caused a recurring payment-gateway defect that earlier teams had closed as cannot reproduce."
+      ],
+      "status": "have",
+      "targetWording": "Exceptional problem-solving skills based on first principles of thinking",
+      "evidenceVerified": true,
+      "lastVerifiedAt": "2026-10-31T15:26:14.192Z"
+    },
+    {
+      "id": "metrics",
+      "label": "Metrics / KPIs & business acumen",
+      "category": "domain",
+      "current": 1,
+      "required": 2,
+      "evidence": [
+        "Built an Excel tracker of defect trends that the delivery manager used in weekly reviews."
+      ],
+      "status": "transferable",
+      "oldWording": "defect trends",
+      "targetWording": "Define product metrics for your area, track them continuously",
+      "evidenceVerified": true,
+      "lastVerifiedAt": "2026-10-31T15:26:14.192Z",
+      "dependsOn": []
+    },
+    {
+      "id": "specs",
+      "label": "Specs, PRDs & user stories",
+      "category": "craft",
+      "current": 2,
+      "required": 1,
+      "evidence": [
+        "Wrote test cases from user stories and acceptance criteria for retail banking features."
+      ],
+      "status": "have",
+      "targetWording": "Support documentation of functional specifications and user stories",
+      "evidenceVerified": true,
+      "lastVerifiedAt": "2026-10-31T15:26:14.192Z"
+    },
+    {
+      "id": "experimentation",
+      "label": "Experimentation / A/B testing",
+      "category": "technical",
+      "current": 0,
+      "required": 2,
+      "evidence": [],
+      "status": "missing",
+      "targetWording": "A/B experimentation, writing product requirement documents, managing backlogs",
+      "lastVerifiedAt": "2026-10-31T15:26:14.192Z",
+      "dependsOn": [
+        "metrics"
+      ]
+    },
+    {
+      "id": "gtm",
+      "label": "Go-to-market & launch",
+      "category": "domain",
+      "current": 0,
+      "required": 2,
+      "evidence": [],
+      "status": "missing",
+      "targetWording": "Create a go-to-market plan to maximize product adoption",
+      "lastVerifiedAt": "2026-10-31T15:26:14.192Z",
+      "dependsOn": [
+        "experimentation",
+        "strategy"
+      ]
+    },
+    {
+      "id": "ai",
+      "label": "AI / ML familiarity",
+      "category": "technical",
+      "current": 0,
+      "required": 1,
+      "evidence": [],
+      "status": "missing",
+      "targetWording": "Leverage AI tools for research, analysis, prototyping, documentation, testing, and product development.",
+      "lastVerifiedAt": "2026-10-31T15:26:14.192Z",
+      "dependsOn": []
+    },
+    {
+      "id": "prioritization",
+      "label": "Prioritization",
+      "category": "craft",
+      "current": 1,
+      "required": 1,
+      "evidence": [
+        "Triaged defects by severity and release risk in every sprint"
+      ],
+      "status": "transferable",
+      "oldWording": "Triaged defects by severity",
+      "targetWording": "value-based prioritization of product initiatives",
+      "evidenceVerified": true,
+      "lastVerifiedAt": "2026-10-31T15:26:14.192Z"
+    },
+    {
+      "id": "ownership",
+      "label": "Ownership & ambiguity",
+      "category": "soft",
+      "current": 2,
+      "required": 3,
+      "evidence": [
+        "Led user acceptance testing for a bank's client portal migration across three teams."
+      ],
+      "status": "have",
+      "targetWording": "Own a product pod or charter with clearly defined customer and business objectives.",
+      "evidenceVerified": true,
+      "lastVerifiedAt": "2026-10-31T15:26:14.192Z",
+      "dependsOn": []
+    },
+    {
+      "id": "telco-services-knowledge",
+      "label": "Telco services knowledge",
+      "category": "domain",
+      "current": 0,
+      "required": 1,
+      "evidence": [],
+      "status": "missing",
+      "targetWording": "Focus: Telco Services (IVR, USSD, SMS, Precall, Merchant IVR, M2M IVR Portal)",
+      "lastVerifiedAt": "2026-10-31T15:26:14.192Z",
+      "dependsOn": []
+    },
+    {
+      "id": "ivr-ussd-sms-protocol-expertise",
+      "label": "IVR/USSD/SMS protocol expertise",
+      "category": "domain",
+      "current": 0,
+      "required": 1,
+      "evidence": [],
+      "status": "missing",
+      "targetWording": "Develop understanding of Telco protocols and service delivery",
+      "lastVerifiedAt": "2026-10-31T15:26:14.192Z",
+      "dependsOn": [
+        "telco-services-knowledge"
+      ]
+    },
+    {
+      "id": "service-monitoring-tools-proficiency",
+      "label": "Service monitoring tools proficiency",
+      "category": "technical",
+      "current": 0,
+      "required": 1,
+      "evidence": [],
+      "status": "missing",
+      "targetWording": "Learn and utilize service monitoring tools and platforms",
+      "lastVerifiedAt": "2026-10-31T15:26:14.192Z",
+      "dependsOn": [
+        "scalable-system-design"
+      ]
+    },
+    {
+      "id": "incident-investigation-skills",
+      "label": "Incident investigation skills",
+      "category": "craft",
+      "current": 2,
+      "required": 1,
+      "evidence": [
+        "Root-caused a recurring payment-gateway defect that earlier teams had closed as cannot reproduce."
+      ],
+      "status": "have",
+      "targetWording": "Assist in the initial investigation of operational issues and incidents",
+      "evidenceVerified": true,
+      "lastVerifiedAt": "2026-10-31T15:26:14.192Z"
+    },
+    {
+      "id": "operational-documentation-creation",
+      "label": "Operational documentation creation",
+      "category": "craft",
+      "current": 2,
+      "required": 1,
+      "evidence": [
+        "Wrote test cases from user stories and acceptance criteria for retail banking features."
+      ],
+      "status": "have",
+      "targetWording": "Support creation and maintenance of operational documentation",
+      "evidenceVerified": true,
+      "lastVerifiedAt": "2026-10-31T15:26:14.192Z"
+    },
+    {
+      "id": "feature-testing-and-deployment",
+      "label": "Feature testing and deployment",
+      "category": "craft",
+      "current": 2,
+      "required": 1,
+      "evidence": [
+        "Led user acceptance testing for a bank's client portal migration across three teams."
+      ],
+      "status": "have",
+      "targetWording": "Participate in testing of new service features or deployments",
+      "evidenceVerified": true,
+      "lastVerifiedAt": "2026-10-31T15:26:14.192Z"
+    },
+    {
+      "id": "product-management-experience-within-ent",
+      "label": "Product Management experience within enterprise-scale SaaS platforms",
+      "category": "craft",
+      "current": 0,
+      "required": 1,
+      "evidence": [],
+      "status": "missing",
+      "targetWording": "3+ years of Product Management experience specifically within enterprise-scale SaaS platforms",
+      "lastVerifiedAt": "2026-10-31T15:26:14.192Z",
+      "dependsOn": [
+        "ownership"
+      ]
+    },
+    {
+      "id": "backup-and-recovery-expertise",
+      "label": "Backup and recovery expertise",
+      "category": "technical",
+      "current": 0,
+      "required": 1,
+      "evidence": [],
+      "status": "missing",
+      "targetWording": "Experience with Backup or recovery tools",
+      "lastVerifiedAt": "2026-10-31T15:26:14.192Z",
+      "dependsOn": [
+        "scalable-system-design"
+      ]
+    },
+    {
+      "id": "identity-and-access-management-knowledge",
+      "label": "Identity and Access Management knowledge",
+      "category": "domain",
+      "current": 0,
+      "required": 1,
+      "evidence": [],
+      "status": "missing",
+      "targetWording": "Deep familiarity with Identity and Access Management (IAM) protocols",
+      "lastVerifiedAt": "2026-10-31T15:26:14.192Z",
+      "dependsOn": []
+    },
+    {
+      "id": "scalable-system-design",
+      "label": "Scalable system design",
+      "category": "technical",
+      "current": 0,
+      "required": 1,
+      "evidence": [],
+      "status": "missing",
+      "targetWording": "ensure the backup and recovery roadmap scales with the breadth of Okta's customer base",
+      "lastVerifiedAt": "2026-10-31T15:26:14.192Z",
+      "dependsOn": []
+    },
+    {
+      "id": "customer-facing-platform-delivery",
+      "label": "Customer-facing platform delivery",
+      "category": "craft",
+      "current": 2,
+      "required": 1,
+      "evidence": [
+        "Led user acceptance testing for a bank's client portal migration across three teams."
+      ],
+      "status": "have",
+      "targetWording": "Demonstrated business results from customer-facing platform capabilities shipped at scale",
+      "evidenceVerified": true,
+      "lastVerifiedAt": "2026-10-31T15:26:14.192Z"
+    },
+    {
+      "id": "competitive-analysis",
+      "label": "Competitive Analysis",
+      "category": "domain",
+      "current": 0,
+      "required": 1,
+      "evidence": [],
+      "status": "missing",
+      "targetWording": "Competition analysis and other qualitative/quantitative techniques",
+      "lastVerifiedAt": "2026-10-31T15:26:14.192Z",
+      "dependsOn": [
+        "research"
+      ]
+    },
+    {
+      "id": "behavioral-economics",
+      "label": "Behavioral Economics",
+      "category": "domain",
+      "current": 0,
+      "required": 1,
+      "evidence": [],
+      "status": "missing",
+      "targetWording": "Deep interest in behavioural economics and how to leverage it",
+      "lastVerifiedAt": "2026-10-31T15:26:14.192Z",
+      "dependsOn": [
+        "research"
+      ]
+    },
+    {
+      "id": "e-commerce-industry-experience",
+      "label": "e-commerce industry experience",
+      "category": "domain",
+      "current": 0,
+      "required": 1,
+      "evidence": [],
+      "status": "missing",
+      "targetWording": "Experience in e-commerce industry (especially product exp.)",
+      "lastVerifiedAt": "2026-10-31T15:26:14.192Z",
+      "dependsOn": []
+    },
+    {
+      "id": "start-up-or-consulting-experience",
+      "label": "Start-up or consulting experience",
+      "category": "domain",
+      "current": 0,
+      "required": 1,
+      "evidence": [],
+      "status": "missing",
+      "targetWording": "Or Other start-ups or top-tier consulting",
+      "lastVerifiedAt": "2026-10-31T15:26:14.192Z",
+      "dependsOn": [
+        "ownership"
+      ]
+    },
+    {
+      "id": "data-driven-decision-making",
+      "label": "Data-driven decision making",
+      "category": "technical",
+      "current": 1,
+      "required": 1,
+      "evidence": [
+        "Built an Excel tracker of defect trends that the delivery manager used in weekly reviews."
+      ],
+      "status": "transferable",
+      "oldWording": "Excel tracker of defect trends",
+      "targetWording": "you ground everything in data and voice of customers",
+      "evidenceVerified": true,
+      "lastVerifiedAt": "2026-10-31T15:26:14.192Z"
+    },
+    {
+      "id": "leadership-driving-business-results",
+      "label": "Leadership driving business results",
+      "category": "soft",
+      "current": 2,
+      "required": 1,
+      "evidence": [
+        "Cut regression cycle time by writing a reusable test suite for the payments flow"
+      ],
+      "status": "have",
+      "targetWording": "Demonstrated leadership which enabled business results",
+      "evidenceVerified": true,
+      "lastVerifiedAt": "2026-10-31T15:26:14.192Z"
+    },
+    {
+      "id": "hands-on-execution",
+      "label": "Hands-on execution",
+      "category": "craft",
+      "current": 2,
+      "required": 1,
+      "evidence": [
+        "Wrote and executed more than 400 test cases on a retail banking app."
+      ],
+      "status": "have",
+      "targetWording": "Go-getter attitude and willingness to be hands-on",
+      "evidenceVerified": true,
+      "lastVerifiedAt": "2026-10-31T15:26:14.192Z"
+    },
+    {
+      "id": "financial-services-knowledge",
+      "label": "Financial services knowledge",
+      "category": "domain",
+      "current": 2,
+      "required": 1,
+      "evidence": [
+        "Four years testing banking and payments applications for enterprise clients."
+      ],
+      "status": "have",
+      "targetWording": "Prior fintech experience is preferred but not necessary",
+      "evidenceVerified": true,
+      "lastVerifiedAt": "2026-10-31T15:26:14.192Z"
+    },
+    {
+      "id": "analytical-data-driven-approach",
+      "label": "Analytical & data-driven approach",
+      "category": "domain",
+      "current": 2,
+      "required": 1,
+      "evidence": [
+        "Root-caused a recurring payment-gateway defect that earlier teams had closed as cannot reproduce."
+      ],
+      "status": "have",
+      "targetWording": "You have an analytical and data-driven approach in day-to-day work",
+      "evidenceVerified": true,
+      "lastVerifiedAt": "2026-10-31T15:26:14.192Z"
+    },
+    {
+      "id": "business-acumen",
+      "label": "Business acumen",
+      "category": "domain",
+      "current": 1,
+      "required": 1,
+      "evidence": [
+        "Triaged defects by severity and release risk in every sprint"
+      ],
+      "status": "transferable",
+      "oldWording": "release risk",
+      "targetWording": "Strong Business acumen and problem solving skills",
+      "evidenceVerified": true,
+      "lastVerifiedAt": "2026-10-31T15:26:14.192Z"
+    },
+    {
+      "id": "problem-solving",
+      "label": "Problem solving",
+      "category": "craft",
+      "current": 2,
+      "required": 1,
+      "evidence": [
+        "Root-caused a recurring payment-gateway defect that earlier teams had closed as cannot reproduce."
+      ],
+      "status": "have",
+      "targetWording": "Strong Business acumen and problem solving skills",
+      "evidenceVerified": true,
+      "lastVerifiedAt": "2026-10-31T15:26:14.192Z"
+    },
+    {
+      "id": "long-term-product-thinking",
+      "label": "Long-term product thinking",
+      "category": "craft",
+      "current": 0,
+      "required": 1,
+      "evidence": [],
+      "status": "missing",
+      "targetWording": "you think bold and big, you think of the long term answer, no short term hacks",
+      "lastVerifiedAt": "2026-10-31T15:26:14.192Z",
+      "dependsOn": [
+        "strategy"
+      ]
+    }
+  ],
+  "plan": {
+    "generatedAt": "2026-10-31T09:00:00.000Z",
+    "revision": 1,
+    "weeks": [
+      {
+        "n": 1,
+        "theme": "Foundations of User Research",
+        "hours": 8,
+        "tasks": [
+          {
+            "title": "Draft interview guide for 5 target users",
+            "skillIds": [
+              "research"
+            ],
+            "estHours": 4,
+            "resourceId": "nng-interviews",
+            "kind": "learn",
+            "status": "done",
+            "id": "w1t1"
+          },
+          {
+            "title": "Compile 20 publicly available retail banking checkout reviews",
+            "skillIds": [
+              "research"
+            ],
+            "estHours": 4,
+            "resourceId": "nng-interviews",
+            "kind": "learn",
+            "status": "done",
+            "id": "w1t2"
+          }
+        ],
+        "block": 1,
+        "blockEnd": false
+      },
+      {
+        "n": 2,
+        "theme": "Deepening Empathy",
+        "hours": 8,
+        "tasks": [
+          {
+            "title": "Create empathy maps for 3 personas based on interview data",
+            "skillIds": [
+              "research"
+            ],
+            "estHours": 4,
+            "resourceId": "producttalk",
+            "kind": "learn",
+            "status": "done",
+            "id": "w2t1"
+          },
+          {
+            "title": "Analyze 3 competitor checkout flows and note pain points",
+            "skillIds": [
+              "research"
+            ],
+            "estHours": 4,
+            "resourceId": "designkit",
+            "kind": "learn",
+            "status": "done",
+            "id": "w2t2"
+          }
+        ],
+        "block": 1,
+        "blockEnd": false
+      },
+      {
+        "n": 3,
+        "theme": "Data Collection Milestone",
+        "hours": 8,
+        "tasks": [
+          {
+            "title": "Extract and categorize 30 forum posts about checkout experiences",
+            "skillIds": [
+              "research"
+            ],
+            "estHours": 4,
+            "resourceId": "khan-stats",
+            "kind": "learn",
+            "status": "done",
+            "id": "w3t1"
+          },
+          {
+            "title": "Deliver dataset of 30 reviews and forum excerpts for analysis",
+            "skillIds": [
+              "research",
+              "strategy"
+            ],
+            "estHours": 4,
+            "kind": "milestone",
+            "projectId": "pr1",
+            "milestoneIdx": 0,
+            "status": "done",
+            "id": "w3t2"
+          }
+        ],
+        "block": 1,
+        "blockEnd": true
+      },
+      {
+        "n": 4,
+        "theme": "Synthesizing Insights",
+        "hours": 8,
+        "tasks": [
+          {
+            "title": "Perform thematic analysis on collected data and identify key insights",
+            "skillIds": [
+              "research"
+            ],
+            "estHours": 4,
+            "resourceId": "designkit",
+            "kind": "learn",
+            "status": "done",
+            "id": "w4t1"
+          },
+          {
+            "title": "Write detailed research report outline with findings and recommendations",
+            "skillIds": [
+              "research"
+            ],
+            "estHours": 4,
+            "resourceId": "kaggle-dataviz",
+            "kind": "learn",
+            "status": "done",
+            "id": "w4t2"
+          }
+        ],
+        "block": 2,
+        "blockEnd": false
+      },
+      {
+        "n": 5,
+        "theme": "User Validation",
+        "hours": 8,
+        "tasks": [
+          {
+            "title": "Conduct 3 follow-up validation interviews to test hypotheses",
+            "skillIds": [
+              "research"
+            ],
+            "estHours": 4,
+            "resourceId": "momtest",
+            "kind": "learn",
+            "status": "done",
+            "id": "w5t1"
+          },
+          {
+            "title": "Design and distribute a short survey to 20 users for feedback on findings",
+            "skillIds": [
+              "research"
+            ],
+            "estHours": 4,
+            "resourceId": "producttalk",
+            "kind": "learn",
+            "status": "done",
+            "id": "w5t2"
+          }
+        ],
+        "block": 2,
+        "blockEnd": false
+      },
+      {
+        "n": 6,
+        "theme": "Roadmap Drafting",
+        "hours": 8,
+        "tasks": [
+          {
+            "title": "Build a 3-month product roadmap skeleton in a visual tool",
+            "skillIds": [
+              "strategy"
+            ],
+            "estHours": 4,
+            "resourceId": "productplan-roadmap",
+            "kind": "learn",
+            "status": "todo",
+            "id": "w6t1"
+          },
+          {
+            "title": "Produce draft roadmap document linking research insights to feature themes",
+            "skillIds": [
+              "research",
+              "strategy"
+            ],
+            "estHours": 4,
+            "kind": "milestone",
+            "projectId": "pr1",
+            "milestoneIdx": 1,
+            "status": "todo",
+            "id": "w6t2"
+          }
+        ],
+        "block": 2,
+        "blockEnd": true
+      },
+      {
+        "n": 7,
+        "theme": "Strategic Detailing",
+        "hours": 8,
+        "tasks": [
+          {
+            "title": "Prioritize roadmap features using the RICE framework",
+            "skillIds": [
+              "strategy"
+            ],
+            "estHours": 4,
+            "resourceId": "intercom-rice",
+            "kind": "learn",
+            "status": "todo",
+            "id": "w7t1"
+          },
+          {
+            "title": "Define success metrics and KPIs for each prioritized feature",
+            "skillIds": [
+              "strategy"
+            ],
+            "estHours": 4,
+            "resourceId": "amplitude-northstar-book",
+            "kind": "learn",
+            "status": "todo",
+            "id": "w7t2"
+          }
+        ],
+        "block": 3,
+        "blockEnd": false
+      },
+      {
+        "n": 8,
+        "theme": "Finalizing Product Strategy",
+        "hours": 8,
+        "tasks": [
+          {
+            "title": "Create a go-to-market brief for the checkout feature rollout",
+            "skillIds": [
+              "strategy"
+            ],
+            "estHours": 4,
+            "resourceId": "productplan-gtm",
+            "kind": "learn",
+            "status": "todo",
+            "id": "w8t1"
+          },
+          {
+            "title": "Polish the roadmap and metrics deck for stakeholder presentation",
+            "skillIds": [
+              "strategy"
+            ],
+            "estHours": 4,
+            "resourceId": "productplan-roadmap",
+            "kind": "learn",
+            "status": "todo",
+            "id": "w8t2"
+          }
+        ],
+        "block": 3,
+        "blockEnd": false
+      },
+      {
+        "n": 9,
+        "theme": "Roadmap Strategy and Stakeholder Mapping",
+        "hours": 8,
+        "tasks": [
+          {
+            "title": "Draft a 3-month product roadmap structure for the retail banking checkout experience",
+            "skillIds": [
+              "strategy"
+            ],
+            "estHours": 4,
+            "resourceId": "khan-stats",
+            "kind": "learn",
+            "status": "todo",
+            "id": "w9t1"
+          },
+          {
+            "title": "Identify and map internal and external stakeholders for a new payment feature, producing a stakeholder matrix",
+            "skillIds": [
+              "stakeholders",
+              "communication",
+              "ownership"
+            ],
+            "estHours": 4,
+            "kind": "milestone",
+            "projectId": "pr3",
+            "milestoneIdx": 0,
+            "status": "todo",
+            "id": "w9t2"
+          }
+        ],
+        "block": 3,
+        "blockEnd": true
+      },
+      {
+        "n": 10,
+        "theme": "Advanced Product Strategy & Prioritization",
+        "hours": 8,
+        "tasks": [
+          {
+            "title": "Apply RICE framework to prioritize features for the retail banking roadmap and document the scoring",
+            "skillIds": [
+              "strategy"
+            ],
+            "estHours": 4,
+            "resourceId": "intercom-rice",
+            "kind": "learn",
+            "status": "todo",
+            "id": "w10t1"
+          },
+          {
+            "title": "Synthesize competitor product strategy insights into a 3-month strategic alignment document",
+            "skillIds": [
+              "strategy"
+            ],
+            "estHours": 4,
+            "resourceId": "mtp",
+            "kind": "learn",
+            "status": "todo",
+            "id": "w10t2"
+          }
+        ],
+        "block": 4,
+        "blockEnd": false
+      },
+      {
+        "n": 11,
+        "theme": "Roadmap Refinement & Executive Communication",
+        "hours": 8,
+        "tasks": [
+          {
+            "title": "Refine the product roadmap based on strategic trade-offs and milestone feedback",
+            "skillIds": [
+              "strategy"
+            ],
+            "estHours": 4,
+            "resourceId": "mtp",
+            "kind": "learn",
+            "status": "todo",
+            "id": "w11t1"
+          },
+          {
+            "title": "Write an executive summary memo detailing the product strategy and roadmap rationale",
+            "skillIds": [
+              "communication"
+            ],
+            "estHours": 4,
+            "resourceId": "svpg",
+            "kind": "learn",
+            "status": "todo",
+            "id": "w11t2"
+          }
+        ],
+        "block": 4,
+        "blockEnd": false
+      },
+      {
+        "n": 12,
+        "theme": "Communication Strategy & Stakeholder Alignment",
+        "hours": 8,
+        "tasks": [
+          {
+            "title": "Create a comprehensive stakeholder presentation deck outlining key product updates and goals",
+            "skillIds": [
+              "communication"
+            ],
+            "estHours": 4,
+            "resourceId": "storytelling-data",
+            "kind": "learn",
+            "status": "todo",
+            "id": "w12t1"
+          },
+          {
+            "title": "Draft a communication strategy and KPI document to align teams across engineering, design, and marketing",
+            "skillIds": [
+              "stakeholders",
+              "communication",
+              "ownership"
+            ],
+            "estHours": 4,
+            "kind": "milestone",
+            "projectId": "pr3",
+            "milestoneIdx": 1,
+            "status": "todo",
+            "id": "w12t2"
+          }
+        ],
+        "block": 4,
+        "blockEnd": true
+      },
+      {
+        "n": 13,
+        "theme": "Cross-Functional Collaboration & Writing",
+        "hours": 8,
+        "tasks": [
+          {
+            "title": "Draft cross-functional sync agendas and feedback collection templates for engineering and design teams",
+            "skillIds": [
+              "communication"
+            ],
+            "estHours": 4,
+            "resourceId": "purdue-owl",
+            "kind": "learn",
+            "status": "todo",
+            "id": "w13t1"
+          },
+          {
+            "title": "Map out cross-functional workflows and dependencies for product delivery across teams",
+            "skillIds": [
+              "stakeholders"
+            ],
+            "estHours": 4,
+            "resourceId": "atlassian-agile",
+            "kind": "learn",
+            "status": "todo",
+            "id": "w13t2"
+          }
+        ],
+        "block": 5,
+        "blockEnd": false
+      },
+      {
+        "n": 14,
+        "theme": "Advanced Stakeholder Management",
+        "hours": 8,
+        "tasks": [
+          {
+            "title": "Conduct a simulated cross-functional alignment session and document conflict resolution steps",
+            "skillIds": [
+              "stakeholders"
+            ],
+            "estHours": 4,
+            "resourceId": "atlassian-requirements",
+            "kind": "learn",
+            "status": "todo",
+            "id": "w14t1"
+          },
+          {
+            "title": "Produce a stakeholder engagement plan detailing touchpoints for marketing, operations, and support",
+            "skillIds": [
+              "stakeholders"
+            ],
+            "estHours": 4,
+            "resourceId": "productplan-gtm",
+            "kind": "learn",
+            "status": "todo",
+            "id": "w14t2"
+          }
+        ],
+        "block": 5,
+        "blockEnd": false
+      },
+      {
+        "n": 15,
+        "theme": "Ownership & Experimentation Setup",
+        "hours": 8,
+        "tasks": [
+          {
+            "title": "Define product charter objectives, success metrics, and customer scope for a checkout product pod",
+            "skillIds": [
+              "ownership"
+            ],
+            "estHours": 4,
+            "resourceId": "amplitude-northstar-book",
+            "kind": "learn",
+            "status": "todo",
+            "id": "w15t1"
+          },
+          {
+            "title": "Define a hypothesis to improve checkout conversion and outline experiment metrics for the feature",
+            "skillIds": [
+              "experimentation",
+              "gtm"
+            ],
+            "estHours": 4,
+            "kind": "milestone",
+            "projectId": "pr2",
+            "milestoneIdx": 0,
+            "status": "todo",
+            "id": "w15t2"
+          }
+        ],
+        "block": 5,
+        "blockEnd": true
+      },
+      {
+        "n": 16,
+        "theme": "Navigating Ambiguity in Product Pods",
+        "hours": 8,
+        "tasks": [
+          {
+            "title": "Create an ambiguity navigation framework to handle undefined requirements in early-stage features",
+            "skillIds": [
+              "ownership"
+            ],
+            "estHours": 4,
+            "resourceId": "atlassian-requirements",
+            "kind": "learn",
+            "status": "todo",
+            "id": "w16t1"
+          },
+          {
+            "title": "Write a definitive product charter document outlining success criteria and business objectives",
+            "skillIds": [
+              "ownership"
+            ],
+            "estHours": 4,
+            "resourceId": "google-techwriting",
+            "kind": "learn",
+            "status": "todo",
+            "id": "w16t2"
+          }
+        ],
+        "block": 6,
+        "blockEnd": false
+      },
+      {
+        "n": 17,
+        "theme": "Define product metrics",
+        "hours": 8,
+        "tasks": [
+          {
+            "title": "Identify top 3 business goals and draft metric definitions",
+            "skillIds": [
+              "metrics"
+            ],
+            "estHours": 4,
+            "resourceId": "mixpanel-metrics",
+            "kind": "learn",
+            "status": "todo",
+            "id": "w17t1"
+          },
+          {
+            "title": "Build a simple dashboard template in Google Sheets to track metrics",
+            "skillIds": [
+              "metrics"
+            ],
+            "estHours": 4,
+            "resourceId": "mixpanel-metrics",
+            "kind": "learn",
+            "status": "todo",
+            "id": "w17t2"
+          }
+        ],
+        "block": 6,
+        "blockEnd": false
+      },
+      {
+        "n": 18,
+        "theme": "Metrics prototype & design mockup",
+        "hours": 8,
+        "tasks": [
+          {
+            "title": "Create KPI scorecard for checkout feature",
+            "skillIds": [
+              "metrics"
+            ],
+            "estHours": 4,
+            "resourceId": "optimizely-ab",
+            "kind": "learn",
+            "status": "todo",
+            "id": "w18t1"
+          },
+          {
+            "title": "Produce low-fidelity checkout flow prototype in Figma",
+            "skillIds": [
+              "experimentation",
+              "gtm"
+            ],
+            "estHours": 4,
+            "kind": "milestone",
+            "projectId": "pr2",
+            "milestoneIdx": 1,
+            "status": "todo",
+            "id": "w18t2"
+          }
+        ],
+        "block": 6,
+        "blockEnd": true
+      },
+      {
+        "n": 19,
+        "theme": "A/B testing fundamentals",
+        "hours": 8,
+        "tasks": [
+          {
+            "title": "Read Optimizely article and outline A/B testing workflow",
+            "skillIds": [
+              "experimentation"
+            ],
+            "estHours": 4,
+            "resourceId": "optimizely-ab",
+            "kind": "learn",
+            "status": "todo",
+            "id": "w19t1"
+          },
+          {
+            "title": "Study Evan Miller guide and calculate required sample sizes",
+            "skillIds": [
+              "experimentation"
+            ],
+            "estHours": 4,
+            "resourceId": "evanmiller-ab",
+            "kind": "learn",
+            "status": "todo",
+            "id": "w19t2"
+          }
+        ],
+        "block": 7,
+        "blockEnd": false
+      },
+      {
+        "n": 20,
+        "theme": "Design experiment plan",
+        "hours": 8,
+        "tasks": [
+          {
+            "title": "Write experiment hypothesis, success criteria, and success metrics",
+            "skillIds": [
+              "experimentation"
+            ],
+            "estHours": 4,
+            "resourceId": "evanmiller-ab",
+            "kind": "learn",
+            "status": "todo",
+            "id": "w20t1"
+          },
+          {
+            "title": "Map user-flow variations and create mockup sketches",
+            "skillIds": [
+              "experimentation"
+            ],
+            "estHours": 4,
+            "resourceId": "nng-usability",
+            "kind": "learn",
+            "status": "todo",
+            "id": "w20t2"
+          }
+        ],
+        "block": 7,
+        "blockEnd": false
+      },
+      {
+        "n": 21,
+        "theme": "Run test & analyze results",
+        "hours": 8,
+        "tasks": [
+          {
+            "title": "Set up Google Optimize A/B test on sample landing page",
+            "skillIds": [
+              "experimentation"
+            ],
+            "estHours": 4,
+            "noResource": true,
+            "kind": "learn",
+            "status": "todo",
+            "id": "w21t1"
+          },
+          {
+            "title": "Execute test, collect data, and produce results report",
+            "skillIds": [
+              "experimentation",
+              "gtm"
+            ],
+            "estHours": 4,
+            "kind": "milestone",
+            "projectId": "pr2",
+            "milestoneIdx": 2,
+            "status": "todo",
+            "id": "w21t2"
+          }
+        ],
+        "block": 7,
+        "blockEnd": true
+      },
+      {
+        "n": 22,
+        "theme": "Combine testing with launch prep",
+        "hours": 8,
+        "tasks": [
+          {
+            "title": "Document experiment learnings and update backlog items",
+            "skillIds": [
+              "experimentation"
+            ],
+            "estHours": 4,
+            "resourceId": "google-techwriting",
+            "kind": "learn",
+            "status": "todo",
+            "id": "w22t1"
+          },
+          {
+            "title": "Draft go-to-market strategy outline for checkout feature",
+            "skillIds": [
+              "gtm"
+            ],
+            "estHours": 4,
+            "resourceId": "svpg",
+            "kind": "learn",
+            "status": "todo",
+            "id": "w22t2"
+          }
+        ],
+        "block": 8,
+        "blockEnd": false
+      },
+      {
+        "n": 23,
+        "theme": "Polish GTM plan",
+        "hours": 8,
+        "tasks": [
+          {
+            "title": "Create detailed GTM deck with timeline, messaging, and KPIs",
+            "skillIds": [
+              "gtm"
+            ],
+            "estHours": 4,
+            "noResource": true,
+            "kind": "learn",
+            "status": "todo",
+            "id": "w23t1"
+          },
+          {
+            "title": "Finalize and review GTM plan document for stakeholder sign-off",
+            "skillIds": [
+              "experimentation",
+              "gtm"
+            ],
+            "estHours": 4,
+            "kind": "milestone",
+            "projectId": "pr2",
+            "status": "todo",
+            "id": "w23t2"
+          }
+        ],
+        "block": 8,
+        "blockEnd": true
+      },
+      {
+        "n": 24,
+        "theme": "Portfolio & interview prep",
+        "hours": 8,
+        "tasks": [
+          {
+            "title": "Update portfolio with metrics dashboard and experiment case study",
+            "skillIds": [],
+            "estHours": 3,
+            "kind": "wrap",
+            "status": "todo",
+            "id": "w24t1"
+          },
+          {
+            "title": "Conduct mock product manager interview focusing on metrics and experimentation",
+            "skillIds": [],
+            "estHours": 3,
+            "kind": "wrap",
+            "status": "todo",
+            "id": "w24t2"
+          },
+          {
+            "title": "Tailor resume and send applications to Pune-based Associate PM roles",
+            "skillIds": [],
+            "estHours": 2,
+            "kind": "wrap",
+            "status": "todo",
+            "id": "w24t3"
+          }
+        ],
+        "block": 9,
+        "blockEnd": false,
+        "wrap": true
+      },
+      {
+        "n": 25,
+        "theme": "Interview Prep And Portfolio Polish",
+        "hours": 8,
+        "tasks": [
+          {
+            "title": "Refine CV and LinkedIn profile to highlight APM transition and QA background",
+            "skillIds": [],
+            "estHours": 4,
+            "kind": "wrap",
+            "status": "todo",
+            "id": "w25t1"
+          },
+          {
+            "title": "Practice product sense and stakeholder management interview questions",
+            "skillIds": [],
+            "estHours": 4,
+            "kind": "wrap",
+            "status": "todo",
+            "id": "w25t2"
+          }
+        ],
+        "block": 9,
+        "blockEnd": false,
+        "wrap": true
+      },
+      {
+        "n": 26,
+        "theme": "Applications And Final Polish",
+        "hours": 8,
+        "tasks": [
+          {
+            "title": "Submit 5 tailored applications for Associate Product Manager roles in Pune and remote",
+            "skillIds": [],
+            "estHours": 4,
+            "kind": "wrap",
+            "status": "todo",
+            "id": "w26t1"
+          },
+          {
+            "title": "Conduct a mock product interview and review portfolio case studies",
+            "skillIds": [],
+            "estHours": 4,
+            "kind": "wrap",
+            "status": "todo",
+            "id": "w26t2"
+          }
+        ],
+        "block": 9,
+        "blockEnd": true,
+        "wrap": true
+      }
+    ],
+    "uncovered": [
+      "ai",
+      "e-commerce-industry-experience",
+      "product-management-experience-within-ent",
+      "telco-services-knowledge",
+      "ivr-ussd-sms-protocol-expertise",
+      "behavioral-economics",
+      "identity-and-access-management-knowledge",
+      "long-term-product-thinking",
+      "scalable-system-design",
+      "backup-and-recovery-expertise",
+      "service-monitoring-tools-proficiency",
+      "start-up-or-consulting-experience",
+      "competitive-analysis"
+    ],
+    "changelog": [
+      {
+        "at": "2026-10-31T09:00:00.000Z",
+        "reason": "First plan",
+        "summary": "26 weeks from week 1 at 8 hours a week. First up: User / customer research & empathy, Product strategy & roadmap, Written & verbal communication. Covers 8 of 21 skill gaps; 13 did not fit before your deadline. A project milestone ends every block of 2 or 3 weeks."
+      }
+    ]
+  },
+  "projects": [
+    {
+      "id": "pr1",
+      "title": "User Research & Product Roadmap for a Retail Banking Checkout",
+      "pitch": "Leverage my QA experience with payment-gateway defects to conduct user research and draft a 3-month product roadmap for a retail banking checkout experience, using publicly available reviews and interview data.",
+      "skillIds": [
+        "research",
+        "strategy"
+      ],
+      "deliverable": "User Research Report and 3-Month Product Roadmap (PDF)",
+      "scopeHours": 8,
+      "oldFieldAngle": "I apply the defect-analysis skills I honed while root-causing payment-gateway issues in my QA role to uncover real user pain points.",
+      "interviewStory": "Situation: I led UAT for a bank's client portal migration and root-caused a recurring payment-gateway defect. What I did: I collected public user feedback, conducted five user interviews, and synthesized the findings into a research report and a 3-month roadmap. Result: [what changed, with a number]",
+      "milestones": [
+        {
+          "title": "Collect publicly available user reviews and forum posts about retail banking checkout experiences",
+          "done": true,
+          "week": 3,
+          "hours": 4
+        },
+        {
+          "title": "Synthesize findings into a research report and draft a 3-month product roadmap",
+          "done": false,
+          "week": 6,
+          "hours": 4
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "pr2",
+      "title": "Experimentation & Go-to-Market Plan for a Checkout Feature",
+      "pitch": "Design and execute an A/B experiment for a checkout flow improvement, then create a go-to-market plan, building on my experience automating payment-flow test suites.",
+      "skillIds": [
+        "experimentation",
+        "gtm"
+      ],
+      "deliverable": "A/B Test Results Deck and Go-to-Market Plan (PDF)",
+      "scopeHours": 12,
+      "oldFieldAngle": "My background writing reusable test suites for payment flows lets me design rigorous experiments and rollout plans.",
+      "interviewStory": "Situation: I cut regression cycle time by writing a reusable test suite for the payments flow and wrote 400+ test cases for a retail banking app. What I did: I defined a checkout hypothesis, built a low-fidelity prototype, and ran an A/B test using a public optimization tool, then drafted a launch plan. Result: [what changed, with a number]",
+      "milestones": [
+        {
+          "title": "Define a hypothesis to improve checkout conversion and outline experiment metrics",
+          "done": false,
+          "week": 15,
+          "hours": 4
+        },
+        {
+          "title": "Create a low-fidelity prototype of the new checkout flow in Figma",
+          "done": false,
+          "week": 18,
+          "hours": 4
+        },
+        {
+          "title": "Run an A/B test with Google Optimize on a sample landing page and compile results",
+          "done": false,
+          "week": 21,
+          "hours": 4
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "id": "pr3",
+      "title": "Stakeholder Alignment & Communication Blueprint for a Payment Feature",
+      "pitch": "Create a stakeholder map and communication blueprint for a new payment feature, drawing on my cross-team coordination experience in QA projects.",
+      "skillIds": [
+        "stakeholders",
+        "communication",
+        "ownership"
+      ],
+      "deliverable": "Stakeholder Map and Communication/KPI Plan (PDF)",
+      "scopeHours": 8,
+      "oldFieldAngle": "Coordinating three teams during UAT gave me insight into aligning diverse stakeholders for product initiatives.",
+      "interviewStory": "Situation: I led UAT for a bank's client portal migration across three teams and documented processes in Confluence. What I did: I mapped key stakeholders for a hypothetical payment feature and drafted a communication and KPI plan. Result: [what changed, with a number]",
+      "milestones": [
+        {
+          "title": "Identify and map internal and external stakeholders for a new payment feature",
+          "done": false,
+          "week": 9,
+          "hours": 4
+        },
+        {
+          "title": "Draft a communication strategy and KPI document to align teams",
+          "done": false,
+          "week": 12,
+          "hours": 4
+        }
+      ],
+      "status": "suggested"
+    }
+  ]
+}

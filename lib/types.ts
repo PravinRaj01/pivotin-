@@ -16,6 +16,7 @@ export const SkillSchema = z.object({
   evidence: z.array(z.string()),
   status: z.enum(["have", "transferable", "missing"]),
   // Transferable skills: how the person words it today, and how the target role words it.
+  dependsOn: z.array(z.string()).optional(), // skill ids a learner should have first
   oldWording: z.string().optional(),
   targetWording: z.string().optional(),
   // True when every evidence quote was found word for word in their story, resume or work history.
@@ -29,6 +30,12 @@ export const TaskSchema = z.object({
   skillIds: z.array(z.string()),
   estHours: z.number(),
   resourceHint: z.string().optional(),
+  // Learning links only ever come from data/resources.json. noResource means that list has nothing for this skill.
+  resourceId: z.string().optional(),
+  noResource: z.boolean().optional(),
+  kind: z.enum(["learn", "milestone", "wrap"]).default("learn"),
+  projectId: z.string().optional(),
+  milestoneIdx: z.number().optional(),
   status: z.enum(["todo", "done", "skipped", "moved"]),
 });
 
@@ -111,8 +118,17 @@ export const PivotProfileSchema = z.object({
     generatedAt: z.string(),
     revision: z.number(),
     weeks: z.array(
-      z.object({ n: z.number(), theme: z.string(), hours: z.number(), tasks: z.array(TaskSchema) }),
+      z.object({
+        n: z.number(),
+        theme: z.string(),
+        hours: z.number(),
+        tasks: z.array(TaskSchema),
+        block: z.number().optional(), // weeks come in blocks of 2 or 3; each block ends with a project milestone
+        blockEnd: z.boolean().optional(),
+        wrap: z.boolean().optional(), // closing weeks: interviews and applications
+      }),
     ),
+    uncovered: z.array(z.string()).default([]), // skill ids that did not fit in the time available
     changelog: z.array(z.object({ at: z.string(), reason: z.string(), summary: z.string() })),
   }),
 
@@ -124,7 +140,9 @@ export const PivotProfileSchema = z.object({
       skillIds: z.array(z.string()),
       deliverable: z.string(),
       scopeHours: z.number(),
-      milestones: z.array(z.object({ title: z.string(), done: z.boolean() })),
+      oldFieldAngle: z.string().default(""), // how it draws on their previous field
+      interviewStory: z.string().default(""), // the story they will be able to tell, blanks where results are not in yet
+      milestones: z.array(z.object({ title: z.string(), done: z.boolean(), week: z.number().optional(), hours: z.number().optional() })),
       status: z.enum(["suggested", "active", "done"]),
       link: z.string().optional(),
     }),
@@ -207,7 +225,7 @@ export function emptyProfile(
     experience: [],
     targetRole: { jds: [], requirements: [] },
     skills: [],
-    plan: { generatedAt: "", revision: 0, weeks: [], changelog: [] },
+    plan: { generatedAt: "", revision: 0, weeks: [], uncovered: [], changelog: [] },
     projects: [],
     interviews: [],
     checkins: [],

@@ -1,41 +1,30 @@
-import { runAgent } from "@/lib/llm/agent";
-import { PlanResultSchema } from "@/lib/schemas/plan";
+import { agentRoute } from "@/lib/llm/route";
+import { PlanWeeksResultSchema } from "@/lib/schemas/agents";
 
-export const maxDuration = 300;
+export const maxDuration = 120;
 
-const SYSTEM = `You are the planning agent of a career-pivot coach. You write a week-by-week study-and-action plan for ONE person switching careers. Any career, any country.
+const SYSTEM = `You are the planning agent of a career-pivot coach. The schedule is already decided: which skills are worked on in which week, for how many hours, and which project milestone ends each block. Your job is only to write the tasks. Any career, any country.
 
-Input fields: goal (targetRole, totalWeeks, hoursPerWeek, constraints), skills (with skillId, current, required, status), projectIdeas, alreadyDone, fromWeek, weeksToWrite, reason.
+Input: goal (targetRole, hoursPerWeek), preferences, projects, resources (a curated list), weeks. Each week has n, budgetHours, kind ("learn", "practice" or "wrap"), slots (skill work: slot = the skillId, skill = its name, hours, level "from->to" on a 0-3 scale, employerWording) and optionally a milestone (slot "milestone", project, milestone title, hours).
 
-Write exactly "weeksToWrite" weeks, numbered fromWeek to totalWeeks, with no gaps.
+For EVERY week return a theme and tasks:
+- theme: 2 to 5 words naming what the week is about.
+- For each slot in the week write 1 or 2 tasks whose hours add up to that slot's hours. Set the task's "slot" to the slot's skillId exactly. A task is a concrete action with a visible result (something you could show someone, with a number or a named output), not a topic. Build on the previous weeks; do not repeat a task.
+- For a "milestone" write one task with slot "milestone" that carries out that milestone for that project, using the project and milestone titles, and the milestone's hours. Name what exists at the end of it.
+- Weeks of kind "practice" have no skill slots: write 1 or 2 tasks with slot "practice" that apply the recent skills to a small exercise. Weeks of kind "wrap" are the closing weeks: write 2 or 3 tasks with slot "wrap" for interview practice, polishing the portfolio and sending applications for the target role.
+- The hours of all tasks in a week must not exceed budgetHours.
 
-How to plan:
-- Order: foundations of the biggest gaps first; then practice and proof of work (a portfolio project, using projectIdeas if given); then interview preparation; then applications and review in the last weeks. Spread the work so no week is a copy of the last.
-- Spend time in proportion to the gap (required minus current) and the skill's importance. Do not spend time on skills where status is "have", except to show them off.
-- Each week: a short "theme" (2-5 words) and 2 to 4 tasks. The sum of estHours in a week must be at most hoursPerWeek and close to it.
-- Each task: a concrete action with a visible result (a task whose result you could show someone, with a number or a named output), not a topic ("Learn about PRDs"). estHours between 1 and 4, halves allowed. skillIds only from the input skills, 1-2 per task. resourceHint: a type of resource or search phrase ("free beginner course on <the skill>"), never a made-up URL, book or course title unless it is very well known.
-- Respect constraints (for example limited days or a full-time job). If "reason" describes a change (missed weeks, a blocker, a new job description), the plan must visibly respond to it.
-- Do not repeat tasks listed in alreadyDone.
-- "summary": 1-2 sentences saying what this plan focuses on or what changed and why, in plain words addressed to the person ("you").
+Learning resources:
+- "resourceId" is an id from the resources list, or null. Use one ONLY when that resource directly teaches the task's skill. Never invent an id, a title or a link. If nothing in the list fits, use null: that is expected and correct. Give resources only to skill tasks, not to milestone, practice or wrap tasks.
+- Do not reuse the same resource for more than 2 tasks in the whole input.
 
-Return ONLY JSON: {"summary":"","weeks":[{"n":1,"theme":"","tasks":[{"title":"","skillIds":[],"estHours":2,"resourceHint":""}]}]}`;
+Respect preferences (things they like or dislike) when choosing how to practise.
 
-export async function POST(req: Request) {
-  let input: { weeksToWrite?: number; skills?: unknown[] } | null = null;
-  try {
-    input = await req.json();
-  } catch {
-    return new Response("Send JSON with the plan input.", { status: 400 });
-  }
-  if (!input?.skills?.length) return new Response("Build your skill map first so the plan knows your gaps.", { status: 400 });
-  const expected = Number(input.weeksToWrite ?? 0);
-  try {
-    const result = await runAgent({ schema: PlanResultSchema, system: SYSTEM, input });
-    if (expected && result.weeks.length < Math.ceil(expected * 0.7)) {
-      return new Response("The plan came back incomplete. Try again.", { status: 422 });
-    }
-    return Response.json(result);
-  } catch (e) {
-    return new Response((e as Error).message || "Could not build the plan.", { status: 502 });
-  }
-}
+Return ONLY JSON: {"weeks":[{"n":1,"theme":"","tasks":[{"title":"","slot":"","hours":2,"resourceId":null}]}]}`;
+
+export const POST = agentRoute({
+  schema: PlanWeeksResultSchema,
+  system: SYSTEM,
+  check: (i) => (!Array.isArray(i.weeks) || !i.weeks.length ? "There are no weeks to write." : null),
+  after: (r) => (r.weeks.length ? null : "The plan came back empty. Try again."),
+});

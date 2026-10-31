@@ -10,7 +10,11 @@
     "check": "tsx scripts/check.ts",
     "test:intake": "tsx scripts/test-intake.ts",
     "seed:arjun": "tsx scripts/seed-arjun-analysis.ts",
-    "test:bridge": "tsx scripts/test-bridge.ts"
+    "test:bridge": "tsx scripts/test-bridge.ts",
+    "check:links": "tsx scripts/check-links.ts",
+    "test:plan": "tsx scripts/test-plan.ts",
+    "seed:arjun-plan": "tsx scripts/seed-arjun-plan.ts",
+    "test:plan-live": "tsx scripts/test-plan-live.ts"
   },
   "dependencies": {
     "next": "16.4.3",

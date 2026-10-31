@@ -32,6 +32,7 @@ export function makeWeeks(rows: WeekRow[], doneThrough: number): PivotProfile["p
         title,
         skillIds,
         estHours,
+        kind: "learn" as const,
         status: status ?? (n <= doneThrough ? "done" : "todo"),
       })),
     };
