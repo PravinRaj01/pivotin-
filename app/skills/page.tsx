@@ -29,12 +29,12 @@ function SkillRow({ s, color, isNew }: { s: Skill; color: string; isNew: boolean
               {isNew && <span className="ml-2 rounded-full bg-accent-soft px-2 py-0.5 text-xs font-normal">New from this job description</span>}
             </span>
             <span className="shrink-0 text-xs text-muted">
-              You {s.current} / needs {s.required}
+              You {s.current}/3, needs {s.required}
             </span>
           </div>
-          <div className="relative mt-2 h-2 rounded-full bg-surface-2" role="img" aria-label={`${s.label}: you ${s.current} of ${s.required} needed`}>
-            <div className={`h-full rounded-full ${color}`} style={{ width: `${(Math.min(s.current, 5) / 5) * 100}%` }} />
-            <div className="absolute top-[-3px] h-3.5 w-0.5 bg-text" style={{ left: `${(Math.min(s.required, 5) / 5) * 100}%` }} title="What the role needs" />
+          <div className="relative mt-2 h-2 rounded-full bg-surface-2" role="img" aria-label={`${s.label}: level ${s.current} of 3, the role needs ${s.required}`}>
+            <div className={`h-full rounded-full ${color}`} style={{ width: `${(Math.min(s.current, 3) / 3) * 100}%` }} />
+            <div className="absolute top-[-3px] h-3.5 w-0.5 bg-text" style={{ left: `${(Math.min(s.required, 3) / 3) * 100}%` }} title="What the role needs" />
           </div>
         </summary>
         <div className="mt-2 text-sm text-muted">

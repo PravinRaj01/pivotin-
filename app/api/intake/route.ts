@@ -13,13 +13,16 @@ Rules:
 - Keep currency, cities and company names exactly as spoken; do not assume any country.
 - strengths: up to 5 short phrases supported by the story. fears: up to 5 short phrases of worries they voiced.
 - experience: one entry per role mentioned, most recent first. achievements only if described. toolsUsed only if named.
-- constraints: practical limits they mentioned (job, location, money, family).
+- constraints: other practical limits they mentioned (job, family, health), as short phrases.
+- salaryFloor: ONLY if they state a minimum pay as a number. amount in whole currency units for the period, currency as a code or symbol they used (INR, GBP, KES...), period "year" or "month". Omit the field if not stated. Never guess.
+- cities: places they would be willing to work, as spoken; include "Remote" if they say remote is fine. [] if not said.
+- alternateRoles: other roles they say they would also consider, [] if none.
 - summary: 2 sentences, third person. Use the person's name or "they"; never guess gender from a name or job.
 - missing: up to 5 short questions a coach would ask next (e.g. "What kind of company do you want to join?"). Empty if nothing important is missing.
 
 Return ONLY JSON with exactly this shape:
 {"person":{"name":"","location":"","yearsExperience":0,"currentRole":"","currentIndustry":"","education":""},
-"goal":{"targetRole":"","targetIndustry":"","timelineWeeks":26,"hoursPerWeek":8,"motivation":"","constraints":[]},
+"goal":{"targetRole":"","targetIndustry":"","timelineWeeks":26,"hoursPerWeek":8,"salaryFloor":{"amount":0,"currency":"","period":"year"},"cities":[],"alternateRoles":[],"motivation":"","constraints":[]},
 "summary":"","strengths":[],"fears":[],
 "experience":[{"role":"","org":"","period":"","achievements":[],"toolsUsed":[]}],
 "missing":[]}`;

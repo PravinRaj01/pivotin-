@@ -19,6 +19,13 @@ export const IntakeResultSchema = z.object({
     targetIndustry: str.optional(),
     timelineWeeks: num(26),
     hoursPerWeek: num(8),
+    // Only when the speaker states a number; amount is per period in their own currency.
+    salaryFloor: z
+      .object({ amount: num(0), currency: str, period: z.enum(["year", "month"]).catch("year") })
+      .optional()
+      .catch(undefined),
+    cities: list,
+    alternateRoles: list,
     motivation: str,
     constraints: list,
   }),

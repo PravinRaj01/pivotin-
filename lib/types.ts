@@ -4,7 +4,8 @@ import { z } from "zod";
 // Nothing here knows about a specific career; roles, skills and tasks are all data.
 
 const id = z.string();
-const level = z.number().min(0).max(5);
+// Skill levels: 0 none, 1 aware / basic, 2 working, 3 strong.
+const level = z.number().min(0).max(3);
 
 export const SkillSchema = z.object({
   id,
@@ -46,8 +47,12 @@ export const PivotProfileSchema = z.object({
     targetIndustry: z.string().optional(),
     timelineWeeks: z.number(),
     hoursPerWeek: z.number(),
+    deadline: z.string().optional(), // ISO date the person wants to be hired by
+    salaryFloor: z.object({ amount: z.number(), currency: z.string(), period: z.enum(["year", "month"]) }).optional(),
+    cities: z.array(z.string()), // where they would work; empty means anywhere / remote
+    alternateRoles: z.array(z.string()),
     motivation: z.string(),
-    constraints: z.array(z.string()),
+    constraints: z.array(z.string()), // anything else, in their words
   }),
 
   story: z.object({
@@ -155,6 +160,8 @@ export const PivotProfileSchema = z.object({
       fitScore: z.number().optional(),
       notes: z.string(),
       followUps: z.array(z.string()),
+      location: z.string().optional(),
+      source: z.string().optional(),
     }),
   ),
 
@@ -179,7 +186,7 @@ export function emptyProfile(
     createdAt: now,
     updatedAt: now,
     person: { name: "", location: "", yearsExperience: 0, currentRole: "", currentIndustry: "" },
-    goal: { targetRole: "", timelineWeeks: 26, hoursPerWeek: 8, motivation: "", constraints: [] },
+    goal: { targetRole: "", timelineWeeks: 26, hoursPerWeek: 8, cities: [], alternateRoles: [], motivation: "", constraints: [] },
     story: { rawTranscripts: [], summary: "", strengths: [], fears: [] },
     experience: [],
     targetRole: { jds: [], requirements: [] },

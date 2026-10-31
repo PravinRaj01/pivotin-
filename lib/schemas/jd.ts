@@ -22,8 +22,8 @@ export const BridgeResultSchema = z.object({
     .array(
       z.object({
         skillId: z.string(),
-        current: z.coerce.number().min(0).max(5).catch(0),
-        required: z.coerce.number().min(0).max(5).catch(3),
+        current: z.coerce.number().min(0).max(3).catch(0),
+        required: z.coerce.number().min(0).max(3).catch(2),
         evidence: z.array(z.string()).catch([]),
       }),
     )

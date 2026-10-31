@@ -1,3 +1,4 @@
+import { statusFor } from "../bridge";
 import type { PivotProfile, Skill, Task } from "../types";
 
 // Compact builders so a seed persona reads like data, not boilerplate.
@@ -12,7 +13,7 @@ export function makeSkills(rows: SkillRow[]): Skill[] {
     current,
     required,
     evidence,
-    status: current >= required ? "have" : current >= required - 1.5 && current > 0 ? "transferable" : "gap",
+    status: statusFor(current, required),
   }));
 }
 

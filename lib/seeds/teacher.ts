@@ -17,15 +17,15 @@ const jds = [
 ];
 
 const skills = makeSkills([
-  ["research", "User research & interviewing", "craft", 3, 4, ["Interviews pupils and parents weekly; reads classroom behaviour closely."]],
-  ["communication", "Presenting & explaining ideas", "soft", 4.5, 4, ["Teaches 30 pupils at a time and explains hard ideas simply."]],
-  ["wireframing", "Wireframing & prototyping", "craft", 0.5, 4, []],
-  ["figma", "Figma / design tools", "technical", 0.5, 4, []],
-  ["ia", "Information architecture & flows", "craft", 2, 3, ["Redesigned the department's scheme-of-work structure so staff could find lessons faster."]],
-  ["accessibility", "Accessibility & inclusive design", "domain", 3, 3, ["Adapts materials for pupils with SEN every week."]],
-  ["testing", "Usability testing", "craft", 1.5, 3, ["Informally trialled new worksheets with a small class group."]],
-  ["collab", "Working with developers & stakeholders", "soft", 2.5, 3, ["Coordinates with the SENCo, parents and senior leadership."]],
-  ["portfolio", "Portfolio & case studies", "craft", 0, 4, []],
+  ["research", "User research & interviewing", "craft", 2, 3, ["Interviews pupils and parents weekly; reads classroom behaviour closely."]],
+  ["communication", "Presenting & explaining ideas", "soft", 3, 3, ["Teaches 30 pupils at a time and explains hard ideas simply."]],
+  ["wireframing", "Wireframing & prototyping", "craft", 0, 3, []],
+  ["figma", "Figma / design tools", "technical", 0, 3, []],
+  ["ia", "Information architecture & flows", "craft", 1, 2, ["Redesigned the department's scheme-of-work structure so staff could find lessons faster."]],
+  ["accessibility", "Accessibility & inclusive design", "domain", 2, 2, ["Adapts materials for pupils with SEN every week."]],
+  ["testing", "Usability testing", "craft", 1, 2, ["Informally trialled new worksheets with a small class group."]],
+  ["collab", "Working with developers & stakeholders", "soft", 1, 2, ["Coordinates with the SENCo, parents and senior leadership."]],
+  ["portfolio", "Portfolio & case studies", "craft", 0, 3, []],
 ]);
 
 const weeks = makeWeeks(
@@ -64,6 +64,10 @@ export const teacher: PivotProfile = {
     targetIndustry: "Agency or product company",
     timelineWeeks: 12,
     hoursPerWeek: 10,
+    deadline: "2027-01-31",
+    salaryFloor: { amount: 32000, currency: "GBP", period: "year" },
+    cities: ["Leeds", "Remote"],
+    alternateRoles: ["UX Researcher"],
     motivation: "I love designing lessons that work for every pupil, and I want to design digital things people find easy to use.",
     constraints: ["Teaching full time", "Can study evenings and Sundays", "Wants to stay in Yorkshire or work remote"],
   },

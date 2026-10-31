@@ -4,10 +4,13 @@ import type { PivotProfile, Skill } from "./types";
 const slug = (s: string) =>
   s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 40) || "skill";
 
+// Levels are whole numbers 0-3. Within one level of the bar (and not starting from zero) is transferable.
 export function statusFor(current: number, required: number): Skill["status"] {
   if (current >= required) return "have";
-  return current >= required - 1.5 && current > 0 ? "transferable" : "gap";
+  return required - current <= 1 && current > 0 ? "transferable" : "gap";
 }
+
+const clampLevel = (n: number) => Math.max(0, Math.min(3, Math.round(n)));
 
 // Fold one parsed JD into the target role. Skills already tracked keep their id, so
 // the plan and earlier ratings stay attached to them.
@@ -76,8 +79,8 @@ export function applyBridge(p: PivotProfile, r: BridgeResult): PivotProfile {
   const skills: Skill[] = p.targetRole.requirements.map((req) => {
     const s = byId.get(req.skillId);
     const old = p.skills.find((x) => x.id === req.skillId);
-    const current = s?.current ?? old?.current ?? 0;
-    const required = s?.required ?? old?.required ?? Math.min(4, req.importance);
+    const current = clampLevel(s?.current ?? old?.current ?? 0);
+    const required = clampLevel(s?.required ?? old?.required ?? (req.importance / 5) * 3);
     return {
       id: req.skillId,
       label: req.label,

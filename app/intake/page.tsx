@@ -61,7 +61,14 @@ export default function IntakePage() {
       update((p) => ({
         ...p,
         person: { ...p.person, ...r.person, education: r.person.education || p.person.education },
-        goal: { ...p.goal, ...r.goal, targetIndustry: r.goal.targetIndustry || p.goal.targetIndustry },
+        goal: {
+          ...p.goal,
+          ...r.goal,
+          targetIndustry: r.goal.targetIndustry || p.goal.targetIndustry,
+          salaryFloor: r.goal.salaryFloor?.amount ? r.goal.salaryFloor : p.goal.salaryFloor,
+          // The deadline follows from how many weeks they said they have.
+          deadline: new Date(Date.now() + r.goal.timelineWeeks * 7 * 864e5).toISOString().slice(0, 10),
+        },
         story: {
           ...p.story,
           rawTranscripts: p.story.rawTranscripts.some((t) => t.text === text)
@@ -155,6 +162,8 @@ export default function IntakePage() {
                 <Row label="Target role" show={s(5)}>{[result.goal.targetRole, result.goal.targetIndustry && `(${result.goal.targetIndustry})`].filter(Boolean).join(" ")}</Row>
                 <Row label="Time" show={s(6)}>{`${result.goal.timelineWeeks} weeks, ${result.goal.hoursPerWeek} hours a week`}</Row>
                 <Row label="Why" show={s(7)}>{result.goal.motivation}</Row>
+                <Row label="Pay floor" show={s(8)}>{result.goal.salaryFloor?.amount ? `${result.goal.salaryFloor.currency} ${result.goal.salaryFloor.amount.toLocaleString()} a ${result.goal.salaryFloor.period}` : ""}</Row>
+                <Row label="Where" show={s(8)}>{chips(result.goal.cities)}</Row>
                 <Row label="Limits" show={s(8)}>{chips(result.goal.constraints)}</Row>
               </dl>
             </Card>

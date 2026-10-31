@@ -7,37 +7,37 @@ import { makeSkills, makeWeeks, reqFromSkills } from "./build";
 const T = "2026-10-31T09:00:00.000Z";
 
 const jds = [
-  ["j1", "Product Manager I", "Meesho", "Consumer e-commerce PM: own a charter end to end, work with engineering and design, drive metrics and experiments."],
-  ["j2", "Product Analyst, Telco", "Paytm", "Analyse recharge and telco funnels with SQL, define metrics, partner with product and business teams."],
-  ["j3", "Product Manager II, Travel", "Paytm", "Own travel product areas: roadmap, PRDs, A/B tests, launches, cross-functional delivery."],
-  ["j4", "Product Manager, Product Platform", "Okta", "Enterprise SaaS platform PM: technical fluency, APIs, customer discovery, written specs."],
-  ["j5", "Associate Product Manager", "Groww", "Fintech APM: user research, data-informed decisions, shipping features with engineering. (Source text partly cut off.)"],
-  ["j6", "Associate Product Manager", "Swiggy", "Consumer startup APM: problem solving, ownership in ambiguity, metrics, collaboration with ops and tech."],
-  ["j7", "Associate Product Manager", "Razorpay Curlec", "Payments APM based in Malaysia: stakeholder work, specs, experimentation, regional launch."],
-  ["j8", "Associate Product Manager", "Urban Company", "Marketplace APM: short requirements list covering analytics, customer empathy and execution."],
-].map(([id, title, company, gist]) => ({
+  ["j1", "Product Manager I", "Meesho", "Bangalore. Product Manager I on a team focused on customers in tier 2-4 towns: problem discovery, user-first decisions, impact over features, working with engineering and design.", "Lever"],
+  ["j2", "Product Analyst, Telco", "Paytm", "Noida. Product analyst in the telco team: analysis and metrics for recharge and telco products, working with product and business teams.", "Lever"],
+  ["j3", "Product Manager II, Travel", "Paytm", "Noida. Early-career PM taking ownership of a product pod: customer problems, priorities, working with design and engineering, launches and iteration.", "Lever"],
+  ["j4", "Product Manager, Product Platform", "Okta", "Bengaluru. Platform PM at an enterprise identity company: technical depth, working with engineering, customers and internal teams on platform capabilities.", "Greenhouse"],
+  ["j5", "Associate Product Manager", "Groww", "Bengaluru, on-site. 1-2 years of PM experience asked for; user-centred product strategy, collaboration across engineering, design, analytics, finance and compliance. Source text is partly cut off.", "Unstop"],
+  ["j6", "Associate Product Manager (Revenue & Growth)", "Swiggy", "Bengaluru. APM for promotions and discounts in a three-sided marketplace (consumers, restaurants, delivery partners); works with engineering, design, data science and business. Listing closed.", "startup.jobs"],
+  ["j7", "Associate Product Manager", "Razorpay Curlec", "Kuala Lumpur, Malaysia (outside India). Payments APM at a Malaysian recurring-payments company acquired by Razorpay.", "Company site"],
+  ["j8", "Associate Product Manager", "Urban Company", "Bangalore / Gurgaon. 1+ year experience, e-commerce or start-up background preferred, strong business sense and problem solving, customer empathy, grounding decisions in data. Listing closed and old.", "Instahyre"],
+].map(([id, title, company, gist, source]) => ({
   id,
   title,
   company,
-  rawText: `${gist} (Gist only; full text lives in seeds/jds.)`,
+  rawText: `${gist} [Summary written from a public posting via ${source}; full text is not bundled.]`,
   addedAt: T,
 }));
 
 const skills = makeSkills([
-  ["stakeholders", "Stakeholder & cross-functional collaboration", "soft", 2.5, 4, ["Coordinated with developers, BAs and the client's UAT team on every release at work."]],
-  ["research", "User / customer research & empathy", "craft", 1, 4, ["Sat in on two client demos, but has never run a user interview."]],
-  ["communication", "Written & verbal communication", "soft", 3.5, 4, ["Writes clear bug reports and release notes; presents defect summaries to the client weekly."]],
-  ["engineering", "Engineering / technical fluency", "technical", 4, 4, ["Four years testing APIs and web apps; reads logs, uses Postman, knows the release pipeline."]],
-  ["sql", "SQL / data analysis", "technical", 2.5, 4, ["Writes SELECT and JOIN queries to verify test data; no analysis or dashboards yet."]],
-  ["strategy", "Product strategy & roadmap", "craft", 0.5, 3, []],
-  ["problem", "Problem solving / first principles", "soft", 3.5, 4, ["Root-caused a recurring payment-gateway defect that three teams had closed as 'cannot reproduce'."]],
-  ["metrics", "Metrics / KPIs & business acumen", "domain", 1, 4, ["Tracks defect leakage and test coverage, but not product or business metrics."]],
-  ["specs", "Specs, PRDs & user stories", "craft", 1.5, 4, ["Reads user stories daily to write test cases; has never authored one."]],
-  ["experimentation", "Experimentation / A/B testing", "technical", 1, 3, ["Understands test design from QA; no exposure to statistical A/B tests."]],
-  ["gtm", "Go-to-market & launch", "domain", 0.5, 2, []],
+  ["stakeholders", "Stakeholder & cross-functional collaboration", "soft", 2, 3, ["Coordinated with developers, BAs and the client's UAT team on every release at work."]],
+  ["research", "User / customer research & empathy", "craft", 1, 3, ["Sat in on two client demos, but has never run a user interview."]],
+  ["communication", "Written & verbal communication", "soft", 3, 3, ["Writes clear bug reports and release notes; presents defect summaries to the client weekly."]],
+  ["engineering", "Engineering / technical fluency", "technical", 3, 3, ["Four years testing APIs and web apps; reads logs, uses Postman, knows the release pipeline."]],
+  ["sql", "SQL / data analysis", "technical", 2, 3, ["Writes SELECT and JOIN queries to verify test data; no analysis or dashboards yet."]],
+  ["strategy", "Product strategy & roadmap", "craft", 0, 2, []],
+  ["problem", "Problem solving / first principles", "soft", 3, 3, ["Root-caused a recurring payment-gateway defect that three teams had closed as 'cannot reproduce'."]],
+  ["metrics", "Metrics / KPIs & business acumen", "domain", 1, 3, ["Tracks defect leakage and test coverage, but not product or business metrics."]],
+  ["specs", "Specs, PRDs & user stories", "craft", 1, 3, ["Reads user stories daily to write test cases; has never authored one."]],
+  ["experimentation", "Experimentation / A/B testing", "technical", 1, 2, ["Understands test design from QA; no exposure to statistical A/B tests."]],
+  ["gtm", "Go-to-market & launch", "domain", 0, 1, []],
   ["ai", "AI / ML familiarity", "technical", 1, 2, ["Has used ChatGPT to draft test cases."]],
-  ["prioritization", "Prioritization", "craft", 2.5, 3, ["Triages bugs by severity and release risk every sprint."]],
-  ["ownership", "Ownership & ambiguity", "soft", 2.5, 3, ["Led UAT for a client portal migration with unclear requirements."]],
+  ["prioritization", "Prioritization", "craft", 2, 3, ["Triages bugs by severity and release risk every sprint."]],
+  ["ownership", "Ownership & ambiguity", "soft", 2, 3, ["Led UAT for a client portal migration with unclear requirements."]],
 ]);
 
 const freq = {
@@ -78,6 +78,40 @@ const weeks = makeWeeks(
   6,
 );
 
+// Sample tracker data. Companies are real; the roles and outcomes are invented for the demo persona.
+type AppRow = [company: string, role: string, status: string, location: string, notes: string, applied?: string, nextStep?: string, fit?: number, jdId?: string, followUps?: string[]];
+const apps: AppRow[] = [
+  ["Groww", "Associate Product Manager", "saved", "Bengaluru", "Asks for 1-2 years of PM experience. Wait until the PRD and portfolio project are done.", undefined, undefined, 52, "j5", ["Ask a referral who knows the team"]],
+  ["Swiggy", "Associate Product Manager (Revenue & Growth)", "saved", "Bengaluru", "Promotions and discounts, a metrics-heavy charter. Referral first.", undefined, undefined, 48, "j6", ["Message the former colleague who moved to PM there"]],
+  ["Urban Company", "Associate Product Manager", "saved", "Bangalore / Gurgaon", "Marketplace background preferred; customer research story needed.", undefined, undefined, 55, "j8"],
+  ["Razorpay Curlec", "Associate Product Manager", "saved", "Kuala Lumpur", "Payments domain fits his banking QA work. Needs relocation, so a stretch.", undefined, undefined, 50, "j7"],
+  ["Okta", "Product Manager, Product Platform", "saved", "Bengaluru", "Strong on technical fluency, weak on product ownership. Revisit after the project.", undefined, undefined, 40, "j4"],
+  ["Meesho", "Product Manager I", "saved", "Bangalore", "Stretch role. Strong on engineering and ownership, weak on research and metrics.", undefined, undefined, 45, "j1"],
+  ["Paytm", "Product Analyst, Telco", "applied", "Noida", "Applied through the careers page with a note on payments testing.", "2026-10-12", "2026-11-10", 58, "j2", ["Follow up if no reply by 10 Nov"]],
+  ["CRED", "Associate Product Manager", "applied", "Bengaluru", "Applied via referral from a college senior.", "2026-10-05", "2026-11-05", 50, undefined, ["Thank the referrer"]],
+  ["PhonePe", "Product Analyst", "applied", "Pune", "Pune office, analytics-leaning. Uses his SQL and payments knowledge.", "2026-10-20", undefined, 56],
+  ["Juspay", "Associate Product Manager", "applied", "Bengaluru", "Payments infrastructure; resume tailored to API testing experience.", "2026-10-24", undefined, 54],
+  ["Zomato", "Associate Product Manager", "screen", "Gurugram", "Recruiter screen booked. Prepare the 'why PM' story and the QA-to-product framing.", "2026-09-28", "2026-11-04", 49, undefined, ["Rehearse the 'why PM' answer", "Read two recent product launches"]],
+  ["Flipkart", "Associate Product Manager", "interview", "Bengaluru", "Cleared the screen; product-sense round next. Under-prepared on metrics.", "2026-09-15", "2026-11-07", 47, undefined, ["Practise 'improve X' and metric-drop questions"]],
+  ["Zerodha", "Product Analyst", "rejected", "Bengaluru", "Rejected after the assignment: strong analysis, thin product framing. Lesson: add recommendations, not just numbers.", "2026-09-10", undefined, 44],
+  ["Cleartax", "Associate Product Manager", "rejected", "Bengaluru", "Auto-rejected. Wanted prior PM experience.", "2026-09-18", undefined, 38],
+  ["Freshworks", "Associate Product Manager", "rejected", "Chennai", "Rejected at resume stage; no feedback. Resume reframe is on the plan for week 19.", "2026-09-22", undefined, 41],
+];
+
+const APPLICATIONS: PivotProfile["applications"] = apps.map(([company, role, status, location, notes, applied, nextStep, fitScore, jdId, followUps], i) => ({
+  id: `a${i + 1}`,
+  company,
+  role,
+  jdId,
+  status: status as PivotProfile["applications"][number]["status"],
+  dates: { applied, nextStep },
+  fitScore,
+  notes,
+  followUps: followUps ?? [],
+  location,
+  source: jdId ? "Seed job description" : "Added by hand",
+}));
+
 export const arjun: PivotProfile = {
   version: 1,
   id: "persona-arjun",
@@ -96,6 +130,10 @@ export const arjun: PivotProfile = {
     targetIndustry: "Fintech or consumer tech",
     timelineWeeks: 26,
     hoursPerWeek: 8,
+    deadline: "2027-04-30",
+    salaryFloor: { amount: 1200000, currency: "INR", period: "year" },
+    cities: ["Pune", "Remote"],
+    alternateRoles: ["Product Analyst", "Business Analyst"],
     motivation: "I keep finding the bugs that come from unclear requirements. I want to be the person who decides what gets built, not the one who finds out it was wrong at the end.",
     constraints: ["Full-time job, so evenings and weekends only", "Prefers to stay in Pune or work remote"],
   },
@@ -213,10 +251,6 @@ export const arjun: PivotProfile = {
       planAdjustments: ["Moved 2h of SQL practice to week 7"],
     },
   ],
-  applications: [
-    { id: "a1", company: "Groww", role: "Associate Product Manager", jdId: "j5", status: "saved", dates: {}, notes: "Wait until the PRD and portfolio project are done.", followUps: [] },
-    { id: "a2", company: "Swiggy", role: "Associate Product Manager", jdId: "j6", status: "saved", dates: {}, notes: "Ask a referral first.", followUps: ["Message the former colleague who moved to PM there"] },
-    { id: "a3", company: "Meesho", role: "Product Manager I", jdId: "j1", status: "saved", dates: {}, notes: "Stretch role. Strong on engineering and ownership, weak on research and metrics.", followUps: [] },
-  ],
+  applications: APPLICATIONS,
   settings: { wisprProInstalled: false, personaId: "arjun" },
 };

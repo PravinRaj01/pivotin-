@@ -8,7 +8,7 @@ const SYSTEM = `You are the job-description agent of a career-pivot coach. You r
 Rules:
 - If the text is a real job description, extract title and company as written (use "" if absent).
 - If the text is only a role name or very short, set "title" to that role, company to "", and list the skills such a role typically needs, keeping to well-known expectations.
-- requirements: 6 to 14 skills. Each "label" is a short noun phrase of 2-5 words (e.g. "SQL and data analysis", "Stakeholder management", "Wireframing and prototyping"). Merge duplicates. Skip generic items such as degrees, years of experience, location, perks and visa status.
+- requirements: 6 to 14 skills. Each "label" is a short noun phrase of 2-5 words (a skill name a recruiter would recognise, not a sentence). Merge duplicates. Skip generic items such as degrees, years of experience, location, perks and visa status.
 - "existing" lists skill labels already tracked for this person's target role. If a requirement is the same skill as an existing label, reuse that label EXACTLY. Only invent a new label when it is genuinely a different skill.
 - category: "technical" (tools, code, data), "domain" (industry or business knowledge), "craft" (core professional methods of the role), "soft" (communication, collaboration, leadership).
 - importance 1-5: 5 = must-have stated firmly or repeated, 3 = expected, 1 = nice to have.

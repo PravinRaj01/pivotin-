@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { ALL_SCREENS, NAV_GROUPS } from "@/lib/nav";
 import { useProfile } from "@/lib/profile-context";
+import { journey } from "@/lib/journey";
 import { readiness } from "@/lib/types";
 import { DemoPanel } from "./DemoPanel";
 
@@ -42,7 +43,9 @@ export function Shell({ children }: { children: React.ReactNode }) {
   const { profile } = useProfile();
   const [open, setOpen] = useState(false);
   const current = ALL_SCREENS.find((s) => path.startsWith(s.href));
-  const pct = readiness(profile);
+  const { states, pct: journeyPct } = journey(profile);
+  const ready = readiness(profile);
+  const doneCount = Object.values(states).filter((s) => s === "done").length;
 
   useEffect(() => setOpen(false), [path]);
 
@@ -63,13 +66,21 @@ export function Shell({ children }: { children: React.ReactNode }) {
                     }`}
                   >
                     <span
-                      className={`grid h-6 w-6 place-items-center rounded-full text-xs ${
-                        active ? "bg-accent text-accent-text" : "bg-surface-2"
+                      className={`grid h-6 w-6 shrink-0 place-items-center rounded-full text-xs ${
+                        states[it.href] === "done"
+                          ? "bg-good text-accent-text"
+                          : active || states[it.href] === "doing"
+                            ? "bg-accent text-accent-text"
+                            : "bg-surface-2"
                       }`}
+                      aria-hidden
                     >
-                      {it.step}
+                      {states[it.href] === "done" ? "\u2713" : it.step}
                     </span>
-                    {it.label}
+                    <span className="flex-1">{it.label}</span>
+                    <span className="text-xs text-muted">
+                      {states[it.href] === "done" ? "Done" : states[it.href] === "doing" ? "In progress" : ""}
+                    </span>
                   </Link>
                 </li>
               );
@@ -107,13 +118,16 @@ export function Shell({ children }: { children: React.ReactNode }) {
             <ThemeToggle />
           </div>
           <div className="rounded-xl border border-border bg-surface p-3">
-            <p className="text-xs text-muted">Pivot readiness</p>
+            <p className="text-xs text-muted">
+              Your journey: {doneCount} of 8 steps done
+            </p>
             <div className="mt-1 flex items-center gap-3">
-              <div className="h-2 flex-1 overflow-hidden rounded-full bg-surface-2">
-                <div className="h-full bg-accent transition-all" style={{ width: `${pct}%` }} />
+              <div className="h-2 flex-1 overflow-hidden rounded-full bg-surface-2" role="progressbar" aria-valuenow={journeyPct} aria-valuemin={0} aria-valuemax={100}>
+                <div className="h-full bg-accent transition-all" style={{ width: `${journeyPct}%` }} />
               </div>
-              <span className="text-sm font-medium">{pct}%</span>
+              <span className="text-sm font-medium">{journeyPct}%</span>
             </div>
+            <p className="mt-2 text-xs text-muted">Skill readiness for {profile.goal.targetRole || "your target role"}: {ready}%</p>
           </div>
           {nav}
           <DemoPanel />

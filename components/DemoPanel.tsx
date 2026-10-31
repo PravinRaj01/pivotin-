@@ -40,19 +40,22 @@ export function DemoPanel() {
   return (
     <section className="rounded-xl border border-border bg-surface p-2">
       <h2 className="px-2 pb-1 pt-1 text-xs font-semibold uppercase tracking-wide text-muted">Demo and data</h2>
-      {PERSONAS.map((p) => (
-        <button key={p.id} className={btn} onClick={() => load(p.id)}>
-          Load {p.label}
-          <span className="block text-xs">{p.blurb}</span>
-        </button>
-      ))}
+      <button className={btn} onClick={() => load("arjun")}>
+        Reset demo
+        <span className="block text-xs">Reload Arjun, {PERSONAS[0].blurb}</span>
+      </button>
       <button
         className={btn}
         onClick={() => {
-          if (confirm("Start a new pivot? This clears the current profile on this device.")) reset();
+          if (confirm("Start as someone new? This clears the profile on this device and begins empty.")) reset();
         }}
       >
-        Start a new pivot
+        Start as someone new
+        <span className="block text-xs">Empty profile, tell your own story</span>
+      </button>
+      <button className={btn} onClick={() => load("teacher")}>
+        Load the teacher example
+        <span className="block text-xs">{PERSONAS[1].blurb}, preloaded fallback</span>
       </button>
       <button className={btn} onClick={download}>
         Export profile (JSON)
