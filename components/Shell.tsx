@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { ALL_SCREENS, NAV_GROUPS } from "@/lib/nav";
 import { useProfile } from "@/lib/profile-context";
 import { readiness } from "@/lib/types";
+import { DemoPanel } from "./DemoPanel";
 
 function ThemeToggle() {
   const [dark, setDark] = useState(false);
@@ -115,6 +116,7 @@ export function Shell({ children }: { children: React.ReactNode }) {
             </div>
           </div>
           {nav}
+          <DemoPanel />
         </div>
       </aside>
 

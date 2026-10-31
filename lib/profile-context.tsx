@@ -3,6 +3,7 @@
 import { createContext, useCallback, useContext, useEffect, useRef, useState } from "react";
 import { PivotProfile, emptyProfile } from "./types";
 import { loadProfile, saveProfile, clearProfile } from "./storage";
+import { arjun } from "./seeds/arjun";
 
 type Ctx = {
   profile: PivotProfile;
@@ -21,10 +22,10 @@ export function ProfileProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     loadProfile().then((p) => {
-      if (p) {
-        latest.current = p;
-        setProfile(p);
-      }
+      // First visit: judges land on Arjun's journey with data already loaded.
+      const start = p ?? structuredClone(arjun);
+      latest.current = start;
+      setProfile(start);
       setReady(true);
     });
   }, []);
