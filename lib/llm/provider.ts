@@ -19,6 +19,7 @@ const gemini: Adapter = async ({ system, user, json }) => {
     `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`,
     {
       method: "POST",
+      signal: AbortSignal.timeout(75000),
       headers: { "content-type": "application/json", "x-goog-api-key": key },
       body: JSON.stringify({
         systemInstruction: { parts: [{ text: system }] },
@@ -47,6 +48,7 @@ const openrouter: Adapter = async ({ system, user, json }) => {
   if (!key) throw new Error("OPENROUTER_API_KEY is not set");
   const res = await fetch("https://openrouter.ai/api/v1/chat/completions", {
     method: "POST",
+    signal: AbortSignal.timeout(75000),
     headers: { "content-type": "application/json", authorization: `Bearer ${key}` },
     body: JSON.stringify({
       model: process.env.OPENROUTER_MODEL || "meta-llama/llama-3.3-70b-instruct:free",
@@ -82,6 +84,7 @@ export function callLlm(req: LlmRequest, attempts = 4): Promise<string> {
         return await adapter(req);
       } catch (e) {
         lastErr = e;
+        console.warn(`[llm] attempt ${i + 1}/${attempts} failed:`, (e as Error).message);
         if (!(e instanceof RateLimitError) && i >= 1) break;
         const base = e instanceof RateLimitError && e.retryAfterMs ? e.retryAfterMs : 1000 * 2 ** i;
         await sleep(Math.min(base, 15000) + Math.random() * 400);
