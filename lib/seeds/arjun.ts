@@ -1,4 +1,5 @@
-import type { PivotProfile } from "../types";
+import type { PivotProfile, Skill } from "../types";
+import analysis from "./arjun-analysis.json";
 import { makeSkills, makeWeeks, reqFromSkills } from "./build";
 
 // Demo persona (fictional). Target JDs are the 8 in seeds/jds; the two in seeds/jds-demo-holdout
@@ -23,7 +24,7 @@ const jds = [
   addedAt: T,
 }));
 
-const skills = makeSkills([
+const handSkills = makeSkills([
   ["stakeholders", "Stakeholder & cross-functional collaboration", "soft", 2, 3, ["Coordinated with developers, BAs and the client's UAT team on every release at work."]],
   ["research", "User / customer research & empathy", "craft", 1, 3, ["Sat in on two client demos, but has never run a user interview."]],
   ["communication", "Written & verbal communication", "soft", 3, 3, ["Writes clear bug reports and release notes; presents defect summaries to the client weekly."]],
@@ -45,6 +46,38 @@ const freq = {
   problem: 0.75, metrics: 0.75, specs: 0.63, experimentation: 0.63, gtm: 0.5, ai: 0.38,
   prioritization: 0.38, ownership: 0.38,
 };
+
+// Written by `npm run seed:arjun`: the JD agent's skill counts across the 8 seed job descriptions and the
+// bridge agent's columns for Arjun. Hand-written skills above are only the fallback and the label list.
+const analysed = ((analysis as { skills?: unknown[] }).skills?.length ?? 0) > 0;
+const skills: Skill[] = analysed ? (analysis.skills as Skill[]) : handSkills;
+const requirements = analysed
+  ? (analysis.requirements as PivotProfile["targetRole"]["requirements"])
+  : reqFromSkills(handSkills, freq, jds.map((j) => j.id));
+
+const RESUME = `Arjun
+Manual QA Engineer, Pune, India
+
+Summary
+Four years testing banking and payments applications for enterprise clients. Good at finding the real cause of a defect and at working with developers, business analysts and client UAT teams.
+
+Experience
+Kestrel Systems (IT services), Pune. Manual QA Engineer, 2022 - present
+- Led user acceptance testing for a bank's client portal migration across three teams.
+- Root-caused a recurring payment-gateway defect that earlier teams had closed as cannot reproduce.
+- Wrote a reusable regression suite for the payments flow and cut the regression cycle time.
+- Wrote test cases from user stories and acceptance criteria for retail banking features.
+- Triaged defects by severity and release risk in every sprint, and presented a weekly defect summary to the client.
+- Built an Excel tracker of defect trends that the delivery manager used in weekly reviews.
+
+Kestrel Systems (IT services), Pune. Associate QA Engineer, 2022 - 2023
+- Wrote and executed more than 400 test cases on a retail banking app.
+
+Tools
+Postman, Jira, TestRail, Confluence, SQL (SELECT and JOIN queries to verify test data), Selenium (basic)
+
+Education
+B.E. Computer Engineering`;
 
 const weeks = makeWeeks(
   [
@@ -112,6 +145,9 @@ const APPLICATIONS: PivotProfile["applications"] = apps.map(([company, role, sta
   source: jdId ? "Seed job description" : "Added by hand",
 }));
 
+const known = new Set(skills.map((s) => s.id));
+for (const w of weeks) for (const t of w.tasks) t.skillIds = t.skillIds.filter((id) => known.has(id));
+
 export const arjun: PivotProfile = {
   version: 1,
   id: "persona-arjun",
@@ -124,6 +160,7 @@ export const arjun: PivotProfile = {
     currentRole: "Manual QA Engineer",
     currentIndustry: "IT services",
     education: "B.E. Computer Engineering",
+    resume: RESUME,
   },
   goal: {
     targetRole: "Associate Product Manager",
@@ -183,7 +220,7 @@ export const arjun: PivotProfile = {
       toolsUsed: ["Jira", "Excel", "Selenium (basic)"],
     },
   ],
-  targetRole: { jds, requirements: reqFromSkills(skills, freq, jds.map((j) => j.id)) },
+  targetRole: { jds, requirements },
   skills,
   plan: {
     generatedAt: T,

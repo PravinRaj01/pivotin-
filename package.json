@@ -8,7 +8,9 @@
     "start": "next start",
     "lint": "eslint",
     "check": "tsx scripts/check.ts",
-    "test:intake": "tsx scripts/test-intake.ts"
+    "test:intake": "tsx scripts/test-intake.ts",
+    "seed:arjun": "tsx scripts/seed-arjun-analysis.ts",
+    "test:bridge": "tsx scripts/test-bridge.ts"
   },
   "dependencies": {
     "next": "16.4.3",

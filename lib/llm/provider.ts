@@ -102,6 +102,7 @@ function openAiCompatible(name: string, url: string, keyEnv: string, model: stri
       body: JSON.stringify({
         model,
         temperature: 0.4,
+        ...(/gpt-oss/.test(model) ? { reasoning_effort: "low" } : {}),
         messages: [
           { role: "system", content: system },
           { role: "user", content: user },
@@ -123,7 +124,7 @@ function openAiCompatible(name: string, url: string, keyEnv: string, model: stri
 }
 
 const groq: Adapter = (req) =>
-  openAiCompatible("Groq", "https://api.groq.com/openai/v1/chat/completions", "GROQ_API_KEY", process.env.GROQ_MODEL || "llama-3.3-70b-versatile")(req);
+  openAiCompatible("Groq", "https://api.groq.com/openai/v1/chat/completions", "GROQ_API_KEY", process.env.GROQ_MODEL || "openai/gpt-oss-120b")(req);
 const openrouter: Adapter = (req) =>
   openAiCompatible(
     "OpenRouter",

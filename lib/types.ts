@@ -14,7 +14,12 @@ export const SkillSchema = z.object({
   current: level,
   required: level,
   evidence: z.array(z.string()),
-  status: z.enum(["have", "transferable", "gap"]),
+  status: z.enum(["have", "transferable", "missing"]),
+  // Transferable skills: how the person words it today, and how the target role words it.
+  oldWording: z.string().optional(),
+  targetWording: z.string().optional(),
+  // True when every evidence quote was found word for word in their story, resume or work history.
+  evidenceVerified: z.boolean().optional(),
   lastVerifiedAt: z.string().optional(),
 });
 
@@ -40,6 +45,7 @@ export const PivotProfileSchema = z.object({
     currentRole: z.string(),
     currentIndustry: z.string(),
     education: z.string().optional(),
+    resume: z.string().optional(), // pasted resume text, used as evidence for the skill bridge
   }),
 
   goal: z.object({
@@ -94,6 +100,7 @@ export const PivotProfileSchema = z.object({
         importance: z.number().min(1).max(5),
         frequency: z.number().min(0).max(1),
         sourceJdIds: z.array(z.string()),
+        targetWording: z.string().optional(), // the employers' own phrase for this skill
       }),
     ),
   }),

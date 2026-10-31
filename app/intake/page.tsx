@@ -213,7 +213,7 @@ export default function IntakePage() {
                     <ul className="mt-2 divide-y divide-border">
                       {s.preferences.slice(0, 6).map((x) => (
                         <li key={x.text} className={`flex gap-2 py-2 text-sm ${vis() ? "pop-in" : "invisible"}`}>
-                          <span className="shrink-0 rounded-full bg-accent-soft px-2 py-0.5 text-xs">{KIND[x.kind]}</span>
+                          <span className="shrink-0 self-start rounded-full bg-accent-soft px-2 py-0.5 text-xs">{KIND[x.kind]}</span>
                           <span>{x.text}</span>
                         </li>
                       ))}

@@ -1,0 +1,927 @@
+{
+  "requirements": [
+    {
+      "skillId": "stakeholders",
+      "label": "Stakeholder & cross-functional collaboration",
+      "category": "soft",
+      "importance": 5,
+      "frequency": 1,
+      "sourceJdIds": [
+        "j1",
+        "j2",
+        "j3",
+        "j4",
+        "j5",
+        "j6",
+        "j7",
+        "j8"
+      ],
+      "targetWording": "Work closely with teams such as engineering, design, marketing, operations"
+    },
+    {
+      "skillId": "research",
+      "label": "User / customer research & empathy",
+      "category": "craft",
+      "importance": 5,
+      "frequency": 0.75,
+      "sourceJdIds": [
+        "j1",
+        "j3",
+        "j5",
+        "j6",
+        "j7",
+        "j8"
+      ],
+      "targetWording": "Analysis, customer interviews, user research, competition analysis"
+    },
+    {
+      "skillId": "communication",
+      "label": "Written & verbal communication",
+      "category": "soft",
+      "importance": 5,
+      "frequency": 0.75,
+      "sourceJdIds": [
+        "j1",
+        "j3",
+        "j4",
+        "j5",
+        "j6",
+        "j7"
+      ],
+      "targetWording": "Good communication and stakeholder management skills"
+    },
+    {
+      "skillId": "engineering",
+      "label": "Engineering / technical fluency",
+      "category": "technical",
+      "importance": 5,
+      "frequency": 0.5,
+      "sourceJdIds": [
+        "j1",
+        "j3",
+        "j4",
+        "j7"
+      ],
+      "targetWording": "Good understanding of technology, comfort with product management processes"
+    },
+    {
+      "skillId": "sql",
+      "label": "SQL / data analysis",
+      "category": "technical",
+      "importance": 5,
+      "frequency": 0.375,
+      "sourceJdIds": [
+        "j2",
+        "j3",
+        "j5"
+      ],
+      "targetWording": "Enhance skills in data analysis, reporting, and troubleshooting"
+    },
+    {
+      "skillId": "strategy",
+      "label": "Product strategy & roadmap",
+      "category": "craft",
+      "importance": 5,
+      "frequency": 0.75,
+      "sourceJdIds": [
+        "j1",
+        "j3",
+        "j4",
+        "j5",
+        "j6",
+        "j7"
+      ],
+      "targetWording": "Create a product roadmap for your area with 3‑month view"
+    },
+    {
+      "skillId": "problem",
+      "label": "Problem solving / first principles",
+      "category": "soft",
+      "importance": 5,
+      "frequency": 0.5,
+      "sourceJdIds": [
+        "j1",
+        "j5",
+        "j6",
+        "j7"
+      ],
+      "targetWording": "Exceptional problem-solving skills based on first principles of thinking"
+    },
+    {
+      "skillId": "metrics",
+      "label": "Metrics / KPIs & business acumen",
+      "category": "domain",
+      "importance": 5,
+      "frequency": 0.5,
+      "sourceJdIds": [
+        "j1",
+        "j3",
+        "j6",
+        "j7"
+      ],
+      "targetWording": "Define product metrics for your area, track them continuously"
+    },
+    {
+      "skillId": "specs",
+      "label": "Specs, PRDs & user stories",
+      "category": "craft",
+      "importance": 5,
+      "frequency": 0.25,
+      "sourceJdIds": [
+        "j2",
+        "j7"
+      ],
+      "targetWording": "Support documentation of functional specifications and user stories"
+    },
+    {
+      "skillId": "experimentation",
+      "label": "Experimentation / A/B testing",
+      "category": "technical",
+      "importance": 5,
+      "frequency": 0.375,
+      "sourceJdIds": [
+        "j1",
+        "j3",
+        "j4"
+      ],
+      "targetWording": "A/B experimentation, writing product requirement documents, managing backlogs"
+    },
+    {
+      "skillId": "gtm",
+      "label": "Go-to-market & launch",
+      "category": "domain",
+      "importance": 5,
+      "frequency": 0.375,
+      "sourceJdIds": [
+        "j1",
+        "j4",
+        "j7"
+      ],
+      "targetWording": "Create a go-to-market plan to maximize product adoption"
+    },
+    {
+      "skillId": "ai",
+      "label": "AI / ML familiarity",
+      "category": "technical",
+      "importance": 5,
+      "frequency": 0.25,
+      "sourceJdIds": [
+        "j3",
+        "j5"
+      ],
+      "targetWording": "Leverage AI tools for research, analysis, prototyping, documentation, testing, and product development."
+    },
+    {
+      "skillId": "prioritization",
+      "label": "Prioritization",
+      "category": "craft",
+      "importance": 5,
+      "frequency": 0.125,
+      "sourceJdIds": [
+        "j7"
+      ],
+      "targetWording": "value-based prioritization of product initiatives"
+    },
+    {
+      "skillId": "ownership",
+      "label": "Ownership & ambiguity",
+      "category": "soft",
+      "importance": 5,
+      "frequency": 0.625,
+      "sourceJdIds": [
+        "j3",
+        "j4",
+        "j6",
+        "j7",
+        "j8"
+      ],
+      "targetWording": "Own a product pod or charter with clearly defined customer and business objectives."
+    },
+    {
+      "skillId": "telco-services-knowledge",
+      "label": "Telco services knowledge",
+      "category": "domain",
+      "importance": 5,
+      "frequency": 0.125,
+      "sourceJdIds": [
+        "j2"
+      ],
+      "targetWording": "Focus: Telco Services (IVR, USSD, SMS, Precall, Merchant IVR, M2M IVR Portal)"
+    },
+    {
+      "skillId": "ivr-ussd-sms-protocol-expertise",
+      "label": "IVR/USSD/SMS protocol expertise",
+      "category": "domain",
+      "importance": 5,
+      "frequency": 0.125,
+      "sourceJdIds": [
+        "j2"
+      ],
+      "targetWording": "Develop understanding of Telco protocols and service delivery"
+    },
+    {
+      "skillId": "service-monitoring-tools-proficiency",
+      "label": "Service monitoring tools proficiency",
+      "category": "technical",
+      "importance": 4,
+      "frequency": 0.125,
+      "sourceJdIds": [
+        "j2"
+      ],
+      "targetWording": "Learn and utilize service monitoring tools and platforms"
+    },
+    {
+      "skillId": "incident-investigation-skills",
+      "label": "Incident investigation skills",
+      "category": "craft",
+      "importance": 4,
+      "frequency": 0.125,
+      "sourceJdIds": [
+        "j2"
+      ],
+      "targetWording": "Assist in the initial investigation of operational issues and incidents"
+    },
+    {
+      "skillId": "operational-documentation-creation",
+      "label": "Operational documentation creation",
+      "category": "craft",
+      "importance": 4,
+      "frequency": 0.125,
+      "sourceJdIds": [
+        "j2"
+      ],
+      "targetWording": "Support creation and maintenance of operational documentation"
+    },
+    {
+      "skillId": "feature-testing-and-deployment",
+      "label": "Feature testing and deployment",
+      "category": "craft",
+      "importance": 4,
+      "frequency": 0.125,
+      "sourceJdIds": [
+        "j2"
+      ],
+      "targetWording": "Participate in testing of new service features or deployments"
+    },
+    {
+      "skillId": "product-management-experience-within-ent",
+      "label": "Product Management experience within enterprise‑scale SaaS platforms",
+      "category": "craft",
+      "importance": 5,
+      "frequency": 0.125,
+      "sourceJdIds": [
+        "j4"
+      ],
+      "targetWording": "3+ years of Product Management experience specifically within enterprise-scale SaaS platforms"
+    },
+    {
+      "skillId": "backup-and-recovery-expertise",
+      "label": "Backup and recovery expertise",
+      "category": "technical",
+      "importance": 5,
+      "frequency": 0.125,
+      "sourceJdIds": [
+        "j4"
+      ],
+      "targetWording": "Experience with Backup or recovery tools"
+    },
+    {
+      "skillId": "identity-and-access-management-knowledge",
+      "label": "Identity and Access Management knowledge",
+      "category": "domain",
+      "importance": 4,
+      "frequency": 0.125,
+      "sourceJdIds": [
+        "j4"
+      ],
+      "targetWording": "Deep familiarity with Identity and Access Management (IAM) protocols"
+    },
+    {
+      "skillId": "scalable-system-design",
+      "label": "Scalable system design",
+      "category": "technical",
+      "importance": 4,
+      "frequency": 0.125,
+      "sourceJdIds": [
+        "j4"
+      ],
+      "targetWording": "ensure the backup and recovery roadmap scales with the breadth of Okta's customer base"
+    },
+    {
+      "skillId": "customer-facing-platform-delivery",
+      "label": "Customer‑facing platform delivery",
+      "category": "craft",
+      "importance": 5,
+      "frequency": 0.125,
+      "sourceJdIds": [
+        "j4"
+      ],
+      "targetWording": "Demonstrated business results from customer-facing platform capabilities shipped at scale"
+    },
+    {
+      "skillId": "competitive-analysis",
+      "label": "Competitive Analysis",
+      "category": "domain",
+      "importance": 3,
+      "frequency": 0.125,
+      "sourceJdIds": [
+        "j1"
+      ],
+      "targetWording": "Competition analysis and other qualitative/quantitative techniques"
+    },
+    {
+      "skillId": "behavioral-economics",
+      "label": "Behavioral Economics",
+      "category": "domain",
+      "importance": 4,
+      "frequency": 0.125,
+      "sourceJdIds": [
+        "j6"
+      ],
+      "targetWording": "Deep interest in behavioural economics and how to leverage it"
+    },
+    {
+      "skillId": "e-commerce-industry-experience",
+      "label": "e-commerce industry experience",
+      "category": "domain",
+      "importance": 5,
+      "frequency": 0.125,
+      "sourceJdIds": [
+        "j8"
+      ],
+      "targetWording": "Experience in e-commerce industry (especially product exp.)"
+    },
+    {
+      "skillId": "start-up-or-consulting-experience",
+      "label": "Start-up or consulting experience",
+      "category": "domain",
+      "importance": 4,
+      "frequency": 0.125,
+      "sourceJdIds": [
+        "j8"
+      ],
+      "targetWording": "Or Other start-ups or top-tier consulting"
+    },
+    {
+      "skillId": "data-driven-decision-making",
+      "label": "Data-driven decision making",
+      "category": "technical",
+      "importance": 5,
+      "frequency": 0.125,
+      "sourceJdIds": [
+        "j8"
+      ],
+      "targetWording": "you ground everything in data and voice of customers"
+    },
+    {
+      "skillId": "leadership-driving-business-results",
+      "label": "Leadership driving business results",
+      "category": "soft",
+      "importance": 5,
+      "frequency": 0.125,
+      "sourceJdIds": [
+        "j8"
+      ],
+      "targetWording": "Demonstrated leadership which enabled business results"
+    },
+    {
+      "skillId": "hands-on-execution",
+      "label": "Hands‑on execution",
+      "category": "craft",
+      "importance": 4,
+      "frequency": 0.125,
+      "sourceJdIds": [
+        "j8"
+      ],
+      "targetWording": "Go-getter attitude and willingness to be hands‑on"
+    },
+    {
+      "skillId": "financial-services-knowledge",
+      "label": "Financial services knowledge",
+      "category": "domain",
+      "importance": 5,
+      "frequency": 0.125,
+      "sourceJdIds": [
+        "j5"
+      ],
+      "targetWording": "Prior fintech experience is preferred but not necessary"
+    },
+    {
+      "skillId": "analytical-data-driven-approach",
+      "label": "Analytical & data-driven approach",
+      "category": "domain",
+      "importance": 4,
+      "frequency": 0.125,
+      "sourceJdIds": [
+        "j7"
+      ],
+      "targetWording": "You have an analytical and data-driven approach in day-to-day work"
+    },
+    {
+      "skillId": "business-acumen",
+      "label": "Business acumen",
+      "category": "domain",
+      "importance": 5,
+      "frequency": 0.125,
+      "sourceJdIds": [
+        "j8"
+      ],
+      "targetWording": "Strong Business acumen and problem solving skills"
+    },
+    {
+      "skillId": "problem-solving",
+      "label": "Problem solving",
+      "category": "craft",
+      "importance": 5,
+      "frequency": 0.125,
+      "sourceJdIds": [
+        "j8"
+      ],
+      "targetWording": "Strong Business acumen and problem solving skills"
+    },
+    {
+      "skillId": "long-term-product-thinking",
+      "label": "Long‑term product thinking",
+      "category": "craft",
+      "importance": 4,
+      "frequency": 0.125,
+      "sourceJdIds": [
+        "j8"
+      ],
+      "targetWording": "you think bold and big, you think of the long term answer, no short term hacks"
+    }
+  ],
+  "skills": [
+    {
+      "id": "stakeholders",
+      "label": "Stakeholder & cross-functional collaboration",
+      "category": "soft",
+      "current": 2,
+      "required": 3,
+      "evidence": [
+        "Led user acceptance testing for a bank's client portal migration across three teams."
+      ],
+      "status": "have",
+      "targetWording": "Work closely with teams such as engineering, design, marketing, operations",
+      "evidenceVerified": true,
+      "lastVerifiedAt": "2026-10-31T15:26:14.192Z"
+    },
+    {
+      "id": "research",
+      "label": "User / customer research & empathy",
+      "category": "craft",
+      "current": 0,
+      "required": 3,
+      "evidence": [],
+      "status": "missing",
+      "targetWording": "Analysis, customer interviews, user research, competition analysis",
+      "lastVerifiedAt": "2026-10-31T15:26:14.192Z"
+    },
+    {
+      "id": "communication",
+      "label": "Written & verbal communication",
+      "category": "soft",
+      "current": 2,
+      "required": 3,
+      "evidence": [
+        "Triaged defects by severity and release risk in every sprint, and presented a weekly defect summary to the client."
+      ],
+      "status": "have",
+      "targetWording": "Good communication and stakeholder management skills",
+      "evidenceVerified": true,
+      "lastVerifiedAt": "2026-10-31T15:26:14.192Z"
+    },
+    {
+      "id": "engineering",
+      "label": "Engineering / technical fluency",
+      "category": "technical",
+      "current": 2,
+      "required": 2,
+      "evidence": [
+        "Root-caused a recurring payment-gateway defect that earlier teams had closed as cannot reproduce."
+      ],
+      "status": "have",
+      "targetWording": "Good understanding of technology, comfort with product management processes",
+      "evidenceVerified": true,
+      "lastVerifiedAt": "2026-10-31T15:26:14.192Z"
+    },
+    {
+      "id": "sql",
+      "label": "SQL / data analysis",
+      "category": "technical",
+      "current": 2,
+      "required": 2,
+      "evidence": [
+        "SQL (SELECT and JOIN queries to verify test data)"
+      ],
+      "status": "have",
+      "targetWording": "Enhance skills in data analysis, reporting, and troubleshooting",
+      "evidenceVerified": true,
+      "lastVerifiedAt": "2026-10-31T15:26:14.192Z"
+    },
+    {
+      "id": "strategy",
+      "label": "Product strategy & roadmap",
+      "category": "craft",
+      "current": 0,
+      "required": 3,
+      "evidence": [],
+      "status": "missing",
+      "targetWording": "Create a product roadmap for your area with 3‑month view",
+      "lastVerifiedAt": "2026-10-31T15:26:14.192Z"
+    },
+    {
+      "id": "problem",
+      "label": "Problem solving / first principles",
+      "category": "soft",
+      "current": 2,
+      "required": 2,
+      "evidence": [
+        "Root-caused a recurring payment-gateway defect that earlier teams had closed as cannot reproduce."
+      ],
+      "status": "have",
+      "targetWording": "Exceptional problem-solving skills based on first principles of thinking",
+      "evidenceVerified": true,
+      "lastVerifiedAt": "2026-10-31T15:26:14.192Z"
+    },
+    {
+      "id": "metrics",
+      "label": "Metrics / KPIs & business acumen",
+      "category": "domain",
+      "current": 1,
+      "required": 2,
+      "evidence": [
+        "Built an Excel tracker of defect trends that the delivery manager used in weekly reviews."
+      ],
+      "status": "transferable",
+      "oldWording": "defect trends",
+      "targetWording": "Define product metrics for your area, track them continuously",
+      "evidenceVerified": true,
+      "lastVerifiedAt": "2026-10-31T15:26:14.192Z"
+    },
+    {
+      "id": "specs",
+      "label": "Specs, PRDs & user stories",
+      "category": "craft",
+      "current": 2,
+      "required": 1,
+      "evidence": [
+        "Wrote test cases from user stories and acceptance criteria for retail banking features."
+      ],
+      "status": "have",
+      "targetWording": "Support documentation of functional specifications and user stories",
+      "evidenceVerified": true,
+      "lastVerifiedAt": "2026-10-31T15:26:14.192Z"
+    },
+    {
+      "id": "experimentation",
+      "label": "Experimentation / A/B testing",
+      "category": "technical",
+      "current": 0,
+      "required": 2,
+      "evidence": [],
+      "status": "missing",
+      "targetWording": "A/B experimentation, writing product requirement documents, managing backlogs",
+      "lastVerifiedAt": "2026-10-31T15:26:14.192Z"
+    },
+    {
+      "id": "gtm",
+      "label": "Go-to-market & launch",
+      "category": "domain",
+      "current": 0,
+      "required": 2,
+      "evidence": [],
+      "status": "missing",
+      "targetWording": "Create a go-to-market plan to maximize product adoption",
+      "lastVerifiedAt": "2026-10-31T15:26:14.192Z"
+    },
+    {
+      "id": "ai",
+      "label": "AI / ML familiarity",
+      "category": "technical",
+      "current": 0,
+      "required": 1,
+      "evidence": [],
+      "status": "missing",
+      "targetWording": "Leverage AI tools for research, analysis, prototyping, documentation, testing, and product development.",
+      "lastVerifiedAt": "2026-10-31T15:26:14.192Z"
+    },
+    {
+      "id": "prioritization",
+      "label": "Prioritization",
+      "category": "craft",
+      "current": 1,
+      "required": 1,
+      "evidence": [
+        "Triaged defects by severity and release risk in every sprint"
+      ],
+      "status": "transferable",
+      "oldWording": "Triaged defects by severity",
+      "targetWording": "value-based prioritization of product initiatives",
+      "evidenceVerified": true,
+      "lastVerifiedAt": "2026-10-31T15:26:14.192Z"
+    },
+    {
+      "id": "ownership",
+      "label": "Ownership & ambiguity",
+      "category": "soft",
+      "current": 2,
+      "required": 3,
+      "evidence": [
+        "Led user acceptance testing for a bank's client portal migration across three teams."
+      ],
+      "status": "have",
+      "targetWording": "Own a product pod or charter with clearly defined customer and business objectives.",
+      "evidenceVerified": true,
+      "lastVerifiedAt": "2026-10-31T15:26:14.192Z"
+    },
+    {
+      "id": "telco-services-knowledge",
+      "label": "Telco services knowledge",
+      "category": "domain",
+      "current": 0,
+      "required": 1,
+      "evidence": [],
+      "status": "missing",
+      "targetWording": "Focus: Telco Services (IVR, USSD, SMS, Precall, Merchant IVR, M2M IVR Portal)",
+      "lastVerifiedAt": "2026-10-31T15:26:14.192Z"
+    },
+    {
+      "id": "ivr-ussd-sms-protocol-expertise",
+      "label": "IVR/USSD/SMS protocol expertise",
+      "category": "domain",
+      "current": 0,
+      "required": 1,
+      "evidence": [],
+      "status": "missing",
+      "targetWording": "Develop understanding of Telco protocols and service delivery",
+      "lastVerifiedAt": "2026-10-31T15:26:14.192Z"
+    },
+    {
+      "id": "service-monitoring-tools-proficiency",
+      "label": "Service monitoring tools proficiency",
+      "category": "technical",
+      "current": 0,
+      "required": 1,
+      "evidence": [],
+      "status": "missing",
+      "targetWording": "Learn and utilize service monitoring tools and platforms",
+      "lastVerifiedAt": "2026-10-31T15:26:14.192Z"
+    },
+    {
+      "id": "incident-investigation-skills",
+      "label": "Incident investigation skills",
+      "category": "craft",
+      "current": 2,
+      "required": 1,
+      "evidence": [
+        "Root-caused a recurring payment-gateway defect that earlier teams had closed as cannot reproduce."
+      ],
+      "status": "have",
+      "targetWording": "Assist in the initial investigation of operational issues and incidents",
+      "evidenceVerified": true,
+      "lastVerifiedAt": "2026-10-31T15:26:14.192Z"
+    },
+    {
+      "id": "operational-documentation-creation",
+      "label": "Operational documentation creation",
+      "category": "craft",
+      "current": 2,
+      "required": 1,
+      "evidence": [
+        "Wrote test cases from user stories and acceptance criteria for retail banking features."
+      ],
+      "status": "have",
+      "targetWording": "Support creation and maintenance of operational documentation",
+      "evidenceVerified": true,
+      "lastVerifiedAt": "2026-10-31T15:26:14.192Z"
+    },
+    {
+      "id": "feature-testing-and-deployment",
+      "label": "Feature testing and deployment",
+      "category": "craft",
+      "current": 2,
+      "required": 1,
+      "evidence": [
+        "Led user acceptance testing for a bank's client portal migration across three teams."
+      ],
+      "status": "have",
+      "targetWording": "Participate in testing of new service features or deployments",
+      "evidenceVerified": true,
+      "lastVerifiedAt": "2026-10-31T15:26:14.192Z"
+    },
+    {
+      "id": "product-management-experience-within-ent",
+      "label": "Product Management experience within enterprise‑scale SaaS platforms",
+      "category": "craft",
+      "current": 0,
+      "required": 1,
+      "evidence": [],
+      "status": "missing",
+      "targetWording": "3+ years of Product Management experience specifically within enterprise-scale SaaS platforms",
+      "lastVerifiedAt": "2026-10-31T15:26:14.192Z"
+    },
+    {
+      "id": "backup-and-recovery-expertise",
+      "label": "Backup and recovery expertise",
+      "category": "technical",
+      "current": 0,
+      "required": 1,
+      "evidence": [],
+      "status": "missing",
+      "targetWording": "Experience with Backup or recovery tools",
+      "lastVerifiedAt": "2026-10-31T15:26:14.192Z"
+    },
+    {
+      "id": "identity-and-access-management-knowledge",
+      "label": "Identity and Access Management knowledge",
+      "category": "domain",
+      "current": 0,
+      "required": 1,
+      "evidence": [],
+      "status": "missing",
+      "targetWording": "Deep familiarity with Identity and Access Management (IAM) protocols",
+      "lastVerifiedAt": "2026-10-31T15:26:14.192Z"
+    },
+    {
+      "id": "scalable-system-design",
+      "label": "Scalable system design",
+      "category": "technical",
+      "current": 0,
+      "required": 1,
+      "evidence": [],
+      "status": "missing",
+      "targetWording": "ensure the backup and recovery roadmap scales with the breadth of Okta's customer base",
+      "lastVerifiedAt": "2026-10-31T15:26:14.192Z"
+    },
+    {
+      "id": "customer-facing-platform-delivery",
+      "label": "Customer‑facing platform delivery",
+      "category": "craft",
+      "current": 2,
+      "required": 1,
+      "evidence": [
+        "Led user acceptance testing for a bank's client portal migration across three teams."
+      ],
+      "status": "have",
+      "targetWording": "Demonstrated business results from customer-facing platform capabilities shipped at scale",
+      "evidenceVerified": true,
+      "lastVerifiedAt": "2026-10-31T15:26:14.192Z"
+    },
+    {
+      "id": "competitive-analysis",
+      "label": "Competitive Analysis",
+      "category": "domain",
+      "current": 0,
+      "required": 1,
+      "evidence": [],
+      "status": "missing",
+      "targetWording": "Competition analysis and other qualitative/quantitative techniques",
+      "lastVerifiedAt": "2026-10-31T15:26:14.192Z"
+    },
+    {
+      "id": "behavioral-economics",
+      "label": "Behavioral Economics",
+      "category": "domain",
+      "current": 0,
+      "required": 1,
+      "evidence": [],
+      "status": "missing",
+      "targetWording": "Deep interest in behavioural economics and how to leverage it",
+      "lastVerifiedAt": "2026-10-31T15:26:14.192Z"
+    },
+    {
+      "id": "e-commerce-industry-experience",
+      "label": "e-commerce industry experience",
+      "category": "domain",
+      "current": 0,
+      "required": 1,
+      "evidence": [],
+      "status": "missing",
+      "targetWording": "Experience in e-commerce industry (especially product exp.)",
+      "lastVerifiedAt": "2026-10-31T15:26:14.192Z"
+    },
+    {
+      "id": "start-up-or-consulting-experience",
+      "label": "Start-up or consulting experience",
+      "category": "domain",
+      "current": 0,
+      "required": 1,
+      "evidence": [],
+      "status": "missing",
+      "targetWording": "Or Other start-ups or top-tier consulting",
+      "lastVerifiedAt": "2026-10-31T15:26:14.192Z"
+    },
+    {
+      "id": "data-driven-decision-making",
+      "label": "Data-driven decision making",
+      "category": "technical",
+      "current": 1,
+      "required": 1,
+      "evidence": [
+        "Built an Excel tracker of defect trends that the delivery manager used in weekly reviews."
+      ],
+      "status": "transferable",
+      "oldWording": "Excel tracker of defect trends",
+      "targetWording": "you ground everything in data and voice of customers",
+      "evidenceVerified": true,
+      "lastVerifiedAt": "2026-10-31T15:26:14.192Z"
+    },
+    {
+      "id": "leadership-driving-business-results",
+      "label": "Leadership driving business results",
+      "category": "soft",
+      "current": 2,
+      "required": 1,
+      "evidence": [
+        "Cut regression cycle time by writing a reusable test suite for the payments flow"
+      ],
+      "status": "have",
+      "targetWording": "Demonstrated leadership which enabled business results",
+      "evidenceVerified": true,
+      "lastVerifiedAt": "2026-10-31T15:26:14.192Z"
+    },
+    {
+      "id": "hands-on-execution",
+      "label": "Hands‑on execution",
+      "category": "craft",
+      "current": 2,
+      "required": 1,
+      "evidence": [
+        "Wrote and executed more than 400 test cases on a retail banking app."
+      ],
+      "status": "have",
+      "targetWording": "Go-getter attitude and willingness to be hands‑on",
+      "evidenceVerified": true,
+      "lastVerifiedAt": "2026-10-31T15:26:14.192Z"
+    },
+    {
+      "id": "financial-services-knowledge",
+      "label": "Financial services knowledge",
+      "category": "domain",
+      "current": 2,
+      "required": 1,
+      "evidence": [
+        "Four years testing banking and payments applications for enterprise clients."
+      ],
+      "status": "have",
+      "targetWording": "Prior fintech experience is preferred but not necessary",
+      "evidenceVerified": true,
+      "lastVerifiedAt": "2026-10-31T15:26:14.192Z"
+    },
+    {
+      "id": "analytical-data-driven-approach",
+      "label": "Analytical & data-driven approach",
+      "category": "domain",
+      "current": 2,
+      "required": 1,
+      "evidence": [
+        "Root-caused a recurring payment-gateway defect that earlier teams had closed as cannot reproduce."
+      ],
+      "status": "have",
+      "targetWording": "You have an analytical and data-driven approach in day-to-day work",
+      "evidenceVerified": true,
+      "lastVerifiedAt": "2026-10-31T15:26:14.192Z"
+    },
+    {
+      "id": "business-acumen",
+      "label": "Business acumen",
+      "category": "domain",
+      "current": 1,
+      "required": 1,
+      "evidence": [
+        "Triaged defects by severity and release risk in every sprint"
+      ],
+      "status": "transferable",
+      "oldWording": "release risk",
+      "targetWording": "Strong Business acumen and problem solving skills",
+      "evidenceVerified": true,
+      "lastVerifiedAt": "2026-10-31T15:26:14.192Z"
+    },
+    {
+      "id": "problem-solving",
+      "label": "Problem solving",
+      "category": "craft",
+      "current": 2,
+      "required": 1,
+      "evidence": [
+        "Root-caused a recurring payment-gateway defect that earlier teams had closed as cannot reproduce."
+      ],
+      "status": "have",
+      "targetWording": "Strong Business acumen and problem solving skills",
+      "evidenceVerified": true,
+      "lastVerifiedAt": "2026-10-31T15:26:14.192Z"
+    },
+    {
+      "id": "long-term-product-thinking",
+      "label": "Long‑term product thinking",
+      "category": "craft",
+      "current": 0,
+      "required": 1,
+      "evidence": [],
+      "status": "missing",
+      "targetWording": "you think bold and big, you think of the long term answer, no short term hacks",
+      "lastVerifiedAt": "2026-10-31T15:26:14.192Z"
+    }
+  ]
+}

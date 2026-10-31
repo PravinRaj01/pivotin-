@@ -8,13 +8,14 @@ const SYSTEM = `You are the job-description agent of a career-pivot coach. You r
 Rules:
 - If the text is a real job description, extract title and company as written (use "" if absent).
 - If the text is only a role name or very short, set "title" to that role, company to "", and list the skills such a role typically needs, keeping to well-known expectations.
-- requirements: 6 to 14 skills. Each "label" is a short noun phrase of 2-5 words (a skill name a recruiter would recognise, not a sentence). Merge duplicates. Skip generic items such as degrees, years of experience, location, perks and visa status.
+- requirements: every distinct skill the text asks for, usually 8 to 16. Do not leave one out because it is short; a skill that appears in the text must appear in your list. Each "label" is a short noun phrase of 2-5 words (a skill name a recruiter would recognise, not a sentence). Name each skill at the general level that any other employer hiring for the same role would also use, not a company-specific project, product or team detail. Merge duplicates and near-duplicates into one. Skip generic items such as degrees, years of experience, location, perks and visa status.
 - "existing" lists skill labels already tracked for this person's target role. If a requirement is the same skill as an existing label, reuse that label EXACTLY. Only invent a new label when it is genuinely a different skill.
 - category: "technical" (tools, code, data), "domain" (industry or business knowledge), "craft" (core professional methods of the role), "soft" (communication, collaboration, leadership).
+- wording: the employer's own short phrase for this requirement, copied from the text (at most 12 words). For a role name with no description, a typical phrase for it.
 - importance 1-5: 5 = must-have stated firmly or repeated, 3 = expected, 1 = nice to have.
 - Use only what the text supports. Do not invent requirements the text does not suggest.
 
-Return ONLY JSON: {"title":"","company":"","requirements":[{"label":"","category":"technical|domain|craft|soft","importance":3}]}`;
+Return ONLY JSON: {"title":"","company":"","requirements":[{"label":"","category":"technical|domain|craft|soft","importance":3,"wording":""}]}`;
 
 export async function POST(req: Request) {
   let text = "";
