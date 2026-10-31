@@ -13,10 +13,13 @@ type Ctx = {
   reset: () => void;
 };
 
-const ProfileCtx = createContext<Ctx | null>(null);
+// Fixed first-render value, replaced from storage right after mount.
+const INITIAL = emptyProfile("1970-01-01T00:00:00.000Z", "initial");
+
+const ProfileCtx =createContext<Ctx | null>(null);
 
 export function ProfileProvider({ children }: { children: React.ReactNode }) {
-  const [profile, setProfile] = useState<PivotProfile>(() => emptyProfile());
+  const [profile, setProfile] = useState<PivotProfile>(INITIAL);
   const [ready, setReady] = useState(false);
   const latest = useRef(profile);
 

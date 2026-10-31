@@ -168,11 +168,14 @@ export type PivotProfile = z.infer<typeof PivotProfileSchema>;
 export type Skill = z.infer<typeof SkillSchema>;
 export type Task = z.infer<typeof TaskSchema>;
 
-export function emptyProfile(): PivotProfile {
-  const now = new Date().toISOString();
+// Time and id are arguments so the first (server) render can use fixed values.
+export function emptyProfile(
+  now: string = new Date().toISOString(),
+  id: string = crypto.randomUUID(),
+): PivotProfile {
   return {
     version: 1,
-    id: crypto.randomUUID(),
+    id,
     createdAt: now,
     updatedAt: now,
     person: { name: "", location: "", yearsExperience: 0, currentRole: "", currentIndustry: "" },
