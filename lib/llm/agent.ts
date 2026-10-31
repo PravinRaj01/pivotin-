@@ -23,8 +23,8 @@ export async function runAgent<T extends z.ZodTypeAny>(opts: {
       if (!parsed.success) console.warn("[agent] failed validation:", parsed.error.message.slice(0, 200));
       if (parsed.success) return parsed.data;
       hint = `\n\nYour previous reply failed validation: ${parsed.error.message.slice(0, 400)}. Return only valid JSON matching the shape.`;
-    } catch {
-      console.warn("[agent] not valid JSON, starts with:", JSON.stringify(text.slice(0, 160)), "length", text.length);
+    } catch (e) {
+      console.warn("[agent] could not use the reply:", (e as Error).message, "| starts with:", JSON.stringify(text.slice(0, 160)), "ends with:", JSON.stringify(text.slice(-90)), "length", text.length);
       hint = "\n\nYour previous reply was not valid JSON. Return only a JSON object.";
     }
   }

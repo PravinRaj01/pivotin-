@@ -1,0 +1,21 @@
+{
+  "insights": {
+    "key": "12|6|channel:Referral:5/5/7/1",
+    "createdAt": "2026-10-31T09:00:00.000Z",
+    "headline": "Early signal, 12 applications: applications made through a referral tend to hear back more often than other methods.",
+    "findings": [
+      {
+        "patternId": "channel:Referral",
+        "text": "Out of 12 applications, applications made through a referral got a response 5 of 5 times, while everything else got a response 1 of 7 times. This looks like a helpful pattern so far."
+      }
+    ],
+    "suggestions": [
+      {
+        "kind": "plan",
+        "text": "You might decide to focus more of your networking efforts on securing referrals for your upcoming applications.",
+        "patternId": "channel:Referral"
+      }
+    ],
+    "caveat": "These insights remain uncertain because the numbers are small and applications may differ in unmeasured ways. Since 7 comparisons were checked, one of them standing out by chance is possible."
+  }
+}

@@ -2,6 +2,7 @@ import type { PivotProfile, Skill } from "../types";
 import analysis from "./arjun-analysis.json";
 import generated from "./arjun-plan.json";
 import interviewJson from "./arjun-interview.json";
+import trackerJson from "./arjun-tracker.json";
 import { makeSkills, reqFromSkills } from "./build";
 
 // Demo persona (fictional). Target JDs are the 8 in seeds/jds; the two in seeds/jds-demo-holdout
@@ -90,38 +91,44 @@ const builtInterview = interviewJson as { rubric?: PivotProfile["rubric"]; inter
 const hasPlan = (built.plan?.weeks?.length ?? 0) > 0;
 const finalSkills: Skill[] = hasPlan && built.skills ? built.skills : skills;
 
-// Sample tracker data. Companies are real; the roles and outcomes are invented for the demo persona.
-type AppRow = [company: string, role: string, status: string, location: string, notes: string, applied?: string, nextStep?: string, fit?: number, jdId?: string, followUps?: string[]];
-const apps: AppRow[] = [
-  ["Groww", "Associate Product Manager", "saved", "Bengaluru", "Asks for 1-2 years of PM experience. Wait until the PRD and portfolio project are done.", undefined, undefined, 52, "j5", ["Ask a referral who knows the team"]],
-  ["Swiggy", "Associate Product Manager (Revenue & Growth)", "saved", "Bengaluru", "Promotions and discounts, a metrics-heavy charter. Referral first.", undefined, undefined, 48, "j6", ["Message the former colleague who moved to PM there"]],
-  ["Urban Company", "Associate Product Manager", "saved", "Bangalore / Gurgaon", "Marketplace background preferred; customer research story needed.", undefined, undefined, 55, "j8"],
-  ["Razorpay Curlec", "Associate Product Manager", "saved", "Kuala Lumpur", "Payments domain fits his banking QA work. Needs relocation, so a stretch.", undefined, undefined, 50, "j7"],
-  ["Okta", "Product Manager, Product Platform", "saved", "Bengaluru", "Strong on technical fluency, weak on product ownership. Revisit after the project.", undefined, undefined, 40, "j4"],
-  ["Meesho", "Product Manager I", "saved", "Bangalore", "Stretch role. Strong on engineering and ownership, weak on research and metrics.", undefined, undefined, 45, "j1"],
-  ["Paytm", "Product Analyst, Telco", "applied", "Noida", "Applied through the careers page with a note on payments testing.", "2026-10-12", "2026-11-10", 58, "j2", ["Follow up if no reply by 10 Nov"]],
-  ["CRED", "Associate Product Manager", "applied", "Bengaluru", "Applied via referral from a college senior.", "2026-10-05", "2026-11-05", 50, undefined, ["Thank the referrer"]],
-  ["PhonePe", "Product Analyst", "applied", "Pune", "Pune office, analytics-leaning. Uses his SQL and payments knowledge.", "2026-10-20", undefined, 56],
-  ["Juspay", "Associate Product Manager", "applied", "Bengaluru", "Payments infrastructure; resume tailored to API testing experience.", "2026-10-24", undefined, 54],
-  ["Zomato", "Associate Product Manager", "screen", "Gurugram", "Recruiter screen booked. Prepare the 'why PM' story and the QA-to-product framing.", "2026-09-28", "2026-11-04", 49, undefined, ["Rehearse the 'why PM' answer", "Read two recent product launches"]],
-  ["Flipkart", "Associate Product Manager", "interview", "Bengaluru", "Cleared the screen; product-sense round next. Under-prepared on metrics.", "2026-09-15", "2026-11-07", 47, undefined, ["Practise 'improve X' and metric-drop questions"]],
-  ["Zerodha", "Product Analyst", "rejected", "Bengaluru", "Rejected after the assignment: strong analysis, thin product framing. Lesson: add recommendations, not just numbers.", "2026-09-10", undefined, 44],
-  ["Cleartax", "Associate Product Manager", "rejected", "Bengaluru", "Auto-rejected. Wanted prior PM experience.", "2026-09-18", undefined, 38],
-  ["Freshworks", "Associate Product Manager", "rejected", "Chennai", "Rejected at resume stage; no feedback. Resume reframe is on the plan for week 19.", "2026-09-22", undefined, 41],
+// Sample tracker data: 15 invented applications (the companies are real, the roles, dates and outcomes are made up for
+// the demo persona). 12 have been sent and 3 are saved. They are built so that ONE real pattern exists (referrals) and
+// the other dimensions honestly do not clear the bar, which is what the analyst should say.
+type Seed = Omit<PivotProfile["applications"][number], "id" | "dates" | "notes" | "followUps" | "source" | "inferred"> & {
+  applied?: string;
+  next?: string;
+  notes?: string;
+  followUps?: string[];
+};
+const PA = "Product analyst";
+const APM = "Associate product manager";
+const PM = "Product manager";
+const seed: Seed[] = [
+  { company: "Zomato", role: "Associate Product Manager", roleFamily: APM, companyStage: "Public or large company", industry: "Consumer internet", channel: "Referral", resumeVersion: "Version 2", status: "response", applied: "2026-09-28", next: "2026-11-04", location: "Gurugram", notes: "Recruiter screen booked. Prepare the 'why PM' story and the QA-to-product framing.", followUps: ["Rehearse the 'why PM' answer", "Read two recent product launches"] },
+  { company: "Flipkart", role: "Associate Product Manager", roleFamily: APM, companyStage: "Public or large company", industry: "Consumer internet", channel: "Referral", resumeVersion: "Version 2", status: "interview", applied: "2026-09-15", next: "2026-11-07", location: "Bengaluru", notes: "Cleared the screen; product-sense round next. Under-prepared on metrics.", followUps: ["Practise 'improve X' and metric-drop questions"] },
+  { company: "PhonePe", role: "Product Analyst", roleFamily: PA, companyStage: "Late stage", industry: "Fintech", channel: "Referral", resumeVersion: "Version 1", status: "interview", applied: "2026-10-20", location: "Pune", notes: "Pune office, analytics-leaning. Uses his SQL and payments knowledge." },
+  { company: "Juspay", role: "Associate Product Manager", roleFamily: APM, companyStage: "Growth stage", industry: "Fintech", channel: "Referral", resumeVersion: "Version 1", status: "response", applied: "2026-10-24", location: "Bengaluru", notes: "Payments infrastructure; resume tailored to API testing experience." },
+  { company: "CRED", role: "Associate Product Manager", roleFamily: APM, companyStage: "Late stage", industry: "Fintech", channel: "Referral", resumeVersion: "Version 2", status: "response", applied: "2026-10-05", next: "2026-11-05", location: "Bengaluru", notes: "Applied via referral from a college senior.", followUps: ["Thank the referrer"] },
+  { company: "Paytm", role: "Product Management - Product Analyst - Telco", jdId: "j2", roleFamily: PA, companyStage: "Public or large company", industry: "Fintech", channel: "Careers page", resumeVersion: "Version 2", status: "response", applied: "2026-10-12", next: "2026-11-10", location: "Noida", notes: "Applied through the careers page with a note on payments testing.", followUps: ["Follow up if no reply by 10 Nov"] },
+  { company: "Meesho", role: "Product Manager I", jdId: "j1", roleFamily: PM, companyStage: "Late stage", industry: "Consumer internet", channel: "Careers page", resumeVersion: "Version 2", status: "rejected", applied: "2026-09-30", location: "Bangalore", notes: "Stretch role. Strong on engineering and ownership, weak on research and metrics." },
+  { company: "Freshworks", role: "Associate Product Manager", roleFamily: APM, companyStage: "Public or large company", industry: "Enterprise software", channel: "Careers page", resumeVersion: "Version 1", status: "rejected", applied: "2026-09-22", location: "Chennai", notes: "Rejected at resume stage; no feedback." },
+  { company: "Okta", role: "Product Manager, Product Platform", jdId: "j4", roleFamily: PM, companyStage: "Public or large company", industry: "Enterprise software", channel: "Careers page", resumeVersion: "Version 2", status: "applied", applied: "2026-10-18", location: "Bengaluru", notes: "Strong on technical fluency, weak on product ownership." },
+  { company: "Cleartax", role: "Associate Product Manager", roleFamily: APM, companyStage: "Growth stage", industry: "Fintech", channel: "Job board", resumeVersion: "Version 1", status: "rejected", applied: "2026-09-18", location: "Bengaluru", notes: "Auto-rejected. Wanted prior PM experience." },
+  { company: "Zerodha", role: "Product Analyst", roleFamily: PA, companyStage: "Late stage", industry: "Fintech", channel: "Job board", resumeVersion: "Version 1", status: "rejected", applied: "2026-09-10", location: "Bengaluru", notes: "Rejected after the assignment: strong analysis, thin product framing." },
+  { company: "Urban Company", role: "Associate Product Manager", jdId: "j8", roleFamily: APM, companyStage: "Late stage", industry: "Consumer internet", channel: "Job board", resumeVersion: "Version 2", status: "applied", applied: "2026-10-22", location: "Bangalore / Gurgaon", notes: "Marketplace background preferred; customer research story needed." },
+  { company: "Groww", role: "Associate Product Manager", jdId: "j5", roleFamily: APM, companyStage: "Late stage", industry: "Fintech", channel: "", resumeVersion: "", status: "saved", location: "Bengaluru", notes: "Asks for 1-2 years of PM experience. Wait until the PRD and portfolio project are done.", followUps: ["Ask a referral who knows the team"] },
+  { company: "Swiggy", role: "Associate Product Manager (Revenue & Growth)", jdId: "j6", roleFamily: APM, companyStage: "Late stage", industry: "Consumer internet", channel: "", resumeVersion: "", status: "saved", location: "Bengaluru", notes: "Promotions and discounts, a metrics-heavy charter. Referral first.", followUps: ["Message the former colleague who moved to PM there"] },
+  { company: "Razorpay Curlec", role: "Associate Product Manager", jdId: "j7", roleFamily: APM, companyStage: "Growth stage", industry: "Fintech", channel: "", resumeVersion: "", status: "saved", location: "Kuala Lumpur", notes: "Payments domain fits his banking QA work. Needs relocation, so a stretch." },
 ];
 
-const APPLICATIONS: PivotProfile["applications"] = apps.map(([company, role, status, location, notes, applied, nextStep, fitScore, jdId, followUps], i) => ({
+const APPLICATIONS: PivotProfile["applications"] = seed.map(({ applied, next, notes, followUps, ...rest }, i) => ({
+  ...rest,
   id: `a${i + 1}`,
-  company,
-  role,
-  jdId,
-  status: status as PivotProfile["applications"][number]["status"],
-  dates: { applied, nextStep },
-  fitScore,
-  notes,
+  dates: { applied, nextStep: next },
+  notes: notes ?? "",
   followUps: followUps ?? [],
-  location,
-  source: jdId ? "Seed job description" : "Added by hand",
+  source: "Sample data",
+  inferred: [],
 }));
 
 export const arjun: PivotProfile = {
@@ -222,5 +229,7 @@ export const arjun: PivotProfile = {
     },
   ],
   applications: APPLICATIONS,
+  // Written by `npm run seed:arjun-tracker`: the analyst agent explaining the one pattern in his sample applications.
+  applicationInsights: (trackerJson as { insights?: PivotProfile["applicationInsights"] }).insights,
   settings: { wisprProInstalled: false, personaId: "arjun" },
 };

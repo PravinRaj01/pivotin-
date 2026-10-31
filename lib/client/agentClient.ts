@@ -1,7 +1,7 @@
 // Browser-side wrapper for agent routes. Results are cached in localStorage by route + input,
 // so clicking around never spends a free-tier request twice.
 
-const PREFIX = "pivotin.cache.v5."; // bump when an agent output shape or scale changes
+const PREFIX = "pivotin.cache.v6."; // bump when an agent output shape or scale changes
 
 function hash(s: string): string {
   let h = 5381;

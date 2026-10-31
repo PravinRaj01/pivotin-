@@ -216,15 +216,37 @@ export const PivotProfileSchema = z.object({
       company: z.string(),
       role: z.string(),
       jdId: z.string().optional(),
-      status: z.enum(["saved", "applied", "screen", "interview", "offer", "rejected"]),
+      // applied -> response -> interview -> offer, or rejected. "saved" is a role you have not applied to yet.
+      status: z.enum(["saved", "applied", "response", "interview", "offer", "rejected"]),
       dates: z.object({ applied: z.string().optional(), nextStep: z.string().optional() }),
+      // Fit comes from the bridge map. A job description linked here (jdId) or pasted at logging gives a role-specific
+      // score; otherwise it is the overall map. fitScore is only stored for a pasted job description.
       fitScore: z.number().optional(),
+      fitBasis: z.enum(["job description", "overall map"]).optional(),
+      roleFamily: z.string().default(""), // the kind of role, worded the same for similar roles
+      companyStage: z.string().default(""),
+      industry: z.string().default(""),
+      channel: z.string().default(""), // Referral, Careers page, Job board, Recruiter, Event or Other
+      resumeVersion: z.string().default(""),
+      inferred: z.array(z.string()).default([]), // fields the agent filled from general knowledge, not from what was said
       notes: z.string(),
       followUps: z.array(z.string()),
       location: z.string().optional(),
       source: z.string().optional(),
     }),
   ),
+
+  // What the application analyst said about the patterns in the tracker, and the exact counts it was based on.
+  applicationInsights: z
+    .object({
+      key: z.string(),
+      createdAt: z.string(),
+      headline: z.string(),
+      findings: z.array(z.object({ patternId: z.string(), text: z.string() })),
+      suggestions: z.array(z.object({ kind: z.enum(["target-role", "plan", "other"]), text: z.string(), role: z.string().optional(), patternId: z.string() })),
+      caveat: z.string(),
+    })
+    .optional(),
 
   settings: z.object({
     wisprProInstalled: z.boolean(),

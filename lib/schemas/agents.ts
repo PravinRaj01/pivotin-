@@ -91,14 +91,29 @@ export const CheckinResultSchema = z.object({
 });
 export type CheckinResult = z.infer<typeof CheckinResultSchema>;
 
-export const ApplicationResultSchema = z.object({
-  title: z.string().catch(""),
+export const ApplicationLogSchema = z.object({
+  action: z.enum(["add", "update"]).catch("add"), // a new application, or news about one already in the tracker
   company: z.string().catch(""),
+  role: z.string().catch(""),
+  roleFamily: z.string().catch(""),
+  companyStage: z.string().catch(""),
+  industry: z.string().catch(""),
+  channel: z.string().catch(""),
+  resumeVersion: z.string().catch(""),
+  status: z.string().catch(""),
+  appliedOn: z.string().catch(""), // YYYY-MM-DD
   location: z.string().catch(""),
-  fitScore: z.coerce.number().min(0).max(100).catch(50),
-  strengths: strs,
-  gaps: strs,
-  followUps: strs,
-  pitch: z.string().catch(""),
+  notes: z.string().catch(""),
+  inferred: z.array(z.string()).catch([]), // which of companyStage, industry, roleFamily were not said but filled from general knowledge
 });
-export type ApplicationResult = z.infer<typeof ApplicationResultSchema>;
+export type ApplicationLogResult = z.infer<typeof ApplicationLogSchema>;
+
+export const ApplicationInsightSchema = z.object({
+  headline: z.string().catch(""),
+  findings: z.array(z.object({ patternId: z.string(), text: z.string() })).catch([]),
+  suggestions: z
+    .array(z.object({ kind: z.enum(["target-role", "plan", "other"]).catch("other"), text: z.string(), role: z.string().optional().catch(undefined), patternId: z.string() }))
+    .catch([]),
+  caveat: z.string().catch(""),
+});
+export type ApplicationInsightResult = z.infer<typeof ApplicationInsightSchema>;
