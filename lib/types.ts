@@ -36,6 +36,8 @@ export const TaskSchema = z.object({
   kind: z.enum(["learn", "milestone", "wrap"]).default("learn"),
   projectId: z.string().optional(),
   milestoneIdx: z.number().optional(),
+  movedTo: z.number().optional(), // status "moved": the week this task was carried to at a check-in
+  carriedFrom: z.number().optional(), // a copy of a task that was carried here from an earlier week
   status: z.enum(["todo", "done", "skipped", "moved"]),
 });
 
@@ -199,6 +201,10 @@ export const PivotProfileSchema = z.object({
         mood: z.number().min(1).max(5),
         wins: z.array(z.string()),
         notes: z.string(),
+        skippedTaskIds: z.array(z.string()).default([]),
+        plannedHours: z.number().optional(), // what the week asked for, to compare with hoursSpent
+        hoursPerWeekFromNow: z.number().optional(), // a lasting change in the hours they have, if they said so
+        coachMessage: z.string().optional(),
       }),
       planAdjustments: z.array(z.string()),
     }),

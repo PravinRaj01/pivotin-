@@ -14,6 +14,17 @@ const EFFORT: Record<string, string> = { short: "under 2 h", medium: "2 to 8 h",
 export function TaskItem({ t, labels, projectTitle, onToggle }: { t: PlanTask; labels: Map<string, string>; projectTitle?: string; onToggle: () => void }) {
   const done = t.status === "done";
   const res = resourceById(t.resourceId);
+  // A task carried to a later week stays here as a record, but it is not something to tick any more.
+  if (t.status === "moved")
+    return (
+      <li className="flex gap-3 py-2.5 text-sm text-muted">
+        <span className="mt-0.5 h-4 w-4 shrink-0 text-center text-xs" aria-hidden>&rarr;</span>
+        <span>
+          <span className="line-through">{t.title}</span>
+          <span className="ml-2 rounded-full bg-surface-2 px-2 py-0.5 text-xs">Carried to week {t.movedTo}</span>
+        </span>
+      </li>
+    );
   return (
     <li className="flex gap-3 py-2.5">
       <input type="checkbox" checked={done} onChange={onToggle} className="mt-1 h-4 w-4 shrink-0 accent-[var(--accent)]" aria-label={`Mark done: ${t.title}`} />
@@ -23,12 +34,14 @@ export function TaskItem({ t, labels, projectTitle, onToggle }: { t: PlanTask; l
             <span className="mr-2 rounded-full bg-accent-soft px-2 py-0.5 text-xs no-underline">Project milestone{projectTitle ? `: ${projectTitle}` : ""}</span>
           )}
           {t.title}
+          {t.status === "skipped" && <span className="ml-2 rounded-full bg-surface-2 px-2 py-0.5 text-xs">Skipped</span>}
+          {t.carriedFrom && t.status === "todo" && <span className="ml-2 rounded-full bg-accent-soft px-2 py-0.5 text-xs">Carried from week {t.carriedFrom}</span>}
         </p>
         <div className="mt-1 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-muted">
           <span>{t.estHours} h</span>
           {t.kind === "learn" && t.skillIds.slice(0, 2).map((id) => <Chip key={id}>{labels.get(id) ?? id}</Chip>)}
         </div>
-        {t.kind === "learn" && !done && (
+        {t.kind === "learn" && t.skillIds.length > 0 && !done && (
           <p className="mt-1 text-xs">
             {res ? (
               <>

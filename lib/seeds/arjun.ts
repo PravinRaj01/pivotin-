@@ -213,6 +213,8 @@ export const arjun: PivotProfile = {
         completedTaskIds: built.plan?.weeks.find((w) => w.n === 5)?.tasks.slice(0, 2).map((t) => t.id) ?? [],
         blockers: ["Release crunch at work"],
         mood: 3,
+        skippedTaskIds: [],
+        plannedHours: 8,
         wins: ["Interviews done and survey out"],
         notes: "Missed two hours; the write-up of themes moves to next week.",
       },

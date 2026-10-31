@@ -179,10 +179,11 @@ export function blockSizes(n: number): number[] {
   return Array.from({ length: count }, (_, i) => base + (i < extra ? 1 : 0));
 }
 
-export function buildSkeleton(p: PivotProfile, order: Weak[], opts: { fromWeek: number; totalWeeks: number }): Skeleton {
+// wrapWeeks: keep this many closing weeks instead of working it out (a re-plan keeps the plan's existing closing weeks).
+export function buildSkeleton(p: PivotProfile, order: Weak[], opts: { fromWeek: number; totalWeeks: number; wrapWeeks?: number }): Skeleton {
   const H = p.goal.hoursPerWeek;
   const n = Math.max(0, opts.totalWeeks - opts.fromWeek + 1);
-  const wrapN = n >= 8 ? Math.max(1, Math.round(n * 0.12)) : 0;
+  const wrapN = Math.min(n, opts.wrapWeeks ?? (n >= 8 ? Math.max(1, Math.round(n * 0.12)) : 0));
   const learnN = n - wrapN;
   const M = Math.max(1, half(H * 0.5)); // a project milestone takes up to half a week
   const doneInFirst = p.plan.weeks.find((w) => w.n === opts.fromWeek)?.tasks.filter((t) => t.status === "done").reduce((s, t) => s + t.estHours, 0) ?? 0;

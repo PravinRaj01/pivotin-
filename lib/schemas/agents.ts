@@ -79,14 +79,14 @@ export const InterviewTurnResultSchema = z.object({
 export type InterviewTurnResult = z.infer<typeof InterviewTurnResultSchema>;
 
 export const CheckinResultSchema = z.object({
-  hoursSpent: n(0),
+  hoursSpent: n(0), // hours they say they worked on the plan this week; 0 when they did not say
   completedTaskIds: strs,
-  blockers: strs,
+  skippedTaskIds: strs, // tasks they said they skipped or did not do
+  blockers: strs, // what got in the way
   mood: z.coerce.number().min(1).max(5).catch(3),
   wins: strs,
   notes: z.string().catch(""),
-  skillSignals: z.array(z.object({ skillId: z.string(), delta: n(0) })).catch([]),
-  replan: z.object({ needed: z.boolean().catch(false), reason: z.string().catch("") }).catch({ needed: false, reason: "" }),
+  hoursPerWeekFromNow: n(0), // a lasting change in the hours they have each week; 0 when nothing lasting changed
   coachMessage: z.string().catch(""),
 });
 export type CheckinResult = z.infer<typeof CheckinResultSchema>;

@@ -3,20 +3,23 @@ import { CheckinResultSchema } from "@/lib/schemas/agents";
 
 export const maxDuration = 60;
 
-const SYSTEM = `You are the weekly check-in agent of a career-pivot coach. The person dictated how their week went. Turn it into structured data and decide whether the plan must change. Any career, any country.
+const SYSTEM = `You are the weekly check-in agent of a career-pivot coach. The person dictated how their week went. Turn it into structured data: which tasks they finished, which they skipped, how many hours they worked, and what got in the way. Any career, any country.
 
-Input: transcript (natural speech), week { n, tasks [ {id, title, status} ] }, hoursPerWeek (what they planned), skills (skillId, label, current, required), goal (targetRole, weeksLeft).
+Input: transcript (natural speech), week { n, plannedHours, theme, tasks [ {id, title, hours, status} ] }, earlierUnfinished (older tasks still not done: id, title, week, hours), hoursPerWeek (what they planned to give).
 
 Rules:
-- Use only what was said. Never invent hours, tasks or feelings.
-- hoursSpent: hours they say they worked on the plan this week (0 if unsaid).
-- completedTaskIds: ids from week.tasks that the transcript clearly says were finished. Match by meaning, not exact words. Do not include tasks already done. Leave out anything uncertain.
-- blockers: obstacles they mention, as short phrases. wins: things that went well. mood: 1 (struggling) to 5 (great), inferred from tone. notes: one sentence of anything else useful.
-- skillSignals: for skills the finished work or wins give evidence of, a small delta between 0 and 0.5 (for clear practice or proof). Only skillIds from the input. Negative deltas are not used here.
-- replan.needed: true if they missed a meaningful share of the week, say their hours or availability changed, hit a blocker that moves deadlines, or ask for a change. "reason" is one sentence written as a plain statement of what changed, usable as the cause for re-planning (include numbers they gave). If the week was on track, needed is false and reason is "".
-- coachMessage: 1 to 2 sentences addressed to the person ("you"), warm and specific to what they said. No generic cheerleading.
+- Use only what was said. Never invent hours, tasks, reasons or feelings.
+- Match what they say to tasks by MEANING, not exact words ("did the survey" matches "Design and send a short survey"). Use only ids that appear in the input.
+- completedTaskIds: tasks they clearly say they finished or did. Do not list a task whose status is already "done". When they describe doing only part of a task, leave it out (it is not finished).
+- skippedTaskIds: tasks they say they skipped, did not get to, put off, or gave up on. A task they never mention is neither completed nor skipped: leave it out of both lists.
+- A task can be in only one list. Prefer tasks from this week; use earlierUnfinished only if they clearly refer to one of those.
+- hoursSpent: the total hours they say they spent on the plan this week. If they give hours per task, add them. If they never say how many hours, use 0. Never estimate it from the tasks.
+- blockers: what got in the way, as short phrases in their words (work, health, family, travel, motivation). Empty if nothing did.
+- wins: things that went well, as short phrases. mood: 1 (struggling) to 5 (great), from their tone. notes: one sentence of anything else useful.
+- hoursPerWeekFromNow: only if they say their weekly hours have CHANGED for the coming weeks (a new job, a new schedule, "from now on I can only do 5 hours"): that new number of hours per week. A single bad week is not a lasting change. Otherwise 0.
+- coachMessage: 1 or 2 sentences addressed to the person ("you") that say back what they did and what got in the way, using only what they said. Do not give instructions, do not predict how next week will go, do not suggest changes to the plan, and do not promise anything: the plan is changed separately by the person. No generic cheerleading.
 
-Return ONLY JSON: {"hoursSpent":0,"completedTaskIds":[],"blockers":[],"mood":3,"wins":[],"notes":"","skillSignals":[{"skillId":"","delta":0}],"replan":{"needed":false,"reason":""},"coachMessage":""}`;
+Return ONLY JSON: {"hoursSpent":0,"completedTaskIds":[],"skippedTaskIds":[],"blockers":[],"mood":3,"wins":[],"notes":"","hoursPerWeekFromNow":0,"coachMessage":""}`;
 
 export const POST = agentRoute({
   schema: CheckinResultSchema,

@@ -137,7 +137,7 @@ export default function PlanPage() {
           <Card title="Timeline" hint="Each square is a week. A dot marks a week that ends a block with a project milestone.">
             <ol className="flex flex-wrap gap-1" aria-label="Weeks at a glance">
               {weeks.map((w) => {
-                const allDone = w.tasks.length > 0 && w.tasks.every((t) => t.status === "done");
+                const allDone = w.tasks.length > 0 && w.tasks.every((t) => t.status !== "todo") && w.tasks.some((t) => t.status === "done");
                 const someDone = w.tasks.some((t) => t.status === "done");
                 const isNow = w.n === now;
                 const hasMs = w.tasks.some((t) => t.kind === "milestone");
@@ -181,7 +181,7 @@ export default function PlanPage() {
                     </summary>
                     <ol className="border-t border-border px-3 pb-2">
                       {b.map((w) => {
-                        const planned = w.tasks.reduce((s, t) => s + t.estHours, 0);
+                        const planned = w.tasks.filter((t) => t.status !== "moved" && t.status !== "skipped").reduce((s, t) => s + t.estHours, 0);
                         const doneH = w.tasks.filter((t) => t.status === "done").reduce((s, t) => s + t.estHours, 0);
                         return (
                           <li key={w.n} className={`border-l-2 pl-3 pt-3 ${w.n === now ? "border-accent" : "border-border"}`}>

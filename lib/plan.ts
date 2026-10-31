@@ -9,7 +9,7 @@ export function currentWeek(p: PivotProfile): number {
 }
 
 export function planProgress(p: PivotProfile) {
-  const tasks = p.plan.weeks.flatMap((w) => w.tasks);
+  const tasks = p.plan.weeks.flatMap((w) => w.tasks).filter((t) => t.status !== "moved"); // a carried task is counted where it now sits
   const done = tasks.filter((t) => t.status === "done").length;
   const hours = tasks.reduce((s, t) => s + t.estHours, 0);
   const hoursDone = tasks.filter((t) => t.status === "done").reduce((s, t) => s + t.estHours, 0);
@@ -43,6 +43,19 @@ export function toggleTask(p: PivotProfile, taskId: string): PivotProfile {
   const next = { ...p, plan: { ...p.plan, weeks } };
   return linked ? syncProject(next, (linked as { projectId: string }).projectId, (linked as { idx: number }).idx, (linked as { done: boolean }).done) : next;
 }
+
+// Set a task to a given status (not flip it), keeping its project milestone in step.
+export function setTaskStatus(p: PivotProfile, taskId: string, status: "todo" | "done" | "skipped" | "moved"): PivotProfile {
+  const t = p.plan.weeks.flatMap((w) => w.tasks).find((x) => x.id === taskId);
+  if (!t || t.status === status) return p;
+  // crossing the "done" line goes through toggleTask so a project milestone stays in step
+  if ((t.status === "done") !== (status === "done")) return setRaw(toggleTask(p, taskId), taskId, status);
+  return setRaw(p, taskId, status);
+}
+const setRaw = (p: PivotProfile, taskId: string, status: "todo" | "done" | "skipped" | "moved"): PivotProfile => ({
+  ...p,
+  plan: { ...p.plan, weeks: p.plan.weeks.map((w) => ({ ...w, tasks: w.tasks.map((t) => (t.id === taskId ? { ...t, status } : t)) })) },
+});
 
 export function toggleMilestone(p: PivotProfile, projectId: string, idx: number): PivotProfile {
   const task = p.plan.weeks.flatMap((w) => w.tasks).find((t) => t.projectId === projectId && t.milestoneIdx === idx);

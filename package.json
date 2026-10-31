@@ -17,7 +17,9 @@
     "test:plan-live": "tsx scripts/test-plan-live.ts",
     "test:interview": "tsx scripts/test-interview.ts",
     "test:interview-live": "tsx scripts/test-interview-live.ts",
-    "seed:arjun-interview": "tsx scripts/seed-arjun-interview.ts"
+    "seed:arjun-interview": "tsx scripts/seed-arjun-interview.ts",
+    "test:checkin": "tsx scripts/test-checkin.ts",
+    "test:checkin-live": "tsx scripts/test-checkin-live.ts"
   },
   "dependencies": {
     "next": "16.4.3",
